@@ -5,40 +5,47 @@
     <title>水平导航菜单</title>
     <style>
         *{
-            padding: none;
-            margin:none;
+            padding: 0;
+            margin:0;
         }
         li{
             list-style: none;
         }
         #list{
-            list-style: none;
+            width: 420px;
             height: 30px;
         }
-        .item{
+       #list .item{
             width: 100px;
-            height: 50px;
+            height: 30px;
             background: #ff0000;
             float: left;
             text-align: center;
             margin-right:5px;
-            line-height:50px;
-            cursor: pointer;
-        }
-        #list .item>a{
-            color: #ffffff;
+            line-height:30px;
+            /*cursor: pointer;*/
         }
         #list .item:hover{
             background: #0000ff;
         }
+        #list .item>a{
+            color:#ffff00;
+            text-decoration: none;
+            width: 100px;
+            height: 30px;
+            display: block;
+        }
+
         #list .submenu>li{
             background: darkgray;
-            width:100px;
             cursor: pointer;
+
+        }
+        #list .submenu {
             display: none;
         }
         #list .submenu>li:hover{
-            background: #0000ff;
+            background: #00ff00;
         }
         #list .item:hover> .submenu{
             display:block;
