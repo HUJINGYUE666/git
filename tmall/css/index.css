@@ -1,0 +1,48 @@
+#header{
+    height: 30px;
+    background: #f2f2f2;
+    font-size: 12px;
+    font-family: "Microsoft YaHei",tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+    line-height:32px;
+}
+
+
+.login-info a{
+    padding-left: 12px;
+}
+
+.login-info a:hover {
+    color: #f00036;
+}
+
+.login-info{
+    float: left;
+}
+.quick-menu{
+    float: right;
+}
+
+.quick-menu .menu{
+    float:left;
+    margin-right: 12px;
+}
+
+.quick-menu a:hover{
+    color: #f00036;
+}
+
+
+.login-info span,#login-info a,.quick-menu a{
+    color: #999;
+}
+
+.quick-menu menu{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #bbb transparent transparent transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.5px;
+    right: 4px;
