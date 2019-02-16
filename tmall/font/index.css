@@ -10,7 +10,7 @@
     color: #999;
 }
 
-/*父元素1*/
+/*父元素login-info*/
 .login-info{
     float: left;
 }
@@ -23,7 +23,7 @@
     color: #f00036;
 }
 
-    /*父元素2*/
+/*父元素quick-menu*/
 .quick-menu{
     float: right;
 }
@@ -63,7 +63,7 @@
     right: 4px;
 }
 
-/*子元素*/
+/*子元素buy*/
 .quick-menu .white .buy{
     display: none;
 }
@@ -111,19 +111,19 @@ body{
     padding-left:8px;
 }
 
-/*父元素*/
+/*headerlayout*/
 #headerlayout{
     height: 100%;
 }
 
-/*子元素1*/
+/*父元素photo*/
 #headerlayout .photo img{
     width: 240px;
     height: 130px;
     float:left;
 }
 
-/*子元素2*/
+/*父元素search*/
 #headerlayout .search{
     float:left;
     margin-top: 30px;
@@ -153,14 +153,20 @@ body{
     color:#fff;
 }
 
-/**/
+/*子元素goods*/
 #headerlayout .keyword .goods{
     float: left;
     margin-top:5px;
-    margin-right:6px;
+    padding-left:4px;
+    padding-right:4px;
     border-right:1px solid #ccc;
 }
 
 #headerlayout .keyword .goods a{
     font-size:13px;
+    /*text-align:center;*/
+}
+
+#headerlayout .keyword .goods a:hover{
+    color:#f00036;
 }
