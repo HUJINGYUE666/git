@@ -111,27 +111,56 @@ body{
     padding-left:8px;
 }
 
-/*headerlayout*/
+/*父元素*/
 #headerlayout{
-    width: 100%;
-    height: 130px;
+    height: 100%;
 }
 
-#headerlayout .photo{
-    width: 240px;
-    height: 130px;
-}
-
+/*子元素1*/
 #headerlayout .photo img{
     width: 240px;
     height: 130px;
-    display: block;
+    float:left;
 }
 
-/*search*/
+/*子元素2*/
 #headerlayout .search{
-    width: 410px;
-    height: 105px;
-    background: #ff0000;
-    /*float:right;*/
+    float:left;
+    margin-top: 30px;
+    position:sticky;
+    top:0;
+}
+
+#headerlayout .keyword{
+    width: 286px;
+    height: 26px;
+    border: 2px solid #f00036;
+}
+
+#headerlayout .keyword{
+    font-size:16px;
+}
+
+#headerlayout .button{
+    width: 132px;
+    height: 30px;
+    background: #ff0036;
+    text-align:center;
+}
+
+#headerlayout .button a{
+    font-size:18px;
+    color:#fff;
+}
+
+/**/
+#headerlayout .keyword .goods{
+    float: left;
+    margin-top:5px;
+    margin-right:6px;
+    border-right:1px solid #ccc;
+}
+
+#headerlayout .keyword .goods a{
+    font-size:13px;
 }
