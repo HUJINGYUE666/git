@@ -15,7 +15,7 @@
     float: left;
 }
 
-.login-info a{
+.login-info span,.login-info a{
     padding-left: 12px;
 }
 
@@ -23,7 +23,7 @@
     color: #f00036;
 }
 
-/*父元素2*/
+    /*父元素2*/
 .quick-menu{
     float: right;
 }
@@ -72,3 +72,66 @@
     display: block;
 }
 
+/*购物车*/
+body{
+    height: 2000px;
+}
+
+#shopping{
+    font-size: 12px;
+    text-align: center;
+    width: 35px;
+    height: 100px;
+    background: #000000;
+    position:fixed;
+    top:100px;
+    right:0;
+}
+
+/*#shopping:hover{*/
+    /*color:#f00036;*/
+/*}*/
+
+#shopping i{
+    width:35px;
+    height:35px;
+    color:#f00036;
+    display: block;
+}
+
+#shopping i:hover{
+    color: #ffffff;
+}
+
+#shopping a{
+    width:20px;
+    height:50px;
+    color: #ffffff;
+    display: block;
+    padding-left:8px;
+}
+
+/*headerlayout*/
+#headerlayout{
+    width: 100%;
+    height: 130px;
+}
+
+#headerlayout .photo{
+    width: 240px;
+    height: 130px;
+}
+
+#headerlayout .photo img{
+    width: 240px;
+    height: 130px;
+    display: block;
+}
+
+/*search*/
+#headerlayout .search{
+    width: 410px;
+    height: 105px;
+    background: #ff0000;
+    /*float:right;*/
+}
