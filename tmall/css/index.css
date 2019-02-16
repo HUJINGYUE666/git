@@ -6,12 +6,13 @@
     line-height:32px;
 }
 
-.login-info{
-    float: left;
-}
-
 .login-info span,.login-info a,.quick-menu a{
     color: #999;
+}
+
+/*父元素1*/
+.login-info{
+    float: left;
 }
 
 .login-info a{
@@ -22,6 +23,7 @@
     color: #f00036;
 }
 
+/*父元素2*/
 .quick-menu{
     float: right;
 }
@@ -42,6 +44,7 @@
 
 .quick-menu .white:hover{
     background: #ffffff;
+    border:1px solid #cccccc;
 }
 
 .quick-menu .white{
@@ -58,9 +61,14 @@
     top: 50%;
     margin-top: -1.5px;
     right: 4px;
-
 }
 
+/*子元素*/
+.quick-menu .white .buy{
+    display: none;
+}
 
-
+.quick-menu .white:hover .buy{
+    display: block;
+}
 
