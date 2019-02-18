@@ -105,16 +105,16 @@
 }
 
 .quick-menu .phone .border{
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 210px;
     border:1px solid #bbbbbb;
     position:absolute;
-    right:-5px;
+    right:-40px;
     top:27px;
 }
 
 .quick-menu .phone img{
-    width:80px;
+    width:150px;
 }
 
 .quick-menu .iphone{
@@ -167,6 +167,7 @@ body{
 }
 
 #shopping i{
+    font-size: 20px;
     color:#ffffff;
     display: block;
     text-align: center;
@@ -183,34 +184,82 @@ body{
     padding-left:8px;
 }
 
-#shopping .one{
+#shopping .red {
     width:35px;
     height:35px;
-    position:absolute;
+}
+
+#shopping .one{
+    position: absolute;
     top:100px;
+}
+
+#shopping .three{
+    position: absolute;
+    top:250px;
+}
+
+#shopping .four{
+    position: absolute;
+    top:290px;
+}
+
+#shopping .five{
+    position: absolute;
+    top:330px;
+}
+
+#shopping .six{
+    position: absolute;
+    top:370px;
+}
+
+#shopping .seven{
+    position: absolute;
+    bottom:90px;
+}
+
+#shopping .eight{
+    position: absolute;
+    bottom:50px;
+}
+
+#shopping .nine{
+    position: absolute;
+    bottom:10px;
 }
 
 #shopping .vip{
     width: 80px;
     height: 35px;
+    font-size: 12px;
     color: #ffffff;
-    background: #cccccc;
+    background: #494949;
     position:absolute;
     right:60px;
     top:0;
     text-align: center;
     line-height:35px;
-    /*visibility:hidden;*/
-    /*opacity: 0;*/
     opacity:0;
     transition:all .5s linear;
 }
 
-#shopping .one:hover .vip{
+#shopping .red:hover .vip{
     position:absolute;
     right:35px;
     top:0;
     opacity:1;
+}
+
+#shopping .square{
+    width:10px;
+    height:10px;
+    border: 1px solid #494949;
+    background: #494949;
+    position:absolute;
+    right:-5px;
+    top:12px;
+    transform:rotate(45deg);
 }
 
 #shopping .two{
@@ -228,9 +277,36 @@ body{
     color: #ffffff;
 }
 
+#shopping .eight .phone{
+    width: 130px;
+    height: 153px;
+    border:10px solid #ff0036;
+    position:absolute;
+    right:35px;
+    top:-130px;
+}
 
-/*shopping结束/
-/*headerlayout开始*/
+#shopping .eight .or{
+    content:'';
+    width: 0;
+    height: 0;
+    border:4px solid;
+    border-color:transparent transparent transparent #ff0036;
+    position:absolute;
+    top:132px;
+    right:-18px;
+}
+#shopping .eight .phone{
+    display:none;
+}
+
+#shopping .eight:hover .phone{
+    display:block;
+}
+
+
+    /*shopping结束/
+    /*headerlayout开始*/
 #headerlayout{
     height: 130px;
 }
