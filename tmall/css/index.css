@@ -1,3 +1,4 @@
+/*header*/
 #header{
     height: 30px;
     background: #f2f2f2;
@@ -45,6 +46,7 @@
 .quick-menu .white:hover{
     background: #ffffff;
     border:1px solid #cccccc;
+    border-bottom: none;
 }
 
 .quick-menu .white{
@@ -63,6 +65,19 @@
     right: 4px;
 }
 
+.quick-menu .menu{
+    position:relative;
+}
+
+.quick-menu .buy{
+    position:absolute;
+    right:-53px;
+}
+
+.quick-menu .collect{
+    right:-65px;
+}
+
 /*子元素buy*/
 .quick-menu .white .buy{
     display: none;
@@ -72,14 +87,26 @@
     display: block;
 }
 
+.quick-menu .white .buy{
+    background: #ffffff;
+    width:100px;
+    border:1px solid #cccccc;
+    border-top: none;
+    padding-right: 14px;
+    padding-left: 14px;
+ }
+
+li{
+    padding: 0;
+    margin: 0;
+}
+
 /*购物车*/
 body{
     height: 2000px;
 }
 
-#shopping{
-    font-size: 12px;
-    text-align: center;
+#shopping {
     width: 35px;
     height: 100px;
     background: #000000;
@@ -88,15 +115,17 @@ body{
     right:0;
 }
 
-/*#shopping:hover{*/
-    /*color:#f00036;*/
-/*}*/
+#shopping:hover{
+    background:#f00036;
+}
 
 #shopping i{
     width:35px;
     height:35px;
     color:#f00036;
     display: block;
+    text-align: center;
+    line-height:35px;
 }
 
 #shopping i:hover{
@@ -106,29 +135,44 @@ body{
 #shopping a{
     width:20px;
     height:50px;
+    font-size: 12px;
     color: #ffffff;
     display: block;
+    text-align: center;
     padding-left:8px;
 }
 
 /*headerlayout*/
 #headerlayout{
-    height: 100%;
+    height: 130px;
 }
 
 /*父元素photo*/
 #headerlayout .photo img{
+    float:left;
     width: 240px;
     height: 130px;
-    float:left;
 }
 
-/*父元素search*/
+#headerlayout .photo{
+    position:absolute;
+    left:50px;
+}
+
+/*父元素box*/
+#headerlayout .box{
+    width: 450px;
+    height: 105px;
+    /*background: #ff0000;*/
+    position:absolute;
+    left:500px;
+}
+
 #headerlayout .search{
     float:left;
-    margin-top: 30px;
-    position:sticky;
-    top:0;
+    margin-top: 70px;
+    /*position:sticky;*/
+    /*top:0;*/
 }
 
 #headerlayout .keyword{
@@ -137,8 +181,9 @@ body{
     border: 2px solid #f00036;
 }
 
-#headerlayout .keyword{
+#headerlayout .keyword a{
     font-size:16px;
+    color: #ccc;
 }
 
 #headerlayout .button{
@@ -154,7 +199,11 @@ body{
 }
 
 /*子元素goods*/
-#headerlayout .keyword .goods{
+#headerlayout .goods{
+    margin-top:5px;
+}
+
+#headerlayout .good{
     float: left;
     margin-top:5px;
     padding-left:4px;
@@ -162,11 +211,29 @@ body{
     border-right:1px solid #ccc;
 }
 
-#headerlayout .keyword .goods a{
+#headerlayout .goods a{
     font-size:13px;
+    color:#d6d6d6;
     /*text-align:center;*/
 }
 
 #headerlayout .keyword .goods a:hover{
     color:#f00036;
+}
+
+/*inner*/
+#inner{
+    height:35px;
+}
+
+/*父元素classify*/
+span{
+    float:left;
+}
+
+/*父元素text*/
+.text a{
+    float:left;
+    margin-left:14px;
+    margin-right:14px;
 }

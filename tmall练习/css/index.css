@@ -1,0 +1,327 @@
+/*header开始*/
+#header{
+    height: 30px;
+    background: #f2f2f2;
+    font-size: 12px;
+    font-family: "Microsoft YaHei",tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+    line-height:32px;
+}
+
+.login-info span,.login-info a,.quick-menu a{
+    color: #999;
+}
+
+/*父元素login-info*/
+.login-info{
+    float: left;
+}
+
+.login-info span,.login-info a{
+    padding-left: 12px;
+}
+
+.login-info a:hover {
+    color: #f00036;
+}
+
+/*父元素quick-menu*/
+.quick-menu{
+    float: right;
+}
+
+.quick-menu .menu{
+    float:left;
+    padding:0 14px;
+}
+
+.quick-menu a:hover{
+    color: #f00036;
+}
+
+.quick-menu .iconfont {
+    font-size: 12px;
+    color: #f00036;
+}
+
+.quick-menu .white:hover{
+    background: #ffffff;
+    border:1px solid #cccccc;
+    border-bottom: none;
+}
+
+.quick-menu .white{
+    position:relative;
+}
+
+.quick-menu .white::after{
+    content:'';
+    width: 0;
+    height: 0;
+    border-style:solid;
+    border-width: 3px;
+    border-color: #bbbbbb transparent transparent transparent;
+    position:absolute;
+    top: 50%;
+    margin-top: -1.5px;
+    right: 4px;
+}
+
+.quick-menu .white:hover::after{
+    transform:rotate(180deg);
+    position:absolute;
+    top:12px;
+    right:3px;
+}
+
+.white .buy:hover a{
+    text-decoration:underline;
+}
+.quick-menu .menu{
+    position:relative;
+}
+
+.quick-menu .buy{
+    position:absolute;
+    right:-53px;
+}
+
+.quick-menu .collect{
+    right:-65px;
+}
+
+.quick-menu .phone{
+    position: relative;
+}
+
+.quick-menu .phone .triangle{
+    width: 0;
+    height: 0;
+    border-style:solid;
+    border-width: 4px;
+    border-color:transparent transparent #bbbbbb transparent;
+    position: absolute;
+    left:40px;
+    top:20px;
+}
+
+.quick-menu .phone .border{
+    width: 80px;
+    height: 80px;
+    border:1px solid #bbbbbb;
+    position:absolute;
+    right:-5px;
+    top:27px;
+}
+
+.quick-menu .phone img{
+    width:80px;
+}
+
+.quick-menu .iphone{
+    display:none;
+}
+
+.quick-menu .phone:hover .iphone{
+    display:block;
+}
+
+/*子元素buy*/
+.quick-menu .white .buy{
+    display: none;
+}
+
+.quick-menu .white:hover .buy{
+    display: block;
+}
+
+.quick-menu .white .buy{
+    background: #ffffff;
+    width:100px;
+    border:1px solid #cccccc;
+    border-top: none;
+    padding-right: 14px;
+    padding-left: 14px;
+ }
+
+li{
+    padding: 0;
+    margin: 0;
+}
+/*heard结束*/
+/*shopping开始*/
+body{
+    height: 2000px;
+}
+
+#shopping {
+    width: 35px;
+    background: #000000;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+}
+
+#shopping .red:hover{
+    background:#f00036;
+}
+
+#shopping i{
+    color:#ffffff;
+    display: block;
+    text-align: center;
+    line-height:35px;
+}
+
+#shopping a{
+    width:20px;
+    height:50px;
+    font-size: 12px;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    padding-left:8px;
+}
+
+#shopping .one{
+    width:35px;
+    height:35px;
+    position:absolute;
+    top:100px;
+}
+
+#shopping .vip{
+    width: 80px;
+    height: 35px;
+    color: #ffffff;
+    background: #cccccc;
+    position:absolute;
+    right:60px;
+    top:0;
+    text-align: center;
+    line-height:35px;
+    /*visibility:hidden;*/
+    /*opacity: 0;*/
+    opacity:0;
+    transition:all .5s linear;
+}
+
+#shopping .one:hover .vip{
+    position:absolute;
+    right:35px;
+    top:0;
+    opacity:1;
+}
+
+#shopping .two{
+    width:35px;
+    height:100px;
+    position:absolute;
+    top:150px;
+}
+
+#shopping .two i{
+    color:#f00036;
+}
+
+#shopping .two i:hover{
+    color: #ffffff;
+}
+
+
+/*shopping结束/
+/*headerlayout开始*/
+#headerlayout{
+    height: 130px;
+}
+
+/*父元素photo*/
+#headerlayout .photo img{
+    float:left;
+    width: 240px;
+    height: 130px;
+}
+
+#headerlayout .photo{
+    position:absolute;
+    left:50px;
+}
+
+/*父元素box*/
+#headerlayout .box{
+    width: 450px;
+    height: 105px;
+    /*background: #ff0000;*/
+    position:absolute;
+    left:500px;
+}
+
+#headerlayout .search{
+    float:left;
+    margin-top: 70px;
+    /*position:sticky;*/
+    /*top:0;*/
+}
+
+#headerlayout .keyword{
+    width: 286px;
+    height: 26px;
+    border: 2px solid #f00036;
+}
+
+#headerlayout .keyword a{
+    font-size:16px;
+    color: #ccc;
+}
+
+#headerlayout .button{
+    width: 132px;
+    height: 30px;
+    background: #ff0036;
+    text-align:center;
+}
+
+#headerlayout .button a{
+    font-size:18px;
+    color:#fff;
+}
+
+/*子元素goods*/
+#headerlayout .goods{
+    margin-top:5px;
+}
+
+#headerlayout .good{
+    float: left;
+    margin-top:5px;
+    padding-left:4px;
+    padding-right:4px;
+    border-right:1px solid #ccc;
+}
+
+#headerlayout .goods a{
+    font-size:13px;
+    color:#d6d6d6;
+    /*text-align:center;*/
+}
+
+#headerlayout .keyword .goods a:hover{
+    color:#f00036;
+}
+/*headerlayout结束*/
+/*inner*/
+#inner{
+    height:35px;
+}
+
+/*父元素classify*/
+span{
+    float:left;
+}
+
+/*父元素text*/
+.text a{
+    float:left;
+    margin-left:14px;
+    margin-right:14px;
+}
