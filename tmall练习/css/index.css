@@ -20,7 +20,11 @@
     float: left;
 }
 
-.login-info span,.login-info a{
+.login-info span{
+    margin-left: 15px;
+}
+
+.login-info a{
     padding-left: 12px;
 }
 
@@ -55,6 +59,7 @@
 
 .quick-menu .white{
     position:relative;
+    z-index:2;
 }
 
 .quick-menu .white::after{
@@ -95,6 +100,7 @@
 
 .quick-menu .phone{
     position: relative;
+    z-index:2;
 }
 
 .quick-menu .phone .triangle{
@@ -110,7 +116,7 @@
 
 .quick-menu .phone .border{
     width: 150px;
-    height: 210px;
+    height: 200px;
     border:1px solid #bbbbbb;
     position:absolute;
     right:-40px;
@@ -165,6 +171,7 @@ body{
     top:0;
     right:0;
     bottom:0;
+    z-index:2;
 }
 
 #shopping .red:hover{
@@ -347,6 +354,7 @@ body{
     width: 286px;
     height: 26px;
     border: 2px solid #f00036;
+    text-indent: 7px;
 }
 
 #headerlayout button{
@@ -385,23 +393,20 @@ body{
 #headerlayout .search .goods a:hover{
     color:#f00036;
 }
+
+#headerlayout .good:last-child{
+    border:0;
+}
 /*headerlayout结束*/
 /*inner开始*/
 #inner{
     height:35px;
-}
-
-/*父元素classify*/
-span{
     float:left;
+    position: relative;
+    z-index:1;
 }
 
-/*父元素text*/
-
-/*.text{*/
-    /*padding-left:50px;*/
-/*}*/
-.text a{
+#inner .text a{
     float:left;
     height:36px;
     color: black;
@@ -410,39 +415,141 @@ span{
     margin-right:14px;
 }
 
-#inner .goods{
-     width:200px;
-     height:36px;
-     background: #ff0036;
-     margin-left: 65px;
-
-}
-
-#inner .goods span{
-    line-height:36px;
-    color: white;
-    margin-left: 50px;
-}
-
 #inner .text img{
-    height: 36px;
-}
+     height: 36px;
+ }
 
 #inner .text a:hover{
-    color: #f00036;
+     color: #f00036;
  }
+
+#inner .text{
+    margin-left: 300px;
+}
 
 /*inner结束*/
 /*background开始*/
+#background{
+    position:relative;
+}
+
 #background img{
     width: 1326px;
 }
 
+#background .list{
+    width:200px;
+    height:597px;
+    background:#000000;
+    position:absolute;
+    top:0;
+    left:65px;
+    opacity:.5
+}
+
+#background .sort{
+    width:185px;
+    height:35px;
+    line-height: 35px;
+    padding-left: 15px;
+}
+
+#background .list a{
+    color:#ffffff;
+    font-size:14px;
+}
+
+#background .sort:hover a{
+    color:#f00036;
+}
+
+#background .list .sort:hover{
+    background: #ffffff;
+}
+
+#background .list .red{
+    width:200px;
+    height:36px;
+    background:rgb(255,0,0);
+    opacity:1;
+    text-align: center;
+    line-height: 35px;
+}
+
+#background .list i{
+    color:#999;
+}
+
+#background .sort:hover i{
+    color:#f00036;
+}
+
+/*子元素child*/
+#background .dress{
+    position:absolute;
+    top:35px;
+    left:265px;
+    width:600px;
+    height:562px;
+    background: #ffffff;
+}
+
+#background .fashion{
+    height: 60px;
+    width: 600px;
+    /*position:absolute;*/
+    /*top:50%;*/
+    /*left:50%;*/
+    /*transform:translateY(-50%);*/
+
+}
+#background .dress span{
+    float:left;
+
+}
+
+#background .dress a{
+    float:left;
+    padding-right:10px;
+    padding-left:10px;
+}
+
+#background .tops{
+    height: 60px;
+    width: 600px;
+}
+
+
 /*background结束*/
 /*window开始*/
-
 #window{
-    width:1308px;
+    width: 100%;
     height:50px;
     background: #fe0c3f;
+    position:sticky;
+    top:0;
 }
+
+#window form{
+     position:absolute;
+     top:12px;
+     left:350px;
+ }
+
+#window input{
+    font-size: 16px;
+    width:648px;
+}
+
+#window button {
+    font-size: 16px;
+    color: #ffffff;
+    width: 90px;
+    background: #fe0c3f;
+    border-color: #fe0c3f;
+}
+
+#window button:hover{
+    cursor: pointer;
+}
+
