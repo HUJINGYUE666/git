@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .clicle,.clicle::after{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 10px solid;
+            position:absolute;
+        }
+
+        .clicle::after{
+            content:'';
+            top:-10px;
+            left:-10px;
+        }
+
+        .blue{
+            border-color:blue;
+            top:10px;
+            left:10px;
+
+        }
+
+        .blue::after{
+            border-color:blue ;
+            z-index: 1;
+            border-bottom-color:transparent ;
+        }
+
+        .black{
+            /*border-color:black;*/
+            top:10px;
+            left:240px;
+        }
+
+        .black::after{
+            /*border-color:blue ;*/
+            z-index: 1;
+            border-bottom-color:transparent ;
+        }
+
+        .red{
+            border-color:red;
+            top:10px;
+            left:470px;
+        }
+
+        .red::after{
+            border-color:red ;
+            z-index: 1;
+            border-bottom-color:transparent ;
+        }
+
+        .yellow{
+            border-color:yellow;
+            top:140px;
+            left: 120px;
+        }
+
+        .yellow::after{
+            border-color:yellow ;
+        }
+
+        .green{
+            border-color:green;
+            top:140px;
+            left: 350px;
+        }
+
+        .green::after{
+            content:'';
+            border-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class="clicle blue"></div>
+    <div class="clicle black"></div>
+    <div class="clicle red"></div>
+    <div class="clicle yellow"></div>
+    <div class="clicle green"></div>
+</body>
+</html>
