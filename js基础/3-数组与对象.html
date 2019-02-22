@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array=[1,2,3,4,5];
+        /*console.log(array[0]);
+        console.log(array.length);*/
+
+        for (var i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+
+        var arr = new Array(4, 5, 6);
+        console.log(arr); 
+
+        var person = {
+            name: 'hu',
+            age: 23,
+            code: function () {
+                console.log('coding...');
+            }
+        };
+        console.log(person.name);
+        console.log(person['age']);
+        person.code();
+
+        var productList = [
+            {
+                name: '电脑',
+                price: 5000
+            }, {
+                name: '裤子',
+                price: 200
+            }, {
+                price: 8888,
+                name: 'iphone'
+            }
+        ];
+
+        document.write("<ul class='list'>");
+        for (var i = 0; i < productList.length; i++) {
+            console.log(productList[i].price);
+            document.write('<li>' + productList[i].name + ':' + productList[i].price + '</li>');
+        }
+        document.write('</ul>');
+    </script>
+</body>
+</html>

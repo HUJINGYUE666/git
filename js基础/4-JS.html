@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="weichuang";
+        for(var i=0;i<str.length;i++){
+            //console.log(str[i]);
+            console.log(str.charAt(i));
+        }
+
+        var str="wei,chuang";
+        console.log(str.split(","));
+
+        var arr=[9,7,5,6,8,11,33,22,44];
+        console.log(arr.sort(function(a,b){
+            return a-b;
+        }))
+
+        var arr=[1,2,3,4,5,6];
+        arr.splice(2,0,'a','b','c');
+        console.log(arr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function getRangeRandom(low, high) {
+            return Math.ceil(Math.random() * (high - low)) + low;
+        }
+
+        var win = 0;
+        var total = 1000000;
+
+        for (var i = 0; i < total; i++) {
+            for (var j = 0; j < 3; j++) {
+                var num = getRangeRandom(1, 9);
+                if (num == 8) {
+                    win++;
+                    break;
+                }
+            }
+        }
+        console.log(win / total);
+        </script>
+</body>
+</html>

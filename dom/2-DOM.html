@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="mygx">猫与故巷</h1>
+    <ul id="list">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+    </ul>
+    <form action="">
+        <input type="text" name="userneme">
+    </form>
+   
+    <script>
+        var oMygx=document.getElementById("mygx");
+        console.log(oMygx);
+        console.log(document);
+
+        var oList=document.getElementById("list");
+        var aLi=oList.getElementsByTagName("li")
+        console.log(aLi);
+        for (var i = 0; i < aLi.length; i++) {
+            console.log(aLi[i]);
+        }
+
+        var userneme=document.getElementsByName("userneme");
+        console.log(userneme[0]);
+    </script>
+</body>
+</html>

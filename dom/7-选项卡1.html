@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #container{
+            height: 300px;
+            width: 300PX;
+            background: #CCC;
+        }
+
+        ul{
+            overflow:hidden;
+        }
+
+        #container li{
+            float:left;
+            width: 80px;   
+            height: 40px;
+            background: #f00;
+            list-style: none;
+            margin-right: 3px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #content div{
+            width:300px;
+            height: 260px;
+            display: none;
+        }
+
+        #content div.selected{
+            display: block;
+            background: yellow;
+        }
+
+        #container li.active{
+            background: yellow;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="color">
+            <li class="active">11</li>
+            <li>22</li>
+            <li>33</li>
+        </ul>
+
+        <div id="content">
+            <div class="aa selected">11的内容</div>
+            <div class="aa">22的内容</div>
+            <div class="aa">33的内容</div>
+        </div>       
+    </div>
+
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        var oContent = document.getElementById('content');
+        //var aDiv = oContent.getElementsByTagName('div');
+        var a = oContent.getElementsByClassName('aa');
+        console.log(a);
+    
+        for(var i=0; i<aLi.length; i++){ 
+            // 所有li加索引 自定义属性index
+            aLi[i].index = i;
+
+            aLi[i].onclick = function(){
+                // 所有li的active清掉
+                for(var j=0; j<aLi.length; j++){
+                    aLi[j].className = "";
+                    a[j].className = "aa"; //class aa
+                }
+
+                //页面初始 循环绑定事件 i=3 不能用i 用this
+                // this 对当前对象的引用 自己加上active
+                this.className = "active"; 
+                
+                //将aDIV数组中的索引时 this.index 显示
+                a[this.index].className = "aa selected"; //class aa
+            }
+        }
+
+        
+       
+
+
+
+        //undefined:定义变量没有赋值 访问数组中的元素越界 
+    </script>
+</body>
+</html>

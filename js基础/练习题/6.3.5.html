@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function merge(s1, s2) {
+            var result = '';
+            var length = s1.length > s2.length ? s1.length : s2.length;
+            for (var i = 0; i < length; i++) {
+                result += s1.charAt(i) + s2.charAt(i);
+            }
+            return result;
+        }
+        console.log(merge('123456', 'abc'));
+    </script>
+</body>
+</html>

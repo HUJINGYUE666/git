@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        background: #ff0000;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="btn">搜索</button>
+    <input type="text" id='username'>
+    学校: 
+    <select name="" id="school">
+        <option value="">黑大</option>
+        <option value="">林大</option>
+        <option value="">农大</option>
+    </select>
+   
+    <div id="div1">猫</div>
+    <script>
+        /*var oBtn=document.getElementById("btn");
+        oBtn.onclick=function(){// 事件处理函数
+            console.log(Math.random());
+        };
+
+        var oUsername=document.getElementById("username");
+        oUsername.onfocus=function(){
+            console.log("获取焦点");
+        };
+
+        oUsername.onblur=function(){
+            console.log("失去焦点");
+        };
+
+        var oSchool = document.getElementById('school');
+        oSchool.onchange = function(){
+            console.log('onchange');
+        };*/
+
+        var oUsername=document.getElementById("username");
+        oUsername.onkeyup = function(){
+            console.log(oUsername.value); 
+        };
+
+        var oDiv1 = document.getElementById('div1');
+        oDiv1.onclick = function(){
+            // oDiv1.style.background = '#f00';
+            oDiv1.className = 'red';
+        };
+    </script>
+</body>
+</html>

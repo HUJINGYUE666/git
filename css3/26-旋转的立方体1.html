@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: #000;
+            width: 200px;
+            height: 200px;
+            margin: 200px;
+            perspective:800px;
+            perspective-origin: 50% 50%;
+        }
+
+        .container{
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            /*background: #ff0000;*/
+            animation: rotate 5s linear infinite;
+        }
+
+        .cube{
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, .6);
+            border:1px solid #fff;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 200px;
+            position:absolute;
+        }
+
+        .cube img{
+            width: 200px;
+            height: 200px;
+            opacity:.8; 
+        }
+
+        .one{
+            transform:rotateY(-90deg) translateZ(100px);
+        }
+
+        .two{
+            transform:rotateY(90deg) translateZ(100px);
+        }
+
+        .three{
+             transform:rotateX(-90deg) translateZ(100px);
+         }
+
+        .four{
+                transform:rotateX(90deg) translateZ(100px);
+        }
+
+        .five{
+            transform:rotateY(180deg) translateZ(100px);
+        }
+
+        .six{
+            transform:translateZ(100px);
+        }
+
+        @-webkit-keyframes rotate {
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube one"><img src="photo/child1.JPG" alt=""></div>
+        <div class="cube two"><img src="photo/child2.JPG" alt=""></div>
+        <div class="cube three">3</div>
+        <div class="cube four">4</div>
+        <div class="cube five"><img src="photo/child3.JPG" alt=""></div>
+        <div class="cube six"><img src="photo/child4.JPG" alt=""></div>
+    </div>
+</body>
+</html>

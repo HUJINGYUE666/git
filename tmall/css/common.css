@@ -13,9 +13,3 @@ a{
     height:100%;
     margin: 0 auto;
 }
-
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}

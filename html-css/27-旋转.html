@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            border:1px solid #ff0000;
+            margin:100px auto;
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+
+            transform:rotate(45deg);
+            transform-origin:left top;
+            /*transform-origin:100px 50px;*/
+            /*transform:scale(2,.5);*/
+
+            transition:width 10s linear,height 10s linear;
+        }
+
+        .box1:hover .box2{
+            width: 400px;
+            height:400px;
+        }
+    </style>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
