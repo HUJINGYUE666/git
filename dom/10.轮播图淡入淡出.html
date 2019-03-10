@@ -5,8 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            list-style:none;
+        }
+
+        #container{
+            position: relative;
+        }
+
+        #photo{
+            height: 500px;
+            position: relative;
+        }
+
+        #photo div{
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            right: 0;
+            
+        }
+
+        #photo .banner1{
+            background: #e8e8e8;
+            z-index: 1;
+        }
+
+        #photo .banner2{
+            background: #1d3cbc;
+        }
+
+        #photo .banner3{
+            background: #dc2d32;
+        }
+
+        #nav{
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            z-index: 999;
+        }
+
+        #nav li{
+            width: 25px;
+            height: 5px;
+            background:rgba(0,0,0,.5);
+            float:left;
+            margin-left:8px; 
+            cursor: pointer;
+        }
+
+        #nav .selected{
+            background:#fff;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <div id="container">
+        <div id="photo">
+            <div class="banner1">
+                <img src="https://img.alicdn.com/simba/img/TB1xIQMvH5YBuNjSspoSuveNFXa.jpg" alt="">
+            </div>
+            <div class="banner2">
+                <img src="http://img.alicdn.com/imgextra/i1/114/TB2wYu7c8cXBuNjt_XoXXXIwFXa_!!114-0-luban.jpg_q100.jpg_.webp"
+                alt="">
+            </div>
+            <div class="banner3">
+                <img src="http://img.alicdn.com/tps/i4/TB17ITUFuuSBuNjSsplSuve8pXa.jpg" alt="">
+            </div>
+        </div>
+
+        <ul id="nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var oPhoto = document.getElementById("photo");
+        var aImg = oPhoto.getElementsByTagName("div")
+        console.log(aImg);
+
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+
+            aLi[i].onmouseover = function(){
+                for(var j=0; j<aLi.length; j++){
+                    aLi[j].className="";
+                    aImg[j].style.opacity="0";
+                }
+
+                this.className="selected";
+                aImg[this.index].style.opacity="1";
+            }
+        }
+    </script>
 </body>
 </html>

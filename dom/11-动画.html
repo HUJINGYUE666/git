@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">blick</button>
+    <div id="div1">
+    </div>
+
+    <script src="jslib.js"></script>
+
+    <script>
+        var oDiv = document.getElementById("div1");
+        var oBtn = document.getElementById("btn");
+
+        oBtn.onclick = function(){
+            /*var timer = setInterval(function(){
+                if(oDiv.offsetWidth >= 800){
+                    clearInterval(timer);
+                }
+                oDiv.style.width = oDiv.offsetWidth + 2 + "px";
+            },10)*/
+
+            animate(oDiv,{
+                width:800
+            },function(){
+                console.log('ok')
+            });
+
+        }
+
+        
+    </script>
+</body>
+</html>

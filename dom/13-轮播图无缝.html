@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        #container{
+            width: 750px;
+            height: 291px;
+            margin: 100px auto;
+            overflow: hidden;
+            position:relative;
+        }
+
+        #img-box{
+            width: 4500px;
+            
+            position: absolute;
+            /*transition:left 1s ease;*/
+        }
+
+        #img-box img{
+            float:left;
+        }
+
+        #btn-box{
+            position:absolute;
+            right:10px;
+            bottom:10px;
+        }
+
+        #container li{
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, .5);
+            border-radius: 5px;
+            float:left;
+            margin-right: 5px;
+            list-style: none;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        #container li.active{
+            background:#ff0036;
+        }
+
+        #last,#next{
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, .5);
+            border-radius: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            position:absolute;
+            bottom: 10px;
+        }
+
+        #last{
+            left:10px;
+        }
+
+        #next{
+            left:35px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box"> 
+            <img class="selected" src="img/1.jpg">
+            <img src="img/2.jpg">
+            <img src="img/3.jpg">
+            <img src="img/4.jpg">
+            <img src="img/5.jpg">
+            <img src="img/1.jpg">
+        </div>
+        <ul id="btn-box">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="last">&lt</span>
+        <span id="next">&gt</span>
+    </div>
+
+    <script src="jslib.js"></script>
+
+    <script>
+        var oNext = document.getElementById("next");
+        var oLast = document.getElementById('last');
+        var oImgBox = document.getElementById("img-box");
+        var aImg = oImgBox.getElementsByTagName('img');
+        var aLi = document.getElementsByTagName("li");
+        var iNow = 0;
+        console.log(oLast)
+
+        oNext.onclick = function(){
+            iNow++;
+
+            if(iNow == aImg.length){
+                //迅速拽到第一张图
+                oImgBox.style.left = 0 ;
+                // 显示索引是1的图片 第二张图
+                iNow = 1 ;
+            }
+            change(iNow);
+        }
+
+        oLast.onclick = function(){
+            iNow--;
+
+            if(iNow == -1){
+                oImgBox.style.left = -(aImg.length-1)*750 + "px";
+                iNow = aImg.length-2;
+            }
+            change(iNow);
+        }
+
+        function change(num){
+            animate(oImgBox,{
+                left: -num*750
+            });
+            for(var i=0; i<aLi.length ; i++){
+                aLi[i].className = '';
+            }
+
+            aLi[num==5?0:num].className = "active";
+
+            //oImgBox.style.left = -num*750 + "px";
+        }
+
+    </script>
+</body>
+</html>
