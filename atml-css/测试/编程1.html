@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        #tian{
+            width: 104px;
+
+        }
+
+        #tian .fk{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #f00;
+            float: left;
+        }
+
+        #tian .fk:hover{
+            z-index:1;
+            border:1px solid #00ff00;
+            position:relative;
+        }
+
+        #tian .b{
+            transform:translateX(-1px);
+        }
+
+        #tian .c{
+            transform:translateY(-1px);
+        }
+
+        #tian .d{
+            transform:translate(-1px,-1px);
+        }
+        
+    </style>
+</head>
+<body>
+    <ul id="tian">
+        <li class="fk a"></li>
+        <li class="fk b"></li>
+        <li class="fk c"></li>
+        <li class="fk d"></li>
+    </ul>
+
+</body>
+</html>
