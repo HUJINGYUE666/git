@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #container{
+            position: relative;
+        }
+
+        #img1{
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        #square{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            opacity:.8; 
+            position:absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #img2{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            position: absolute;
+            top:0;
+            left:400px;
+            display: none;
+        }
+        #big-img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <div id="img1">
+            <img src="放大镜/imgs/1.jpg" alt="">
+            <span id="square"></span>
+        </div>
+        <div id="img2">
+            <img id='big-img' src="放大镜/imgs/2.jpg" alt="">    
+        </div>
+    </div>
+
+    <script>
+        var oSquare = document.getElementById('square');
+        var oImg1 = document.getElementById('img1');
+        var oImg2 = document.getElementById('img2');
+        var oBigImg = document.getElementById('big-img');
+        
+
+        oImg1.onmouseover = function(){
+            oSquare.style.display = 'block';
+            oImg2.style.display = 'block';
+
+            oImg1.onmousemove = function(e){
+                var x = e.clientX - oSquare.offsetWidth/2
+                var y = e.clientY - oSquare.offsetHeight/2
+                if(x<0){
+                    x = 0
+                }
+                if(y<0){
+                    y = 0
+                }
+
+                var xMax = oImg1.offsetWidth -  oSquare.offsetWidth;
+                var yMax = oImg1.offsetHeight -  oSquare.offsetHeight;
+                if(x>xMax){
+                    x = xMax
+                }
+                if(y>yMax)(
+                    y = yMax
+                )
+                oSquare.style.left = x + 'px';
+                oSquare.style.top = y + 'px';
+
+                //oSquare能走的最大距离 oImg1-oSquare
+                var smallMax = oImg1.offsetWidth - oSquare.offsetWidth;
+                var smallMaxY = oImg1.offsetHeight - oSquare.offsetHeight;
+                //大图能走的最大距离 大图的宽度-oImg2
+                var bigMax = oBigImg.offsetWidth - oImg2.offsetWidth;
+                var bigMaxY = oBigImg.offsetHeight - oImg2.offsetHeight;
+                //求出oSquare走的比例 
+                var scale = oSquare.offsetLeft/smallMax;
+                var scaleY = oSquare.offsetTop/smallMaxY;
+                //求出大图走的比例 
+                oBigImg.style.left = - bigMax * scale + 'px';
+                oBigImg.style.top = - bigMax * scaleY + 'px';
+                console.log(oBigImg.style.left);
+            }
+        }
+
+        oImg1.onmouseout = function(){
+            oSquare.style.display = 'none';
+            oImg2.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

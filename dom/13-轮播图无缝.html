@@ -119,12 +119,12 @@
             change(iNow);
         }
 
-        oLast.onclick = function(){
+        oLast.onclick = function(){ 
             iNow--;
 
             if(iNow == -1){
-                oImgBox.style.left = -(aImg.length-1)*750 + "px";
-                iNow = aImg.length-2;
+                oImgBox.style.left = -(aImg.length-1)*750 + "px"; //迅速拽到五张图
+                iNow = aImg.length-2; //显示索引是3的图片 第四张图
             }
             change(iNow);
         }
