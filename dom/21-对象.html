@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 对象 
+        内置对象
+        自定义对象
+        DOM对象 -->
+
+        <script>
+           /*  var obj = {
+                name:'馒头',
+                age:3,
+                eat:function(){
+                    console.log('eateat');
+                }
+
+            }
+            obj.eat(); */
+
+            //类 声明类写下构造函数中 方法写在原型下
+            function Person(name,age){
+                this.name = name;
+                this.age = age;
+                /* this.sleep = function(){
+                    console.log(this.name + 'huhu'); 
+                }*/
+            }
+            //prototype 原型 这个属性是一个指针 指向原型对象
+            //声明在原型对象下的属性和方法 可以被所有实例化对象所共享
+            Person.prototype.sleep = function(){
+                    console.log(this.name + 'huhu');
+                }
+
+            var p1 = new Person('馒头',3);
+            p1.sleep();
+
+            var p2 = new Person('狐狸',4);
+            p2.sleep();
+
+
+        
+        </script>
+</body>
+</html>

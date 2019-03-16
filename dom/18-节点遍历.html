@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">猫与故巷</div> <!-- 文本节点 -->
+    <!-- Node.ELEMENT_NODE 元素 
+        Node.ATTRIBUTE_NODE 属性 
+        Node.TEXT_NODE 文本 
+        Node.COMMENT_NODE 注释 -->
+    <ul id="ul1">
+        <li id="li1">馒头</li>
+        <li id="li2">狐狸</li>
+    </ul>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        console.log(oDiv1);
+        console.log(oDiv1.nodeType); //1
+        console.log(oDiv1.firstChild.nodeType); //3
+
+        console.log(oDiv1.nodeName); //DIV
+        console.log(oDiv1.firstChild.nodeName); //#text
+
+        console.log(oDiv1.nodeValue); //null
+        console.log(oDiv1.firstChild.nodeValue); //#猫与故巷
+
+        //节点遍历
+        //nextSibling  nextElementSibling在标准浏览器下会取到文本节点（回车+空格）；
+        //在IE浏览器 找到下一个元素节点
+        //previousSibling
+        //firstChild
+        //lastChild
+        //children
+
+        var oLi1 = document.getElementById('li1');
+        var oLi2 = document.getElementById('li2');
+        console.log(oLi1);
+        // console.log(oLi1.nextSibling);
+        // oLi1.nextSibling.style.background = 'red'; // 报错 IE可以
+        oLi1.nextElementSibling.style.background = 'red'; //取到文本节点
+
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+                //null
+                //有效值（不为null） 节点类型不是元素节点
+            }while( elem && elem.nodeType !=1);
+            return elem;
+            //返回元素节点
+        }
+
+        //var oNext = next(oLi1);
+        var oNext = next(oLi2);
+        //oNext.style.background = 'pink';
+        console.log(oNext);
+
+        //previousSibling 
+
+        function previous(elem){
+            do{
+                elem = elem.previousSibling;
+            }while( elem &&　elem.nodeType !=1)
+            return elem;
+        }
+        var oPrevious = previous(oLi1);
+        console.log(oPrevious);
+
+        var oUl = document.getElementById('ul1');
+        //oUl.firstChild //firstElementChild
+        function first(elem){
+            elem = elem.firstChild;
+            if(elem.nodeType != 1){
+                elem = next(elem);
+            }
+            return elem;
+        }
+        var oFirst = first(oUl)
+        oFirst.style.background = "red";
+        console.log(oUl.children);
+    </script>
+</body>
+</html>

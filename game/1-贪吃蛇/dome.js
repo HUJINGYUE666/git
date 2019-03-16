@@ -7,6 +7,17 @@
 var oContent = document.getElementById('content');
 var oTarPage = document.getElementById('starPage');
 
+init();
+function init(){
+    //地图
+    this.mapW = parseInt(getComputedStyle(content).width);
+    this.mapH = parseInt(getComputedStyle(content).height);
+    this.mapDiv = content;
+
+    //食物
+    this.foodW = 20;
+    this.foodH = 20;
+}
 
 
 
