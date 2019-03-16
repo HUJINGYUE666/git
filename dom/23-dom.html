@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div2</div>
+    </div>
+    <ul class="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+       <!--  
+           document.getElementById() 返回DOM对象  没有返回null
+            document.getElementsByTagName() 返回类数组 没有返回[]
+            document.getElementsByClassName() 返回类数组 没有返回[]
+            document.getElementsByName() 返回类数组 没有返回[]
+
+            querySelector 返回DOM对象 如果多个 返回第一个
+        -->
+    <script>
+        var oDiv = document.querySelector('#div1');
+        console.log(oDiv);
+
+        var oUl1 = document.querySelector('.ul1');
+        console.log(oUl1);
+
+        oDiv.className = 'div2';
+        oDiv.style.background = 'pink';
+
+        /* 只能取到内联样式
+        oDiv.style.width
+        oDiv.style.height
+        
+        oDiv.offsetwidth border+padding +content
+        oDiv.offsetheight
+        oDiv.offsetleft 距离最近已定位的祖先元素的距离
+        oDiv.offsettop */
+    </script>
+</body>
+</html>

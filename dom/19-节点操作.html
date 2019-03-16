@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="div1">
         <div id="div2">馒头</div>
     </div>
     <script>
-    /* 节点操作
+        /* 节点操作
             1.创建节点 createElement
             2.插入节点 （内部的后边） appendChild 
             3.替换 replaceChild (newnode,oldnode);
             4.删除 removeChild(); 只能通过父元素删除子元素
             5.插入 insertBefore (newnode,refnode);
     */
-        var oDiv1 = document.getElementById('div1'); 
+        var oDiv1 = document.getElementById('div1');
         var oH2 = document.createElement('h2');
         var oDiv2 = document.getElementById('div2')
         oH2.innerHTML = '狐狸';
@@ -27,7 +29,8 @@
         //oDiv1.replaceChild (oH2,oDiv2);
 
         //oDiv1.removeChild (oDiv2);
-        oDiv1.insertBefore(oH2,oDiv2);
+        oDiv1.insertBefore(oH2, oDiv2);
     </script>
 </body>
+
 </html>

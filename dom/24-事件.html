@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        事件 事件源 事件处理函数
+        事件冒泡 点击子元素会触发父元素的点击事件（父子关系）
+        e 整个事件
+        this 谁的事件
+     -->
+
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+
+    <a href="https://www.baidu.com" id="baidu">百度一下</a>
+
+    <script>
+        var oDiv = document.getElementById('div1');
+        oDiv.onclick = function(e){
+            consol.log(e.clientX);
+            //点击事件中 谁的点击事件 this就是谁
+            consol.log(this); //div1 谁.onclick
+            //事件源
+            consol.log(this.target); //div2 点谁
+        }
+
+        var oBaidu = document.getElementById('baidu');
+        oBaidu.onclick = function(e) {
+            e =  e || window.event;
+            console.log(oBaidu.innerHTML); 
+            //标准浏览器取消默认行为 
+            e.preventDefault();
+            //IE浏览器取消默认行为 
+            e.returnValue = false;
+            //return false;
+        };
+
+        document.onkeydown = function(e){
+            e = e || window.event;
+            //console.log(e.altKey); //Alt true
+            console.log(e.keyCode); //键盘码
+        }
+
+    </script>
+
+</body>
+</html>
