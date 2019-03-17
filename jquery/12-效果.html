@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            height: 200px;
+            width: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+    <button id="animate">animate</button>
+    <button id="stop">stop</button>
+    <div id="div1">馒头</div>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        /* $('#hide').on('click', function () {
+            $('#div1').hide();
+        })
+        $('#show').on('click', function () {
+            $('#div1').show(1000);
+        })
+        $('#toggle').on('click', function () {
+            $('#div1').toggle();
+        }) */
+        $('#animate').on('click', function () {
+            $('#div1').animate({
+                width:400,
+                height:400
+            },5000,function(){
+                console.log(1);
+            });
+        })
+        $('#stop').on('click', function () {
+            $('#div1').stop(true,false);
+        })
+    </script>
+</body>
+
+</html>

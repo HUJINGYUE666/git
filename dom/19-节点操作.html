@@ -10,7 +10,7 @@
 
 <body>
     <div id="div1">
-        <div id="div2">馒头</div>
+        <p>馒头</p>
     </div>
     <script>
         /* 节点操作
@@ -22,14 +22,14 @@
     */
         var oDiv1 = document.getElementById('div1');
         var oH2 = document.createElement('h2');
-        var oDiv2 = document.getElementById('div2')
+        var oP = document.getElementsByTagName('p')[0];
         oH2.innerHTML = '狐狸';
         oDiv1.appendChild(oH2);
 
-        //oDiv1.replaceChild (oH2,oDiv2);
+        oDiv1.replaceChild (oH2,oP);
 
         //oDiv1.removeChild (oDiv2);
-        oDiv1.insertBefore(oH2, oDiv2);
+        //oDiv1.insertBefore(oH2, oDiv2);
     </script>
 </body>
 

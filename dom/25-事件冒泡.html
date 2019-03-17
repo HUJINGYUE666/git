@@ -56,17 +56,19 @@
             console.log(2);
         },true);  */
         //既有捕获 又有冒泡 先捕获后冒泡 （先从外往里 后从里往外）
-        oDiv1.addEventListener('click',function(){
+       /*  oDiv1.addEventListener('click',function(){
             console.log(1 + '捕获');
         },true);
         oDiv2.addEventListener('click',function(){
             console.log(2 + '捕获');
-        },true); 
+        },true);  */
         oDiv1.addEventListener('click',function(){
             console.log(1 + "冒泡");
         },false);
-        oDiv2.addEventListener('click',function(){
+        oDiv2.addEventListener('click',function(e){
             console.log(2 + "冒泡");
+            e.stopPropagation();
+            e.canselBubble = true;
         },false); 
 
     </script>

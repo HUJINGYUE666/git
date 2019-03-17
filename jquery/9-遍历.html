@@ -1,0 +1,41 @@
+<style lang="">
+    #div1 {
+        width: 200px;
+        height: 200px;
+        background: #ff0000;
+    }
+</style>
+</head>
+
+<body>
+    <div id="div1" class="aa">
+        <span>馒头</span>
+        <div>
+            <span>狐狸</span>
+        </div>
+    </div>
+    <ul>
+        <li>胖虎</li>
+        <li>妹妹</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //$('#div1').text('<h2>郭斯特</h2>')
+
+        /* $('li').eq(0).css("background", 'red');
+
+        console.log($("#div1").children()) */
+        console.log($('#div1').is('.aa'));
+
+        // $('#div1').children().css('background','green').end().css('border',"5px solid #000");
+        // $('#div1').children('span').css('background','green')
+        // 后代元素 
+        //$('#div1').find('span').css('background','green');
+
+        // $('#div1').next()
+
+        // $(this).index()
+    </script>
+</body>
+
+</html>

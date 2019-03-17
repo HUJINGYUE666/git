@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <ul>
         <li class="a">1</li>
@@ -16,15 +18,36 @@
     </ul>
     <div id="div1"></div>
     <div id="div2"></div>
+    <table border="1">
+        <tr>
+            <td>TD #0</td>
+            <td>TD #1</td>
+            <td>TD #2</td>
+        </tr>
+        <tr>
+            <td>TD #3</td>
+            <td>TD #4</td>
+            <td>TD #5</td>
+        </tr>
+        <tr>
+            <td>TD #6</td>
+            <td>TD #7</td>
+            <td>TD #8</td>
+        </tr>
+    </table>
     <script src="jquery-1.12.4.js"></script>
     <script>
-       /*  $('#li2~li').css('background','red');
+        /*  $('#li2~li').css('background','red');
         $('li[class=a]').css('background','pink');
         $('li:nth-child(2n)').css('background','pink'); */
-        $('ul li:eq(0)').css('background','pink');
+        //$('ul li:eq(0)').css('background','pink');
         //索引是偶数
-        $('ul li:even()').css('background','pink');
+        //$('ul li:even()').css('background','pink');
+        /* $("#li2+li").css("background","red"); //li1 */
 
+        //$("li:even").css("background-color", "#bbbbff");
+        $('li:even').css('background', 'red');
     </script>
 </body>
+
 </html>
