@@ -4,10 +4,20 @@
 //判断是否吃到食物 食物消失 蛇加1
 //判断游戏结束 弹出框
 
+
 var oContent = document.getElementById('content');
 var oStarPage = document.getElementById('starPage');
+var oStarBtn = document.getElementById('starBtn');
+var oLoser = document.getElementById('loser');
+var oLoserScore = document.getElementById('loser-score');
+var oScore = document.getElementById('score');
+var oReturn = document.getElementById('return');
 var oSnakeMove;
 var speed = 200;
+var startGameBool = true;
+var startPushBool = true;
+
+
 init();
 
 function init() {
@@ -25,9 +35,9 @@ function init() {
     this.snakeW = 20;
     this.snakeH = 20;
     this.snakeBody = [
-        [3, 1, 'head'],
-        [2, 1, 'body'],
-        [1, 1, 'body']
+        [4, 3, 'head'],
+        [3, 3, 'body'],
+        [2, 3, 'body']
     ];
     //游戏属性
     this.direct = 'right';
@@ -36,16 +46,20 @@ function init() {
     this.up = true;
     this.down = true;
 
+    this.score = 0;
+
     startGame();
 }
 
 function startGame() {
     food();
     snake();
-    oSnakeMove = setInterval(function(){
+    oSnakeMove = setInterval(function () {
         move();
-    },speed)
+    }, speed)
     bindEvent();
+    oStartPush.style.display = 'block';
+    oStarPage.style.display = 'none';
 }
 
 function food() {
@@ -70,11 +84,26 @@ function snake() {
         oSnake.style.left = this.snakeBody[i][0] * 20 + 'px';
         oSnake.style.top = this.snakeBody[i][1] * 20 + 'px';
         oSnake.classList.add(this.snakeBody[i][2]);
+        switch (this.direct) {
+            case 'right':
+                break;
+            case 'up':
+                oSnake.style.transform = 'rotate(270deg)';
+                break;
+            case 'left':
+                oSnake.style.transform = 'rotate(180deg)';
+                break;
+            case 'down':
+                oSnake.style.transform = 'rotate(90deg)';
+                break;
+            default:
+                break;
+        }
     }
 }
 
 function move() {
-    for (var i = this.snakeBody.length - 1; i > 0; i--){
+    for (var i = this.snakeBody.length - 1; i > 0; i--) {
         this.snakeBody[i][0] = this.snakeBody[i - 1][0];
         this.snakeBody[i][1] = this.snakeBody[i - 1][1];
     }
@@ -96,10 +125,70 @@ function move() {
     }
     removeClass('snake');
     snake();
+
+    if (this.snakeBody[0][0] * 20 == this.foodX && this.snakeBody[0][1] * 20 == this.foodY) {
+        var snakeEndX = this.snakeBody[this.snakeBody.length - 1][0];
+        var snakeEndY = this.snakeBody[this.snakeBody.length - 1][1];
+        switch (this.direct) {
+            case 'right':
+                this.snakeBody.push([snakeEndX + 1, snakeEndY, 'body']);
+                break;
+            case 'up':
+                this.snakeBody.push([snakeEndX, snakeEndY - 1, 'body']);
+                break;
+            case 'left':
+                this.snakeBody.push([snakeEndX - 1, snakeEndY, 'body']);
+                break;
+            case 'down':
+                this.snakeBody.push([snakeEndX, snakeEndY + 1, 'body']);
+                break;
+            default:
+                break;
+        }
+        this.score += 1;
+        oScore.innerHTML = this.score;
+        removeClass('food');
+        food();
+    }
+    if (this.snakeBody[0][0] < 0 || this.snakeBody[0][0] > this.mapW / 20) {
+        gameOver();
+    }
+    if (this.snakeBody[0][1] < 0 || this.snakeBody[0][1] > this.mapH / 20) {
+        gameOver();
+    }
+    var snakeHX = this.snakeBody[0][0];
+    var snakeHY = this.snakeBody[0][1];
+    for (var i = 1; i < this.snakeBody.length; i++) {
+        if (snakeHX == this.snakeBody[i][0] && snakeHY == this.snakeBody[i][1]) {
+            gameOver();
+        }
+    }
+}
+
+function gameOver() {
+    removeClass('snake');
+    removeClass('food');
+    clearInterval(oSnakeMove);
+    this.snakeBody = [
+        [4, 3, 'head'],
+        [3, 3, 'body'],
+        [2, 3, 'body']
+    ];
+    this.direct = 'right';
+    this.left = false;
+    this.right = false;
+    this.up = true;
+    this.down = true;
+
+    this.score = 0;
+    oLoser.style.display = 'block';
+    oLoserScore.innerHTML = oScore.innerHTML;
+    this.score = 0;
+    oScore.innerHTML = this.score; 
 }
 
 function removeClass(className) {
-    var ele = document.getElementsByClassName('className');
+    var ele = document.getElementsByClassName(className);
     while (ele.length > 0) {
         ele[0].parentNode.removeChild(ele[0]);
     }
@@ -148,9 +237,14 @@ function setDirect(code) {
     }
 }
 
-function bindEvent() {
+function bindEvent(e) {
     document.onkeydown = function (e) {
         var code = e.keyCode;
         setDirect(code);
+    } 
+    oReturn.onclick = function(){
+        oLoser.style.display = 'none';
     }
 }
+
+
