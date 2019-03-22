@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    touch-action: none;
+}
+.page-1{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0px;
+    background: #083846;
+}
+.page-1 .img1{
+    width:248px;
+    position: absolute;
+    left:50%;
+    margin-left:-124px;
+    top: 1%;
+}
+.page-1 .img2{
+    width:185px;
+    position: absolute;
+    left:50%;
+    margin-left:-92px;
+    top: 62%;
+}
+.icon{
+    width:25px;
+    position: absolute;
+    left:50%;
+    margin-left:-12px;
+    top:92%;
+}
+.hide{
+    display: none;
+}
+/* page-2的样式开始 */
+.page-2{
+    position: absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    background: #9261BF;
+}
+.page-2 .img1{
+    width: 158px;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    margin-left: -79px;
+}
+.page-2 .img3{
+    width:248px;
+    position: absolute;
+    left:50%;
+    margin-left:-124px;
+    top:8%;
+}
+.page-2 .img2{
+    width: 240px;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    margin-left: -120px;
+}
+.page-2 .img4{
+    width: 241px;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    margin-left: -120px;
+}
+
+/* page-2的样式结束 */
+/* page-3的样式开始 */
+.page-3{
+    position: absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    background: #F3533C;
+}
+.page-3 .img1{
+    width: 166px;
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    margin-left: -86px;
+}
+.page-3 .img2{
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -125px;
+}
+.page-3 .img3{
+    width: 172px;
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    margin-left: -55px;
+}
+.page-3 .img4{
+    width: 248px;
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    margin-left: -124px;
+}
+
+/* page-3的样式结束 */
+/* page-4的样式开始 */
+.page-4{
+    position: absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    background: #FFBF50;
+}
+
+.page-4 .img1{
+    width: 162px;
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    margin-left: -84px;
+}
+.page-4 .img2{
+    width: 230px;
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    margin-left: -115px;
+}
+
+.page-4 .img3{
+    width: 161px;
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    margin-left: -80px;
+}
+
+.page-4 .img4{
+    width: 271px;
+    position: absolute;
+    left: 50%;
+    top: 33%;
+    margin-left: -135px;
+}
+
+
+
+/* page-4的样式结束 */
+ 
+.moveFromTop{
+    animation: moveFromTop 0.6s ease forwards;
+}
+@keyframes moveFromTop{
+    0%{
+        /* transform:  translate(-50%,-100%); */
+        transform:  translateY(-100%);
+    }
+}
+.moveFromLeft {
+    animation: moveFromLeft 0.6s ease forwards;
+}
+
+@keyframes moveFromLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+}
+
+.iconMove{
+    animation: iconMove 1.2s ease infinite forwards;
+}
+@keyframes iconMove{
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.moveFromBottom{
+    animation: moveFromBottom 0.6s ease forwards;
+}
+@keyframes moveFromBottom{
+    0%{
+        transform:translateY(100%)
+    }
+}
+
+.moveScale{
+    animation: moveScale  0.6s ease forwards;
+}
+@keyframes moveScale{
+    0%{
+        transform: scale(0);
+    }
+}
+
+.moveCircle{
+    animation: moveCircle 1.2s ease forwards;
+}
+@keyframes moveCircle{
+    0%{
+        transform: translateY(-100%);
+    }
+    30%{
+        transform: translateY(30%);
+    }
+    60%{
+        transform: translateY(-20%);
+    }
+    70%{
+        transform: translateY(-10%);
+    }
+}
+
+.moveToTop{
+    animation: moveToTop 0.6s ease forwards;
+}
+@keyframes moveToTop{
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+.moveToBottom{
+    animation: moveToBottom 0.6s ease forwards;
+}
+@keyframes moveToBottom{
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+.moveFromRight {
+    animation: moveFromRight 0.6s ease forwards;
+}
+
+@keyframes moveFromRight{
+    0%{
+        transform: translateX(100%);
+    }
+}
