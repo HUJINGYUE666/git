@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h3 {
+            width: 960px;
+            height: 100px;
+            background: #eee;
+            margin: 50px auto 0; 
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #img-box {
+            width: 960px;
+            margin: 50px auto 0;
+        }
+
+        #img-box img {
+            width: 960px;
+            display: block;
+        }
+
+        #img-box .img_960,
+        #img-box .img_480 {
+            display: none;
+        }
+
+        #content {
+            width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #content div{
+            height: 300px;
+            display: table;
+        }
+
+        #content div p{
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        #left {
+            width: 630px;
+            background: #ff0000;
+            float: left;
+        }
+
+        #right {
+            width: 300px;
+            background: #0000ff;
+            float: right;
+        }
+
+        @media screen and (max-width:960px) {
+            h3 {
+                width: 100%;
+            }
+
+            #img-box {
+                width: 100%;
+            }
+
+            #img-box .img_100,
+            #img-box .img_480 {
+                display: none;
+            }
+
+            #img-box .img_960 {
+                display: block;
+                width: 100%;
+            }
+
+            #content {
+                width: 100%;
+            }
+
+            #left {
+                width: 66%;
+            }
+
+            #right {
+                width: 31%;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            h3 {
+                width: 100%;
+            }
+
+            #img-box {
+                width: 100%;
+            }
+
+            #img-box .img_100,
+            #img-box .img_960 {
+                display: none;
+            }
+
+            #img-box .img_480 {
+                display: block;
+                width: 100%;
+            }
+            #left,#right{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>页头</h3>
+    <h3>标题</h3>
+    <div id="img-box">
+        <img class="img_100" src="img/01.jpg" alt="" />
+        <img class="img_960" src="img/01_s_2x.jpg" alt="" />
+        <img class="img_480" src="img/01_s.jpg" alt="" />
+    </div>
+    <div id="content">
+        <div id="left">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut,
+                rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras
+                pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+            </p>
+        </div>
+        <div id="right">
+            <p>
+                Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida
+                rhoncus. Suspendisse vestibulum est eget dolor lobortis.
+            </p>
+        </div>
+    </div>
+    <h3>页尾</h3>
+</body>
+
+</html>
