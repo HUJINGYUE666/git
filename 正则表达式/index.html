@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg = /a/;
+        var str = 'abcd';
+        console.log(reg.exec(str));
+
+        // reg = /c{n}/; 匹配n个c
+        // reg = /c{n,m}/; 匹配n至m个 
+        // reg = /c{n,}/; 匹配n个及以上
+
+        /*
+        区分大小写
+        /c{n}/; n个
+        /c{n,m}/; n-m个 /c{3,5}/ 3-5个
+        /c{n,}/; 表示n个以上的c 包含n
+        *  0或多个 c* 和 c{0,} 是一个意思。
+        +  1或多个 c+ 和 c{1,} 是一个意思。
+        ?  0个或1个 c? 和 c{0,1} 是一个意思。
+        c{n,m}？ 非贪婪模式 尽可能少的匹配 表示数量的符号后加？  
+
+        ^开头
+        结尾$
+
+        . 除了/n以外的任意字符
+
+        b|c表示,匹配b或者c
+
+
+        字符集合 [abc] a或b或c
+        [^abc] 非a或b或c开头 [^a-z] 非小写字母开头
+
+        /\bc/ 前边界c /c\b/ 后边界c 中文除外 两边中间空格都算
+        /\d/ 数字 
+        /\D/ 非数字 
+        /\w/ 字符集合 数字字母下划线
+
+        //反向引用 
+        () 子字符集
+        \1 代表第一个子字符集的反向引用
+        /(\w)(\w)\2\1/ abba cddc
+        \i 忽略大小写
+        \g 全局匹配 所有
+        \s 空格
+
+        search 
+        match 
+
+        */
+    </script>
+</body>
+</html>
