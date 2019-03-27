@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">cat</div>
+    <script>
+        // 箭头函数 => 定义匿名函数 
+        // (1)函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+        // (2)不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+        // (3)不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参 数代替。
+
+        var oDiv = document.getElementById('div1');
+        // oDiv.onclick = function(){
+        //     // this
+        //     setTimeout(function(){ //setTimeout指向window
+        //         console.log(this.innerHTML);
+        //     }.bind(this),1000); //bind改变this指向 
+        // }
+
+        // oDiv.onclick = function(){
+        //     // this
+        //     setTimeout(()=>{ //=>指向父作用域的this
+        //         console.log(this.innerHTML);
+        //     },1000); 
+        // }
+
+       //普通函数中的this指向的是 调用时的this
+       //箭头函数中的this指向的是 声明时的this 父作用域的this
+        var obj = {
+            name:'zs',
+            age:20,
+            say:() => { //指向外面 window
+                console.log(this);
+            }
+        }
+        
+        var xx = 1;
+        var obj = {
+            name:'zs',
+            age:20,
+            xx:2,
+            say:() =>{ //指向外面 1
+                setTimeout(() => { //指向父作用域的this 2
+                    console.log(this.xx);
+                },1000);
+            }
+        }
+        obj.say();
+
+        // 1参数默认值 与解构赋值结合
+        // 2方法名.length 返回没有指定默认值的参数个数
+        // 3方法名.name
+        // 4rest参数
+    </script>
+</body>
+</html>

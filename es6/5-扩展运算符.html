@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //扩展运算符...
+        // let arr = [1,2,3];
+        // let arr2 = [...arr];
+
+        //合并数组
+        // let arr3 = [1,2,3];
+        // let arr4 = [4,5,6];
+        // let arr5 = [...arr3,...arr4];
+        // console.log(arr5);
+
+        //把一个类数组 转换成数组
+        // var aLi = document.getElementsByTagName('li');    
+        // var arr = [...aLi];
+        // console.log(arr);
+        // arr.push(1);
+        // console.log(arr);
+
+        //合并对象
+        let obj1 = {
+            name:'zs',
+            age:20
+        }
+        let obj2 = {
+            name:'lisi',
+            school:'weihcunag'
+        }
+        let obj = {...obj1,...obj2};
+        console.log(obj);
+
+        //？
+        // function fn(){
+        //     // console.log(a,b,c,d);
+        //     console.log(arguments);
+        //     // 函数递归调用 
+        //     // fn();
+        //     arguments.callee();
+        //     console.log(arguments.callee);
+        // }
+
+        //rest 剩余的参数
+        function fn(a,b,...rest){
+            console.log(rest);
+        }
+        fn(1,2,3,4);
+
+    </script>
+</body>
+</html>

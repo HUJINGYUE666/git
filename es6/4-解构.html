@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //解构赋值 格式一样
+        // let arr = [1,2,3];
+        // let [a,b,c] = arr; 
+        // console.log(a,b,c);    
+
+        // let obj = {
+        //     name: 'zs',
+        //     age: '20',
+        // }
+
+        // let {name,age} = obj;
+        // console.log(name,age);
+        
+        // let {name:xx,age} = obj;
+        // console.log(xx,age);
+
+        // let str = '1234';
+        // let [a,b] = str;
+        // console.log(a,b);
+
+        //变量互换
+        let a = 5;
+        let b = 6;
+        
+        // let c = a;
+        // a = b;
+        // b = c;
+
+        // a = a + b;
+        // b = a - b;
+        // a = a - b;
+
+        // [b,a] = [a,b];
+
+        a = [b, b=a][0];
+        console.log(a,b);
+    </script>
+</body>
+</html>
