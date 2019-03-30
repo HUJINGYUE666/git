@@ -9,7 +9,9 @@
 <body>
     
     <script>
-        //模板字符串
+        // 字符串扩展
+        // 1.模板字符串(反引号):${} 支持标签、换行 数学 运算
+
          let age = '20';
          let name = 'zs';
          console.log('名字:' + name +','+ '年龄:'+age);  
@@ -19,20 +21,25 @@
          console.log('<div id="'+ 'id' +'"></div>');
          console.log(`<div id="${id}"></div>`); //键盘左上角的`
 
-         //includes
+        // 2.includes() VS indexOf() 
+        // 3.startsWith() endsWith() 
+        // 4.padStart(5, ‘abc’) padEnd() 
+        // 5.repeat(5)
 
-         let str = 'abcd';
-         console.log(str.includes('ab')); //true false
+         let str = 'abcdefg';
+         console.log(str.includes('efg')); //连续字符 返回true/false
 
-         console.log(str.indexOf('c'));
+         console.log(str.indexOf('c')); //显示索引
 
-         console.log(str.startsWith('ab'));
+         console.log(str.startsWith('ab')); //开始字符 返回true/false
 
-        //  console.log(str.endWith('cd'));
-         
+         console.log(str.endsWith('fg')); //结束字符 返回true/false
 
-         console.log(str.padStart(6, xyz)); //从前面填充
-         console.log(str.padEnd(6, xyz)); //从后面填充
+         let str1 = 'abc';
+         console.log(str1.padStart(6,'xyz')); //从前面填充 返回xyzabc
+         console.log(str1.padEnd(6,'xyz')); //从后面填充 返回abcxyz
+
+         console.log(str1.repeat(3)); //重复3遍 返回abcabcabc
 
     </script>
 </body>

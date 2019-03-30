@@ -8,50 +8,59 @@
 </head>
 <body>
     <script>
-        //扩展运算符...
+        // 扩展运算符和rest运算符
+        // 扩展运算符... 
+        // 1.作为数组一部分 
+        // 2.数组复制
         // let arr = [1,2,3];
-        // let arr2 = [...arr];
+        // let arr1 = [...arr];
+        // console.log(arr1);
 
-        //合并数组
-        // let arr3 = [1,2,3];
-        // let arr4 = [4,5,6];
-        // let arr5 = [...arr3,...arr4];
-        // console.log(arr5);
+        // 3.合并数组
+        // let arr2 = [1,2,3];
+        // let arr3 = [4,5,6];
+        // let arr4 = [...arr2,...arr3];
+        // console.log(arr4);
+        
+        // 4.合并对象 
+        // let obj1 = {
+        //     name:'zs',
+        //     age:20
+        // }
+        // let obj2 = {
+        //     name:'ls',
+        //     school:'weihcunag'
+        // }
+        // let obj = {...obj1,...obj2};
+        // console.log(obj);
 
-        //把一个类数组 转换成数组
+        // 5.类数组转化成数组、解构
         // var aLi = document.getElementsByTagName('li');    
         // var arr = [...aLi];
         // console.log(arr);
         // arr.push(1);
         // console.log(arr);
 
-        //合并对象
-        let obj1 = {
-            name:'zs',
-            age:20
-        }
-        let obj2 = {
-            name:'lisi',
-            school:'weihcunag'
-        }
-        let obj = {...obj1,...obj2};
-        console.log(obj);
-
-        //？
-        // function fn(){
-        //     // console.log(a,b,c,d);
-        //     console.log(arguments);
-        //     // 函数递归调用 
-        //     // fn();
-        //     arguments.callee();
-        //     console.log(arguments.callee);
+        // rest运算符 返回剩下的字符
+        // function fn(a,b,...rest){
+        //     console.log(rest);
         // }
-
-        //rest 剩余的参数
-        function fn(a,b,...rest){
-            console.log(rest);
+        // fn(1,2,3,4);
+        
+        
+        function fn(){
+            console.log(a,b,c,d);
+            console.log(arguments);
+            // 函数递归调用 
+            // fn();
+            arguments.callee();
+            console.log(arguments.callee);
         }
-        fn(1,2,3,4);
+        // 剩余的 
+        // function fn(a,b,...rest){
+        //     console.log(rest);
+        // }
+        // fn(1,2,3,4);
 
     </script>
 </body>

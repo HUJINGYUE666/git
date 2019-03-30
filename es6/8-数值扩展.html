@@ -7,12 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- 1是否为数字:Number.isFinite(5); 
-    2Number.isNaN(NaN) 判断一个数值是否为NaN。 
-    3Number.isInteger(5) 判断一个数值是否为整数。 
-    4Number.parseFloat(5) 
-    5Number.parseInt(5.5) -->
-    <!-- 1Math.trunc() 去除一个数的小数部分，返回整数部分。 
-    2Math.sign() 判断一个数到底是正数、负数、还是零。 -->
+    <script>
+        // 1.Number.isFinite(5); 判断一个数值是否为数字
+        console.log(Number.isFinite(5)); //返回true/false
+        // 2.Number.isNaN(NaN) 判断一个数值是否为NaN 
+        console.log(Number.isNaN(NaN)); //返回true/false
+        // 3.Number.isInteger(5) 判断一个数值是否为整数 
+        console.log(Number.isInteger(5)); //返回true/false
+        // 4.Number.parseFloat(5) //将字符串转换成浮点数
+        console.log(Number.parseFloat(5)); //返回5
+        // 5.Number.parseInt(5.5) //将字符串转换成整数
+        console.log(Number.parseInt(5.5)); //返回5
+
+        // 1.Math.trunc() 去除一个数的小数部分，返回整数部分。 
+        console.log(Math.trunc(5.5)); //返回5
+        // 2.Math.sign() 判断一个数到底是正数、负数、还是零。
+        console.log(Math.sign(0)); //正数返回1 负数返回-1 零返回0
+    </script>
+        
 </body>
 </html>

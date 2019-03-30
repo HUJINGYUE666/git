@@ -8,11 +8,14 @@
 </head>
 <body>
     <script>
-        //解构赋值 格式一样
-        // let arr = [1,2,3];
-        // let [a,b,c] = arr; 
-        // console.log(a,b,c);    
+        // 变量的解构赋值
+        // 从数组和对象中提取值，对变量进行赋值，这被称为解构
+        // 1.数组解构
+        let arr = [1,2,3];
+        let [a,b,c] = arr; 
+        console.log(a,b,c); 
 
+        // 2.对象解构
         // let obj = {
         //     name: 'zs',
         //     age: '20',
@@ -24,13 +27,16 @@
         // let {name:xx,age} = obj;
         // console.log(xx,age);
 
+        // 3.字符串解构 
         // let str = '1234';
         // let [a,b] = str;
         // console.log(a,b);
 
+        // 4.应用:函数参数的解构赋值\函数返回值\变量互换\Json应用
+        //解构赋值 格式一样
         //变量互换
-        let a = 5;
-        let b = 6;
+        // let a = 5;
+        // let b = 6;
         
         // let c = a;
         // a = b;
@@ -42,8 +48,8 @@
 
         // [b,a] = [a,b];
 
-        a = [b, b=a][0];
-        console.log(a,b);
+        // a = [b, b=a][0];
+        // console.log(a,b);
     </script>
 </body>
 </html>

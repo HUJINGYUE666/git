@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Set
+    // 1Set类似于数组，但是成员的值都是唯一的，没有重复的值。函 数接受数组或类数组作为参数。new Set();
+    // 2add(value):添加某个值，返回Set结构本身。 
+    // delete(value):删除某个值，返回一个布尔值，表示删除是否成 功。 
+    // has(value):返回一个布尔值，表示该值是否为Set的成员。 
+    // clear():清除所有成员，没有返回值
+    // 3遍历:keys() values() entires() forEach() for...of 
+    // 4长度:.size
+    let arr= [1,2,3,4,5,1,2,3]
+
+    // console.log(arr);
+
+    // let arr2 = new Set(arr);
+    // console.log(arr2);
+
+    // set去重
+    let arr2 = new Set(arr);
+    // 类数组转成数组
+    // let arr3 = [...arr2];
+    let arr3 = Array.from(arr2);
+
+    console.log(arr3);
+
+    let arr5 = new Set();
+    arr5.add(1);
+
+    // arr5.has(1)
+
+    // arr5.clear();
+    console.log(arr5.size);
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 对象扩展
+    // 1.属性简洁表示法 包括属性和方法 • 同名属性可以省略不写
+    // • 方法可以省略函数的function
+    // 2.属性名表达式 :[]
+    // 3.Object.is(‘foo’, ‘foo’); 比较两个值是否严格相等，与严格比较运
+    // 算符(===)的行为基本一致 +0===-0 NaN===NaN 
+    // 4.Object.assign(); 对象合并,第一个参数是目标对象，后面的参数
+    // 都是源对象。浅拷贝
+    // 5.Object.keys() Object.values() Object.entries();
+    // 6‘name’ in obj判断对象是否包含某个属性 0 in arr 判断数组位置是否有值
+    
+    var name = 'zs';
+        var obj = {
+            name:name,
+            age:20,
+            say:function(){
+                console.log('哈哈哈')
+            }
+        }
+
+        let obj1 = {
+            name,
+            age:20,
+            say(){
+                console.log('hehehe')
+            }
+        }
+        console.log(obj1.name);
+        obj1.say();
+
+
+        let a = 'xx';
+        let obj2 = {
+            [a+'aaaa']:'yyy'
+        }
+        console.log(obj2.xx)
+        // 属性名是可变的 []
+        console.log(obj2);
+        var obj3 = {
+            name:'zs',
+            age:20,
+            school:'weichuang'
+        }
+
+        for( key in obj3){
+            console.log(obj3[key]);
+        }
+    
+        console.log(NaN === NaN);
+        console.log(+0 === -0);
+
+        console.log(Object.is(NaN,NaN));
+        console.log(Object.is(+0,-0));
+
+
+        let obj4 = {
+            name:'zs',
+            age:20
+        }
+        let obj5 = {
+            name:'lisi',
+            hobby:'敲代码'
+        }
+        // console.log({...obj4,...obj5});
+        console.log(Object.assign(obj4,obj5));
+        console.log(obj4);
+        console.log(obj5);
+        console.log( 'hobby' in obj4) ;
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
