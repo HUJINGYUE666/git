@@ -18,27 +18,25 @@
             name:'zs',
             age:'20'
         }
+
         let name = Symbol();
         let age = Symbol();
 
-        console.log(name);
-        console.log(age);
+        console.log(name); //symbol()
+        console.log(age); //symbol()
 
-        let xx = Symbol('yy');
+        let xx = Symbol('xx');
 
-        for(key in obj){
-            console.log()
-        }
+        obj[xx] = 'yy';
+        obj[Symbol('zz')] = 'zz';
 
-        obj[xx] = 'xxxx';
-        obj[Symbol('zz')] = 'zzzz';
-
-        obj.name = 'zs';
+        // obj.name = 'zs';
 
         console.log(obj);
 
-        for( key in obj){
-            console.log(obj[key]);
+        //symbol不会出现在for in中
+        for( key in obj){ //循环每个属性
+            console.log(obj[key]); //返回 zs 20 
         }
 
     </script>

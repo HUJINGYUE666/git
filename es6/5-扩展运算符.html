@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
     <script>
         // 扩展运算符和rest运算符
         // 扩展运算符... 
@@ -21,21 +28,21 @@
         // let arr3 = [4,5,6];
         // let arr4 = [...arr2,...arr3];
         // console.log(arr4);
-        
-        // 4.合并对象 
+
+        //4.合并对象 
         // let obj1 = {
-        //     name:'zs',
-        //     age:20
+        //     name: 'zs',
+        //     age: 20
         // }
         // let obj2 = {
-        //     name:'ls',
-        //     school:'weihcunag'
+        //     name: 'ls',
+        //     school: 'weihcunag'
         // }
-        // let obj = {...obj1,...obj2};
+        // let obj = { ...obj1, ...obj2 };
         // console.log(obj);
 
-        // 5.类数组转化成数组、解构
-        // var aLi = document.getElementsByTagName('li');    
+        //5.类数组转化成数组、解构
+        // var aLi = document.getElementsByTagName('li');
         // var arr = [...aLi];
         // console.log(arr);
         // arr.push(1);
@@ -46,22 +53,23 @@
         //     console.log(rest);
         // }
         // fn(1,2,3,4);
-        
-        
-        function fn(){
-            console.log(a,b,c,d);
-            console.log(arguments);
+
+
+        function fn() {
+            //console.log(a,b,c,d);
+            console.log(arguments); //Arguments(4) [1, 2, 3, 4, callee: ƒ, Symbol(Symbol.iterator): ƒ]
             // 函数递归调用 
-            // fn();
-            arguments.callee();
-            console.log(arguments.callee);
+            //fn();
+            //arguments.callee();
+            console.log(arguments.callee); //fn();
         }
-        // 剩余的 
+        // 剩余的
         // function fn(a,b,...rest){
         //     console.log(rest);
         // }
-        // fn(1,2,3,4);
+        fn(1,2,3,4);
 
     </script>
 </body>
+
 </html>

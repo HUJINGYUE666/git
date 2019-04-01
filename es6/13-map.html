@@ -8,13 +8,26 @@
 </head>
 <body>
     <script>
-        // 1类似于对象，也是键值对的集合，但是“键”的范围不限于字 符串，各种类型的值(包括对象)都可以当作键。new Map()
-        // 2.size属性返回 Map 结构的成员总数 3.set(key, value)
+        // Map
+        // 1.类似于对象，也是键值对的集合，但是“键”的范围不限于字 符串，各种类型的值(包括对象)都可以当作键。new Map()
+        // 2.size属性返回 Map 结构的成员总数 
+        // 3.set(key, value)
         // 4.get(key)
         // 5.has(key)
         // 6.delete(key) 
         // 7.clear() 
         // 8.遍历
+        
+        let a = new Map();
+        a.set('name','zs');
+        console.log(a); //返回Map(1) {"name" => "zs"}
+
+        let obj = {
+            xx:'xx'
+        }
+        a.set('name','zs');
+        a.set(obj,'11'); //返回Map(2) {"name" => "zs", {…} => "11"}
+        console.log(a);
     </script>
         
 </body>

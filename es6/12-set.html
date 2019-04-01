@@ -9,35 +9,46 @@
 <body>
     <script>
     // Set
-    // 1Set类似于数组，但是成员的值都是唯一的，没有重复的值。函 数接受数组或类数组作为参数。new Set();
-    // 2add(value):添加某个值，返回Set结构本身。 
+    // 1.Set类似于数组，但是成员的值都是唯一的，没有重复的值。函 数接受数组或类数组作为参数。new Set();
+    // 2.add(value):添加某个值，返回Set结构本身。 
     // delete(value):删除某个值，返回一个布尔值，表示删除是否成 功。 
     // has(value):返回一个布尔值，表示该值是否为Set的成员。 
     // clear():清除所有成员，没有返回值
-    // 3遍历:keys() values() entires() forEach() for...of 
-    // 4长度:.size
+    // 3.遍历:keys() values() entires() forEach() for...of 
+    // 4.长度:.size
     let arr= [1,2,3,4,5,1,2,3]
 
     // console.log(arr);
 
-    // let arr2 = new Set(arr);
-    // console.log(arr2);
+    // let arr2 = new Set(arr); //set去重复
+    // console.log(arr2); //返回1,2,3,4,5
 
-    // set去重
+    // set去重复
     let arr2 = new Set(arr);
-    // 类数组转成数组
-    // let arr3 = [...arr2];
+    // 类数组转成数组方式
+    //let arr3 = [...arr2];
     let arr3 = Array.from(arr2);
 
-    console.log(arr3);
+    console.log(arr3); //返回(5)[1,2,3,4,5]
+    
+    //添加某值
+    let arr4 = new Set();
+    arr4.add(1);
+    console.log(arr4); //返回set(1){1}
+    //删除某值
+    // arr4.delete(1);
+    // console.log(arr4); //返回set(0){0}
 
-    let arr5 = new Set();
-    arr5.add(1);
+    //判断数组中有没有1
+    // arr4.has(1);
+    // console.log(arr4); //返回set(1){1}
+    
+    //清空
+    // arr4.clear();
+    // console.log(arr4); //返回set(0){0}
 
-    // arr5.has(1)
-
-    // arr5.clear();
-    console.log(arr5.size);
+    //数组长度
+    console.log(arr4.size); 
     </script>
 </body>
 </html>

@@ -14,12 +14,12 @@
     <script>
         // 1.Array.from() json数组格式、类数组，转换为数组。 
         var aLi = document.getElementsByTagName('li');
+        console.log(aLi)
         console.log(Array.from(aLi));
         // 2.Array.of() 将一组值，转换为数组。
         var arr = [1,2,3];
-        var arr2 = new Array(3);
-        console.log(arr,arr2); 
-        console.log(Array.of(3));
+        console.log(arr);
+        console.log(Array.of(arr));
 
         // 3.arr.copyWithin(target, start = 0, end = this.length)
         // target(必需):从该位置开始替换数据。 start(可选):从该位置开始读取数据，默认为0。如 果为负值，表示倒数。 end(可选):到该位置前停止读取数据，默认等于数 组长度。如果为负值，表示倒数。
