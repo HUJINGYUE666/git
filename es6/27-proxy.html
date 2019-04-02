@@ -14,7 +14,7 @@
         }
         let pro = new Proxy(fn, {
             apply(){
-                // console.log(a,b,c);
+               
                 console.log('apply方法被调用...');
                 Reflect.apply(...arguments);
             }

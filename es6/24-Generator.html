@@ -33,26 +33,26 @@
         console.log(a.next('aa')); //{value: undefined, done: true}
         //传参启动时的值
 
-        function* fn() {
-            console.log('开始'); //1.
-            let data = yield request();
-            console.log('请求1已经成功 可以进行请求2') //4. 
-            yield request2(data);
-        }
-        let f = fn();
-        console.log(f.next()); //2.返回{value: undefined, done: false}
+        // function* fn() {
+        //     console.log('开始'); //1.
+        //     let data = yield request();
+        //     console.log('请求1已经成功 可以进行请求2') //4. 
+        //     yield request2(data);
+        // }
+        // let f = fn();
+        // console.log(f.next()); //2.返回{value: undefined, done: false}
 
-        function request() {
-            let data = 100;
-            setTimeout(() => {
-                console.log('请求1成功 返回数据' + data);//3.
-                console.log(f.next(data));//5.返回{value: undefined, done: true}
-            }, 1000)
-        }
+        // function request() {
+        //     let data = 100;
+        //     setTimeout(() => {
+        //         console.log('请求1成功 返回数据' + data);//3.
+        //         console.log(f.next(data));//5.返回{value: undefined, done: true}
+        //     }, 1000)
+        // }
 
-        function request2(data){
+        // function request2(data){
 
-        }
+        //}
 
 
 
