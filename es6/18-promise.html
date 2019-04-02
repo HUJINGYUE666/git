@@ -8,21 +8,12 @@
 </head>
 <body>
     <script>
-        // let p1 = new Promise(function(){
-        
-        // })
-
-        // $.get('url1',function(){
-
-        //     if(flag == 3){
-        //         console.log('ok');
-        //     }
-        // })
-        // $.get('url2',function(){
-
-        // })
-        // $.get('url3',function(){
-
+        // let p1 = new Promise(function(resolve,reject){
+        //     setTimeout(()=>{
+        //         resolve('5');
+        //     },1000)
+        // }).then(function(num){
+        //     console.log(num);
         // })
 
         let p1 = new Promise(function(resolve,reject){
@@ -41,19 +32,19 @@
         let p3 = new Promise(function(resolve,reject){
             setTimeout(() => {
                 console.log('3 ok');
-                reject();
-            }, 800);
+                resolve();
+            }, 1000);
         })
 
-        Promise.all([p1,p2,p3]).then(function(){ //成功
-            console.log('ok')
-        }).catch(function(){ //失败
-            console.log('no')
-        })
+        // Promise.all([p1,p2,p3]).then(function(){ //所有请求成功走到then
+        //     console.log('ok')
+        // }).catch(function(){ //所有请求失败走到catch
+        //     console.log('no')
+        // })
 
-        Promise.race([p1,p2,p3]).then(function(){ //竞赛 最快成功
+        Promise.race([p1,p2,p3]).then(function(){ //竞赛最快成功then
             console.log('ok')
-        }).catch(function(){ //最快失败
+        }).catch(function(){ //竞赛最快失败catch
             console.log('no')
         })
     </script>

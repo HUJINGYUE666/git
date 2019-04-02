@@ -12,7 +12,36 @@
         //子类的prototy = 父类的实例化对象 继承方法
         //问题 原本子类的原型下的constructor 指向构造函数 需要指回来
         
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.say = function(){
+            console.log(this.name+'say')
+        }
+
+        var p1 = new Person('zs',20);
+        console.log(p1);
+        p1.say();
+        //子类的构造函数中 通过父类.call（）继承父类的属性
+        //子类的prototy = 父类的实例化对象 继承方法
+        //问题 原本子类的原型下的constructor 指向构造函数 需要指回来
+        //继承
+        function Coder(name,age){
+            Person.call(this,name,age);
+        }
+
+        Coder.prototype = new Person();
+        Coder.prototype.constructor = new Person();
         
+        var c1 = new Coder('ls',20);
+        console.log(c1);
+        c1.say();
+        var c2 = new Coder('ww',20)
+        console.log(c2);
+        c2.say();
+
     </script>
 </body>
 </html>

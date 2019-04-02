@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setTimeout(function(){
+        //     console.log('请求1成功');
+        //     setTimeout(function(){
+        //     console.log('请求2成功');
+        //     },2000)
+        // },1000)
+        //promise管理异步请求 将异步的操作以同步的流程表达出来
+        //有三种状态: pending(进行中)、fulfilled(已成功)和rejected(已失败)
+        // resolve: pending(进行中)=>fulfilled(已成功)
+        // reject: pending(进行中)=>rejected(已失败)
+        // let p1 = new Promise(function (resolve, reject) {
+        //resolve请求成功的回调函数 reject请求失败的回调函数
+
+        //     setTimeout(() => {
+        //         //resolve(); //请求成功的调用resolve 会走到then
+        //         resolve();
+        //         console.log('请求1成功');
+        //     }, 1000)
+        // }).then(function () {
+        //     console.log('将要开始请求2')
+        //     setTimeout(() => {
+        //         console.log('请求2成功');
+        //     }, 2000)
+        // // },function(){
+        // //     console.log('请求2失败')
+        // // });
+        // }).catch(function(){
+        //     console.log('请求2失败')
+        // });
+
+        let p1 = new Promise(function (resolve, reject) {
+            //resolve请求成功的回调函数 reject请求失败的回调函数
+
+            setTimeout(() => {
+                //resolve(); //请求成功的调用resolve 会走到then
+                console.log('请求1成功');
+                var x = 5;
+                resolve(x);
+            }, 1000)
+        }).then(function (x) {
+            console.log(x)
+            new Promise(function (resolve, reject) {
+                console.log('将要开始请求2')
+                setTimeout(() => {
+                    console.log('请求2成功');
+                    resolve();
+                }, 2000)
+            }).then(function(){
+                console.log('将要开始请求3')
+            })
+        });
+    </script>
+</body>
+
+</html>
