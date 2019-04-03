@@ -1,0 +1,76 @@
+// $color:#00f; //普通变量
+// $color:#f00 !default; //默认变量
+
+body{
+    // background:$color;
+    height:100px;
+    // #{$attr}:100px; //特俗变量
+}
+
+#div1{
+    width: 100px;
+    height: 100px;
+    background: #00f;
+    padding: {
+        top:50px;
+        left:50px;
+    }
+    a{
+        color: #0f0;
+        &:hover{
+            color:pink;
+        }
+    }
+    a:hover{
+        color:pink;
+    }
+}
+
+@mixin triangle{ //声明混合宏
+    width:0px;
+    height:0px;
+    border:10px solid #000;
+    border-color:transparent;
+    border-top-color:#000;
+}
+
+.aa{ //调用混合宏
+    @include triangle();
+}
+
+@mixin border($w:200px,$h:200px){ //混合宏传参
+    width: $w;
+    height: $h;
+    border:5px solid #ccc;  
+    border-radius: 10px;
+}
+
+.bb{
+    @include border(100px,100px);
+}
+
+.cc{
+    @include border();
+}
+
+.dd{ //继承
+    @extend .bb;
+    color:#000;
+}
+
+%ff{ //占位符 %placeholder @extend
+    width: 100px;
+    height: 100px;
+}
+
+.gg{
+    @extend %ff;
+}
+
+// 注释 css不会显示 /**/ css会显现
+
+.h{
+    @extend %ff;
+    //color:#000;
+    color:darken($color: pink, $amount: 5)
+}
