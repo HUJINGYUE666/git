@@ -25,8 +25,8 @@
     </div>
     <script>
         //this指向window
-        function a(){
-            console.log(this); 
+        function a(x,y){
+             console.log(this,x,y); 
         }
         /* a(); */
 
@@ -36,11 +36,11 @@
         },1000) */
 
         //事件 this.onclic 事件源 点的谁
-        var oDiv1 = document.getElementById('div1');
-        oDiv1.onclick = function(e){
-            console.log(this); //事件
-            console.log(e.target); //事件源
-        }
+        // var oDiv1 = document.getElementById('div1');
+        // oDiv1.onclick = function(e){
+        //     console.log(this); //事件
+        //     console.log(e.target); //事件源
+        // }
 
         var obj = {
             name:'馒头',
@@ -49,20 +49,20 @@
                 console.log(this);
             }
         }
-        //obj.say();
+        // obj.say();
         //this指向实例化对象Person1
-        function Person(name){
-            this.name = name
-        }
+        // function Person(name){
+        //     this.name = name
+        // }
 
-        var person1 = new Person('馒头');
-        var person2 = new Person('狐狸');
+        // var person1 = new Person('馒头');
+        // var person2 = new Person('狐狸');
 
         // 改变this指向的方式 
         /*
-        call()  第一个参数是this指向的对象  
-        apply()  第一个参数是this指向的对象  
-        bind()  第一个参数是this指向的对象 不会调用
+        call()  第一个参数是this指向的对象 后面是参数  
+        apply()  第一个参数是this指向的对象  后面是[参数] 
+        bind()  第一个参数是this指向的对象 不会调用 加()调用
 
         传参不一样 
         bind不调用

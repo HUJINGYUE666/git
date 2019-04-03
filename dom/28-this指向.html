@@ -18,8 +18,8 @@
         for(var i=0; i<aLi.length; i++){
             aLi[i].onclick = function(){
                 setTimeout(function(){
-                    console.log(this);
-                }.bind(this),1000)
+                    console.log(this); //this指向window
+                }.bind(this),1000) //bind不会调用 不会影响延迟效果
             }
         }
     </script>
