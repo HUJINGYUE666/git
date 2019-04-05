@@ -1,12 +1,15 @@
 @import 'common';
-// $color:#00f; //普通变量
-// $color:#f00 !default; //默认变量
+$color:#f00; //普通变量
+//$color:#0f0 !default; //默认变量
+// $attr:width;
+// $xx:xx;
 
-body{
-    // background:$color;
-    height:100px;
-    // #{$attr}:100px; //特俗变量
-}
+// body{
+//     //background:$color;
+//     height:100px;
+//     #{$attr}:100px; //特俗变量
+//     background: $color url(#{$xx}.jpg) 0 0 no-repeat;
+// }
 
 #div1{
     width: 100px;
@@ -93,7 +96,7 @@ $i:10;
 
 @if($i == 10){
     .kk{
-        width:10px;
+        width:$i * 10px;
     }
 }
 
@@ -102,8 +105,8 @@ $i:10;
         width:20px*$j;
     }
 }
-@for $j from 1 to 5{
-    .item#{$j}{
+@for $j from 1 through 5{
+    .nav#{$j}{
         width:20px*$j;
     }
 }
@@ -118,8 +121,8 @@ $m:5;
 }
 
 $list:success error warn;
-@each $xx in $list{
-    .#($xx){
-        background:url(#{$xx}.jpg)
+@each $xx in $list {
+    .#{$xx}{
+        background:url(#{$xx}.jpg);
     }
- }
+}
