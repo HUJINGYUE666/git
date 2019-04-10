@@ -1,8 +1,18 @@
-body{
-    background: #f00 url(images/cb9101ea059f255d55576d1ef704ef13.jpg);
+/*! 翻版必究 */
+html {
+  background: #f00;
 }
 
-img{
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+body {
+  background: #f00 url(images/cb9101ea059f255d55576d1ef704ef13.jpg);
+}
+
+img {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.a {
+  width: 100px;
+  height: 100px;
 }

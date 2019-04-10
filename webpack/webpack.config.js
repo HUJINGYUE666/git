@@ -1,11 +1,14 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const entry = require('./entry');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode:'development',//production上线 js文件压缩
-    entry:{
-        index:'./src/index.js',
-    },
+    entry: entry,
     output:{
         path:path.resolve(__dirname,'dist'), 
         filename:'[name].js'
@@ -41,6 +44,15 @@ module.exports = {
                     use:['css-loader','sass-loader'],
                     fallback:'style-loader',
                 })
+            },{
+                test:/\.js$/,
+                use:[{
+                    loader:'babel-loader',
+                    options:{
+                        presets:['@babel/preset-env']
+                    }
+                }],
+                exclude:/node_modules/
             }
         ]
     },
@@ -54,6 +66,15 @@ module.exports = {
             hash:true,
         }),
         new ExtractTextPlugin("index.css"),
+        new PurifyCSSPlugin({
+            // Give paths to parse for rules. These should be absolute!
+            paths: glob.sync(path.join(__dirname, 'src/*.html')),
+          }),
+        new webpack.BannerPlugin('翻版必究'),
+        new CopyWebpackPlugin([{
+            from:'./src/public',
+            to:'public'
+        }])
     ],
     devServer:{
         contentBase:path.resolve(__dirname,'dist'),
