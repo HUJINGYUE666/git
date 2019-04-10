@@ -74,7 +74,10 @@ module.exports = {
         new CopyWebpackPlugin([{
             from:'./src/public',
             to:'public'
-        }])
+        }]),
+        new webpack.ProvidePlugin({
+            $:'jquery'
+        })
     ],
     devServer:{
         contentBase:path.resolve(__dirname,'dist'),
