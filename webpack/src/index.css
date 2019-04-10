@@ -1,3 +1,7 @@
 body{
     background: #f00 url(./images/girl.jpg);
 }
+
+img{
+    transform: rotate(45deg);
+}
