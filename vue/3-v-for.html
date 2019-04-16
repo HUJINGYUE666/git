@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!-- 循环 -->
+        <div v-for='(item,index) in arr'> 
+            {{item}} {{index}}
+        </div>
+        <div v-for='user in listSort'>
+            {{user.name}} {{user.age}}
+            <!-- <button @click = 'showName(user.name)'>show</button> -->
+            <button @click = 'showName(user)'>show</button>            
+        </div>
+        <div v-for='attr in cat'>
+            {{attr}}
+        </div>
+        <div v-for='(attr,key) in cat'>
+            {{attr}} {{key}}
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // 类 对象
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                arr:['html','css','js'],
+                list:[
+                    {
+                        name:'mantou',
+                        age:2
+                    },{
+                        name:'huli',
+                        age:3
+                    },{
+                        name:'panghu',
+                        age:4
+                    }
+                ],
+                cat:{
+                    name:'meimei',
+                    age:5
+                }
+            },
+            computed:{
+                listSort(){
+                    return this.list.sort((a,b) => {
+                        return a.age - b.age;
+                    })
+                }
+            },
+            methods:{
+                // showName(name){
+                //     console.log(name);
+                // }
+                showName(obj){
+                    console.log(obj);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

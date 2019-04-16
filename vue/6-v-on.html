@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+
+        #child {
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- e -->
+        <!-- once执行一次 -->
+        <button v-on:click.once='onClick(2,$event)'>点我+1</button>
+        <!-- @keyup.enter -->
+        <input type="number" v-model='num' @keyup.13='keyup($event)'>
+        <h1>{{count}}</h1>
+        <!-- 阻止事件冒泡 -->
+        <div id="parent" @click.stop="onClickParent">
+            <div id="child" @click.stop="onClickChild"></div>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+                num: 0,
+            },
+            methods: {
+                onClick(n, e) {
+                    console.log(Math.random());
+                    this.count += n;
+                    console.log(e);
+                },
+                keyup(e) {
+                    // console.log(e.keyCode)
+                    // 
+                    {
+                        this.count += parseInt(this.num);
+                    }
+                },
+                onClickParent(){
+                    console.log('父元素');
+                },
+                onClickChild(){
+                    console.log('子元素');
+                }
+            }
+        })
+        // .prevent - 调用 event.preventDefault()阻止默认行为
+    </script>
+</body>
+
+</html>
