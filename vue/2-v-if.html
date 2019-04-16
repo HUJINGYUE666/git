@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!-- if和else show -->
+        <!-- 不需要频繁切换 if -->
+        <div v-if='isLogin'>馒头</div> 
+        <div v-else>狐狸</div>
+        <!-- 频繁切换show -->
+        <div v-show='isLogin'>狐狸</div>
+
+        <div v-if='str == "A"'>A</div>
+        <div v-else-if='str == "B"'>B</div>
+        <div v-else-if='str == "C"'>C</div>
+        <div v-else='str == "D"'>D</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world',
+                isLogin:false,
+                str:'A'
+            }
+        })
+    </script>
+</body>
+</html>
