@@ -13,7 +13,9 @@
 
 <body>
     <div id="app">
-        <table class="table table-bordered">
+        <h1 class='text-center'>todolist</h1>
+        
+        <table class="table table-bordered text-center">
             <thead>
                 <td>选择</td>
                 <td>商品名称</td>
@@ -21,10 +23,18 @@
                 <td>删除</td>
             </thead>
             <tbody>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
+                <tr v-for='(item,index) in productList' :key='index'>
+                    <td>
+                        <label><input type="checkbox"></label>
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td><button type="button" class="btn btn-warning glyphicon glyphicon-remove btn-xs"></button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-danger btn-xs">删除选中</button></td>
+                    <td colspan="3">总价是：0元</td>
+                </tr>       
             </tbody>
         </table>
 
