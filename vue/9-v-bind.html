@@ -14,23 +14,23 @@
 <body>
     <div id="app">
         <!-- <img v-bind:src="imgUrl" alt=""> -->
-        <img :src="imgUrl" alt="">  
+        <!-- <img :src="imgUrl" alt="">   -->
         <button @click='toggle'>toggle</button>
         <div :class='{red:isRed}'>mantou</div>
-        <div :style='styleObj'>mantou</div>
+        <!-- <div :style='styleObj'>mantou</div> -->
     </div>
     <script src="vue.js"></script>
     <script>
         new Vue({
             el:'#app', 
             data:{
-                imgUrl:'https://cn.vuejs.org/images/logo.png',
+                // imgUrl:'https://cn.vuejs.org/images/logo.png',
                 isRed:true,
-                styleObj:{
-                    background:'#f00',
-                    color:'#0f0',
-                    'font-size':'30px',
-                }
+                // styleObj:{
+                //     background:'#f00',
+                //     color:'#0f0',
+                //     'font-size':'30px',
+                // }
             },
             methods:{
                 toggle(){
