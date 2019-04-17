@@ -50,7 +50,7 @@
             </thead>
             <tbody>
                 <!-- key是唯一标识 -->
-                <tr v-for='(item,index) in showList' :key='index' @click='toggle(item)' :class='{red:item.isRed}'>
+                <tr v-for='(item,index) in showList' :key='id' @click='toggle(id)' :class='{red:item.isRed}'>
                     <td><label><input type="checkbox" v-model="item.isRed"></label></td>
                     <td>{{item.name}}</td>
                     <td>{{item.price}}</td>
@@ -75,23 +75,28 @@
                     {
                         name: '衣服',
                         price: 200,
-                        isRed:false
+                        isRed:false,
+                        id:1,
                     }, {
                         name: '裤子',
                         price: 100,
-                        isRed:false
+                        isRed:false,
+                        id:2,
                     }, {
                         name: '鞋',
                         price: 500,
-                        isRed:false
+                        isRed:false,
+                        id:3
                     }, {
                         name: '手机',
                         price: 5000,
-                        isRed:false
+                        isRed:false,
+                        id:4
                     }, {
                         name: '包',
                         price: 1000,
-                        isRed:false
+                        isRed:false,
+                        id:5
                     },
                 ],
                 showList: [
@@ -119,20 +124,29 @@
                 ],
                 proName:'',
                 proPrice:'',
-                searchName:''
+                searchName:'',
+                count:5
             },
             methods:{
                 add(){
                     this.productList.push({
                         name:this.proName,
                         price:this.proPrice,
-                        isRed:false 
+                        isRed:false,
+                        id:Symbol()
                     })   
                     this.showList = [...this.productList];
                 },
-                toggle(item){
-                    item.isRed = !item.isRed;
-                    this.showList = [...this.productList];
+                toggle(id){
+                    //item.isRed = !item.isRed;
+                    let toggleList = this.productList.map(function(obj,index){
+                        if(obj.id == id){
+                            obj.isRed = !obj.isRed;
+                        }
+                        return obj;
+                    })
+                    this.productList = [...changeList];
+                    this.showList = [...changeList];
                 },
                 delChecked(){
                     // this.productList.forEach((obj,index) => {
