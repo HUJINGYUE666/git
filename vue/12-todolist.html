@@ -26,6 +26,7 @@
             </div>
             <button type="submit" class="btn btn-default" @click.prevent='filProduct'>过滤</button>
         </form>
+        
         <form class="form-inline text-center">
             <div class="form-group">
                 <label for="exampleInputName2">商品名称</label>
@@ -50,11 +51,11 @@
             </thead>
             <tbody>
                 <!-- key是唯一标识 -->
-                <tr v-for='(item,index) in showList' :key='id' @click='toggle(id)' :class='{red:item.isRed}'>
+                <tr v-for='(item,index) in showList' :key='item.id' @click='toggle(item.id)' :class='{red:item.isRed}'>
                     <td><label><input type="checkbox" v-model="item.isRed"></label></td>
                     <td>{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td><button type="button" class="btn btn-warning glyphicon glyphicon-remove btn-xs" @click.stop="del(index)"></button></td>
+                    <td><button type="button" class="btn btn-warning glyphicon glyphicon-remove btn-xs" @click.stop="del(item.id)"></button></td>
                 </tr>
                 <tr>
                     <td><button type="button" class="btn btn-danger btn-xs" @click='delChecked'>删除选中</button></td>
@@ -103,24 +104,29 @@
                     {
                         name: '衣服',
                         price: 200,
-                        isRed:false
+                        isRed:false,
+                        id:1,
                     }, {
                         name: '裤子',
                         price: 100,
-                        isRed:false
+                        isRed:false,
+                        id:2,
                     }, {
                         name: '鞋',
                         price: 500,
-                        isRed:false
+                        isRed:false,
+                        id:3
                     }, {
                         name: '手机',
                         price: 5000,
-                        isRed:false
+                        isRed:false,
+                        id:4
                     }, {
                         name: '包',
                         price: 1000,
-                        isRed:false
-                    },
+                        isRed:false,
+                        id:5
+                    },             
                 ],
                 proName:'',
                 proPrice:'',
@@ -128,8 +134,9 @@
                 count:5
             },
             methods:{
-                add(){
-                    this.productList.push({
+                // 增加
+                add(){ 
+                    this.productList.push({ //js push()向数组的末尾添加一个或更多元素，并返回新的长度。
                         name:this.proName,
                         price:this.proPrice,
                         isRed:false,
@@ -137,6 +144,7 @@
                     })   
                     this.showList = [...this.productList];
                 },
+                //变色
                 toggle(id){
                     //item.isRed = !item.isRed;
                     let toggleList = this.productList.map(function(obj,index){
@@ -145,9 +153,10 @@
                         }
                         return obj;
                     })
-                    this.productList = [...changeList];
-                    this.showList = [...changeList];
+                    this.productList = [...toggleList];
+                    this.showList = [...toggleList];
                 },
+                //全选删除
                 delChecked(){
                     // this.productList.forEach((obj,index) => {
                     //     if(obj.isRed){
@@ -157,13 +166,19 @@
                     let arr = this.productList.filter(function(obj,index){
                         //返回过滤出的isRed属性值为false
                         return !obj.isRed;
-                    })
-                    this.productList = arr; 
+                    });
+                    this.productList = [...arr];
+                    this.showList = [...arr];
                 },
-                del(index){
-                    this.productList.splice(index,1),
-                    this.showList = [...this.productList];
+                //小删除
+                del(id){
+                    let delList = this.productList.filter(function(obj,index){
+                        return obj.id != id;
+                    });
+                    this.productList = [...delList];
+                    this.showList = [...delList];
                 },
+                //搜索
                 filProduct(){
                     let searchList = this.productList.filter((obj,index) => {
                         return obj.name.includes(this.searchName)
@@ -180,7 +195,8 @@
                 //     return sum;
                 // },
             },
-            computed:{ //计算属性
+            //计算属性
+            computed:{ 
                     total(){
                         let sum = 0;
                         this.productList.forEach(function(obj,index){
