@@ -147,22 +147,23 @@
                 //变色
                 toggle(id){
                     //item.isRed = !item.isRed;
-                    let toggleList = this.productList.map(function(obj,index){
+                    // let toggleList = this.productList.map(function(obj,index){
+                    //     if(obj.id == id){ //id相同
+                    //         obj.isRed = !obj.isRed;
+                    //     }
+                    //     return obj;
+                    // })
+                    // this.productList = [...toggleList];
+                    // this.showList = [...toggleList];
+                    //forEach 循环 map 循环 映射新数组 return 
+                    this.showList.forEach(function(obj,index){
                         if(obj.id == id){
                             obj.isRed = !obj.isRed;
                         }
-                        return obj;
-                    })
-                    this.productList = [...toggleList];
-                    this.showList = [...toggleList];
+                    });
                 },
                 //全选删除
                 delChecked(){
-                    // this.productList.forEach((obj,index) => {
-                    //     if(obj.isRed){
-                    //         this.productList.splice(index,1);
-                    //     }
-                    // })
                     let arr = this.productList.filter(function(obj,index){
                         //返回过滤出的isRed属性值为false
                         return !obj.isRed;
@@ -180,20 +181,14 @@
                 },
                 //搜索
                 filProduct(){
+                    //过滤商品存在searchList
+                    //filter过滤出的新数组对象 跟原数组productList中的寸的对象 指向同一堆内存
                     let searchList = this.productList.filter((obj,index) => {
                         return obj.name.includes(this.searchName)
                     });
                     this.showList = [...searchList];
+                    this.searchName = '';
                 }
-                // total(){
-                //     let sum = 0
-                //     this.productList.forEach(function(obj,index){
-                //         if(obj.isRed == true){
-                //             sum += obj.price;
-                //         }
-                //     })
-                //     return sum;
-                // },
             },
             //计算属性
             computed:{ 
