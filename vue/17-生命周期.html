@@ -7,6 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="app">
+        {{mag}}
+    </div>
+    <script src='vue.js'></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                mag:'hello'
+            },
+            beforeCreate(){ //创建
+                console.log('beforeCreate',this.$el,this.$data);
+            },
+            create(){ //创建
+                console.log('create,this'.$el,this.$data);
+            },
+            beforeMount(){ //挂载前 页面显示值
+                console.log('beforeMount',this.$el,this.$data);
+            },
+            mount(){ //挂载后
+                console.log('mount',this.$el,this.$data);
+            },
+            beforeUpdate(){ //更新前 修改data值
+                console.log('beforeUpdate');
+            },
+            updated(){ //更新后
+                console.log('updated');
+            },
+            beforeDestroyed(){ //销毁
+                console.log('beforeDestroye');
+            },
+            destroyed(){ //销毁
+                console.log('destroye');
+            },
+        })
+    </script>
 </body>
 </html>
