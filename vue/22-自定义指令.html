@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- bind 绑定指令 -->
+    <div id="app">
+        <h1 v-bg="'red'">hello</h1>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // 钩子函数
+        Vue.directive('bg',{ //自定义指令
+            bind:function(el,binding,vNode){ //绑定指令
+                el.style.background = binding.value;
+            }
+        })
+        let vm = new Vue({
+            el: "#app",
+            data: {
+
+            }
+        })
+    </script>
+</body>
+</html>

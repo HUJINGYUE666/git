@@ -8,9 +8,7 @@
 </head>
 <body>
     <div id="app">
-        {{fullName}}
-        {{fullName}}
-        {{fullName}}
+        {{name}}
     </div>   
     <script src='vue.js'></script>
     <script>
@@ -36,11 +34,11 @@
                 //}
             },
             watch:{
-                firstName:function(){
-                    this.fullName = this.firstName + this.lastName;
+                name:function(){
+                    this.name = this.firstName + this.lastName;
                 },
-                lastName:function(){
-                    this.fullName = this.firstName + this.lastName;
+                name:function(){
+                    this.name = this.firstName + this.lastName;
                 }
             }
         })

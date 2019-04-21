@@ -57,7 +57,7 @@
             methods:{
                 total(){
                     let count = 0;
-                    this.orderList.forEach(function(obj){
+                    this.orderList.forEach(function(obj,index){
                         count += obj.price;
                     })
                     return count;
