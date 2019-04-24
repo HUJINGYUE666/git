@@ -2,6 +2,13 @@
 <template>
     <div>
         <h1>A页面</h1>
+        <div>
+            <router-link to="/test1">test1</router-link>
+        </div>
+        <div>
+            <router-link to="/test2">test2</router-link>
+        </div>
+        <router-view/> 
     </div>
 </template>
 
