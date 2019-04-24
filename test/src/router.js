@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import A from './views/A.vue'
 import B from './views/B.vue'
 import C from './views/C.vue'
+import Error from './views/Error.vue'
 
 import Test1 from './views/Test1.vue'
 import Test2 from './views/Test2.vue'
@@ -11,6 +12,8 @@ import Test2 from './views/Test2.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'hash',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
@@ -52,6 +55,14 @@ export default new Router({
       path: '/',
       component: Home,
       alias:'/x'
+    },
+    {
+      path:'*',
+      component:Error,
+      beforeEnter: (to, from, next) => {
+        console.log(to,from,next);
+        next();
+      }
     },
     {
       path: '/about',

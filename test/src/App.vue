@@ -16,13 +16,32 @@
       <router-link to='/x'>别名</router-link>
 
     </div>
-    <transition name="fade" mode='out-in'>
+    <!-- <transition name="fade" mode='out-in'> -->
+    <transition name="fade">
       <router-view></router-view>
     </transition>
     <!-- 占位 -->
     <!-- <router-view/>  -->
+    <button @click='goPrev()'>&lt;</button>
+    <button @click="goNext()">&gt;</button>
+    <button @click="goHome()">home</button>
   </div>
 </template>
+ <script>
+    export default {
+      methods:{
+        goPrev(){
+          this.$router.go(-1);
+        },
+        goNext(){
+          this.$router.go(1);
+        },
+        goHome(){
+          this.$router.push('/');
+        },
+      }
+    }
+  </script>
 <style>
   .fade-enter{
     opacity: 0;
