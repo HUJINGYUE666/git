@@ -5,6 +5,8 @@ import A from './views/A.vue'
 import B from './views/B.vue'
 import C from './views/C.vue'
 import Error from './views/Error.vue'
+import Count from './views/Count.vue'
+
 
 import Test1 from './views/Test1.vue'
 import Test2 from './views/Test2.vue'
@@ -63,6 +65,10 @@ export default new Router({
         console.log(to,from,next);
         next();
       }
+    },
+    {
+      path:'/count',
+      component:Count,
     },
     {
       path: '/about',
