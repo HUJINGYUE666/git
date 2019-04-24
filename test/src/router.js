@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import A from './views/A.vue'
 import B from './views/B.vue'
+import C from './views/C.vue'
+
 import Test1 from './views/Test1.vue'
 import Test2 from './views/Test2.vue'
 
@@ -14,6 +16,10 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/home',
+      redirect:'/'
     },
     {
       path: '/a',
@@ -31,7 +37,21 @@ export default new Router({
     },
     {
       path: '/b',
+      name:'b',
       component: B
+    },
+    {
+      path: '/b/:id',
+      redirect:'/c/:id'
+    },
+    {
+      path: '/c/:id',
+      component: C
+    }, 
+    {
+      path: '/',
+      component: Home,
+      alias:'/x'
     },
     {
       path: '/about',
