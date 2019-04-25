@@ -7,7 +7,7 @@
         <!-- {{count}} -->
         <button @click="$store.commit('add',10)">++</button>
         <button @click="$store.commit('reduce')">--</button>
-        <button @click="$store.commit('reduce')">异步</button>
+        <button @click="$addAction">异步</button>
 
     </div>
 </template>

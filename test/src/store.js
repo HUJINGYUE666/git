@@ -22,7 +22,7 @@ export default new Vuex.Store({
   },
   actions: { //异步操作 最终需要调用mutations中的方法
     addAction({commit}){
-      commit.add(num)
+      commit('add',100)
     }
   }
 })
