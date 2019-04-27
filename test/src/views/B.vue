@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>B页面</h1>
-        {{$route.params.name}}
+        姓名：{{$route.params.name}} 年龄：{{$route.params.age}}
     </div>
 </template>
 

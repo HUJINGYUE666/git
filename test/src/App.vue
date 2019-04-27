@@ -10,7 +10,7 @@
       <router-link to="/a">a页面</router-link>
       <!-- <router-link to="/b">b页面</router-link> -->
       <!-- :to 可变的 -->
-      <router-link :to="{name:'b',params:{name:'mt'}}">b页面</router-link> 
+      <router-link :to="{name:'b',params:{name:'mt',age:2}}">b页面</router-link> 
       <router-link to='/c/mt'>c页面</router-link>
       <router-link to='/b/mt'>b到c</router-link>
       <router-link to='/x'>别名</router-link>
