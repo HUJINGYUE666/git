@@ -26,8 +26,10 @@ export default new Router({
       path:'/photo',
       component:Photo
     },
-    
-
+    {
+      path:"/",
+      directives:'/movie'
+    }
     // {
     //   path: '/',
     //   name: 'home',
