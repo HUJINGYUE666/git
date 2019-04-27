@@ -1,0 +1,146 @@
+唯创网讯前端基础测试题
+                                 姓名：胡竞月        分数：
+不定项选择题
+1.下面哪些语句可以在JS里判断一个对象oStringObject是否为String。B
+A、oStringObject instanceof String  
+B、typeof oStringObject == 'string'
+C、oStringObject is String         
+D.以上答案都不正确
+2.在javascript里，下列选项中不属于数组方法的是；B
+A. sort() 
+B. length() 
+C. concat() 
+D. reverse() 
+3. 下面代码中，s的值是（）；C
+	var a = '100';
+	var b = 100;
+	var s = a + b;
+    alert(parseInt(s));
+A.NaN
+B.100100
+C.200
+D.以上都不正确
+4.下面代码输出结果：B
+var foo = 1;
+function(){
+    console.log(foo);
+    var foo = 2;
+    console.log(foo);
+}
+	A、1，2  
+B、undefined，2  
+C、null，2   
+D、1，1
+5.下面哪个属性不会让 div 脱离文档流（normal flow）？C
+A.position: absolute;
+B.position: fixed;
+C.position: relative;
+D.float: left;
+6.以下哪一条Javascript语句会产生运行错误？A
+A.var obj=( );  B.var obj=[];   C.var obj={};   D.var obj=/ /;
+7.下列哪个操作是W3C标准定义的阻止事件向父容器传递：A
+A.e.preventDefault()     
+B.e.cancelBubble=true
+C.e.stopPropagation()    
+D.e.stopImmediatePropagation()
+
+简答题
+1.css盒模型包含哪几部分？它们之前怎么转化？
+
+
+
+
+
+
+2. 事件委托是什么?有什么好处
+
+
+
+
+
+
+
+3. 判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30
+
+
+
+
+
+4.写出下面代码的运行结果
+
+
+5. javaScript中什么是闭包?闭包的好处？举例说明
+
+
+
+
+编程题（部分方法参照w3School手册）
+找出一个字符串里面出现最多个数的字符？
+div元素水平垂直都居中的方式？
+利用原型实现 A类继承B类？
+实现下图布局？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+答题纸
+选择题
+
+
+简答题
+
+css盒模型包含W3C标准盒模型和怪异盒模型
+W3C标准盒模型:宽度=内容宽度
+怪异盒模型:宽度=内容+paading+border 
+标准盒模型=>怪异盒模型:box-sizing:border-box
+
+
+   
+事件委托是利用事件冒泡，只指定一个事件处理程序来管理某一类型的所有事件
+事件委托可以解决事件冒泡
+
+
+
+
+
+
+   
+var reg = /^a-z,{6,30}/; 
+
+
+
+
+
+
+
+
+
+4. window object
+5.
+闭包:外部函数里有内部函数，内部函数引用外部函数中的局部变量或者参数，当外部函数执行完以后，局部变量不会释放
+闭包好处:使外部函数中的变量长期驻扎在内存中,获取索引
+闭包缺点:内存溢出 内存泄漏
+例如：
+var aLi = document.getElementsByTagName('li');
+for(var i = 0; i < aLi.length; i++){
+    (function(i){ 
+        aLi[i].onclick = function(){
+            console.log(i);
+        }
+    })(i);
+}

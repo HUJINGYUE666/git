@@ -1,0 +1,34 @@
+1. text-align:center;  
+   line-height:100px;
+2. 定位
+宽度高度已知
+    //父元素相对定位
+    .parent{
+        position:relative;
+    } 
+    //子元素绝对定位
+    .child{
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-top:-100px; //子元素高度一半
+        margin-left:-100px; //子元素宽度的一半
+    }
+宽度高度不知
+    //父元素相对定位
+    .parent{
+        position:relative;
+    } 
+    //子元素绝对定位
+    .child{
+        position:absolute;
+        top:50%
+        left:50%;
+        transform:translate(-50%,-50%); //变换位移
+    }
+3.弹性盒模型
+    .parent{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
