@@ -68,7 +68,7 @@
 
 <style scoped>
     .movie-container{
-    padding:0 0.2rem;
+        padding:0 0.2rem;
     }
     .movie-list{
         display: flex;
@@ -83,7 +83,7 @@
     .movie-text{
         flex:1;
     }
-     .loading{
+    .loading{
         position: fixed;
         left:50%;
         top:50%;
