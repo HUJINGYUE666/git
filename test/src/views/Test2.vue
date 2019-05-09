@@ -1,7 +1,5 @@
 <template>
-    <div>
-        test2页
-    </div>
+    <div>test2content</div>
 </template>
 
 <script>

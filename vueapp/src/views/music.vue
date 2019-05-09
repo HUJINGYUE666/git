@@ -17,6 +17,11 @@
             .then((result)=>{
                 this.musicList = result.data.albums
             })
+        },
+        methods: {
+            goList(){
+                this.$router.push('/musiclist')
+            }
         }
     }
 </script>

@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h2>c页面content</h2>
-        {{$route.params.name}}
-        {{$route.params.age}}
+        电影详情
     </div>
 </template>
 

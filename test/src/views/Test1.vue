@@ -1,8 +1,5 @@
 <template>
-    <div>
-        test1页
-        <router-view/> 
-    </div>
+    <div>test1content</div>
 </template>
 
 <script>

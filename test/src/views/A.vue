@@ -1,15 +1,14 @@
 // vbase tab
 <template>
     <div>
-        <h1>A页面</h1>
+        <h2>a页面content</h2>
         <div>
-            <router-link to="/test1">test1</router-link>
+            <router-link to="/test1">test1页面</router-link>
+            <router-link to="/test2">test2页面</router-link>
         </div>
-        <div>
-            <router-link to="/test2">test2</router-link>
-        </div>
-        <router-view/> 
+        <router-view></router-view>
     </div>
+    
 </template>
 
 <script>
