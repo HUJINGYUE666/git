@@ -3,7 +3,7 @@
         <ul class="footer-list" :style="{background:selectMenu.bg}" >
            <li v-for="(obj,index) in menu" :key="index" @click="$emit('change',index)">
                 <router-link :to="obj.path">{{obj.name}}</router-link>
-            </li>
+           </li>
         </ul>
     </div>
 </template>
@@ -30,10 +30,12 @@
     .footer-list li{
         flex: 1;
         text-align: center;
+    }
+    .footer-list a{
+        color:#000;
         outline: none;
     }
     .footer-list a.router-link-active{
         color:#fff;
     }
-
 </style>

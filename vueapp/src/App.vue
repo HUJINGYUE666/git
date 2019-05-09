@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <common-header :selectMenu="selectMenu"></common-header>
+
     <div class="content"><router-view></router-view></div>
-    
+
     <common-footer :menu="menu" :selectMenu="selectMenu" @change="fn"></common-footer>
   </div>
 </template>
 <script>
-  import CommonHeader from '@/components/CommonHeader.vue';
+  // @代表src
+  import CommonHeader from '@/components/CommonHeader.vue'; 
   import CommonFooter from '@/components/CommonFooter.vue';
   export default {
       components: {

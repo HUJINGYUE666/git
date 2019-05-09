@@ -53,14 +53,14 @@
                 this.isShow = true;
                 //axios.get('/data/movie0.json')
                 //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start='+this.movieList.length+'&count=10')
-                .then((result)=>{
-                    this.isShow = false;
-                    this.movieList = [...result.data.subjects,...result.data.subjects];
-                    console.log(this.movieList.lenght,result.data.subjects.total);
-                    if(this.movieList.length == result.data.total){
-                        this.isBottom = true;
-                    }
-                })
+                // .then((result)=>{
+                //     this.isShow = false;
+                //     this.movieList = [...result.data.subjects,...result.data.subjects];
+                //     console.log(this.movieList.lenght,result.data.subjects.total);
+                //     if(this.movieList.length == result.data.total){
+                //         this.isBottom = true;
+                //     }
+                // })
             }
         }
     }
