@@ -16,6 +16,7 @@
         CommonHeader,
         CommonFooter
       },
+      // 传值方便
       data() {
         return {
           menu:[
@@ -39,6 +40,7 @@
               bg: "#fabbaa"
             }
           ],
+          //当前选用对象
           selectMenu:{
               name:"电影",
               path:"/movie",
@@ -52,6 +54,7 @@
           this.selectMenu = this.menu[index];
         }
       },
+      //钩子函数 判断路径
       created() {
         this.menu.forEach((obj,index)=>{
           if(obj.path == this.$route.path){

@@ -38,7 +38,7 @@ export default new Router({
     },
     {
       path:"/",
-      directives:'/movie'
+      redirect:'/movie'
     } 
   ]
 })
