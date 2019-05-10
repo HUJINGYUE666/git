@@ -2,7 +2,7 @@
     <div class="movie-container">
         <ul>
             <!-- key唯一 -->
-            <li v-for="(obj,index) in movieList" :key="index" class="movie-list"> 
+            <li class="movie-list" v-for="(obj,index) in movieList" :key="index"> 
                 <img class="movie-img" :src="obj.images.medium"/>
                 <div class="movie-text">
                     <h4>{{obj.title}}</h4>
@@ -36,13 +36,19 @@
             // 域名 协议  端口号 只要有一个不同即为跨域 安全限制 
             // https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start=0&count=10
             //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start=0&count=10')
-            this.getMovie();
+            // // /public
+            // //axios.get('/data/movie0.json')
+            // .then((result)=>{
+            //     this.movieList = result.data.subjects;
+            //     this.isShow = false;
+            // })
+            // this.getMovie();
             window.onscroll = () =>{
-                let scrollTop = document.documentElement.scrollTop;
-                let clinetHeight = document.documentElement.clientHeight;
-                let height = document.documentElement.scrollHeight;
-                // console.log(scrollTop,clinetHeight,height);
-                if(scrollTop + clinetHeight == height){
+                let scrollTop = document.documentElement.scrollTop;//滚动高度
+                let clinetHeight = document.documentElement.clientHeight;//可视高度
+                let height = document.documentElement.scrollHeight;//总高度
+                //console.log(scrollTop,clinetHeight,height);
+                if(scrollTop + clinetHeight == height && !this.isBottom){
                     // 加载下一屏
                     this.getMovie();
                 }
@@ -51,16 +57,19 @@
         methods: {
             getMovie(){
                 this.isShow = true;
+                //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start=0&count=10')
+                axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start='+this.movieList.length+'&count=10')
+                // /public
                 //axios.get('/data/movie0.json')
-                //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start='+this.movieList.length+'&count=10')
-                // .then((result)=>{
-                //     this.isShow = false;
-                //     this.movieList = [...result.data.subjects,...result.data.subjects];
-                //     console.log(this.movieList.lenght,result.data.subjects.total);
-                //     if(this.movieList.length == result.data.total){
-                //         this.isBottom = true;
-                //     }
-                // })
+                .then((result)=>{
+                    this.isShow = false;
+                    // this.movieList = result.data.subjects;
+                    this.movieList = [...this.movieList,...result.data.subjects];           
+                    if(this.movieList.length == result.data.total){
+                        this.isBottom = ture;
+                    }
+                })
+                
             }
         }
     }
@@ -73,7 +82,7 @@
     .movie-list{
         display: flex;
         border-bottom: 1px solid #000;
-        padding:0.2rem 0;
+        padding: 0.2rem 0;
     }
     .movie-img{
         width:100px;

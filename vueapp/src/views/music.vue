@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="obj.bg" v-for="(obj,index) in musicList" :key="index"/>
+        <img :src="obj.bg" v-for="(obj,index) in musicList" :key="index" @click='goList()'/>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
     import axios from 'axios'
     export default {
         data() {
-            return {
+            return { //避免组件相互影响
                 musicList:[]
             }
         },
