@@ -1,25 +1,41 @@
 <template>
     <div>
-        <swipe class="my-swipe">
+        <!-- <swipe class="my-swipe">
             <swipe-item class="slide1"></swipe-item>
             <swipe-item class="slide2"></swipe-item>
             <swipe-item class="slide3"></swipe-item>
-        </swipe>
+        </swipe> -->
+        <slide :imgs="imgs"></slide>
     </div>
 </template>
 <script>
-    require('vue-swipe/dist/vue-swipe.css');
-    import { Swipe, SwipeItem } from 'vue-swipe';
-    export default {
+    // require('vue-swipe/dist/vue-swipe.css');
+    // import { Swipe, SwipeItem } from 'vue-swipe';
+    // export default {
+    //     components: {
+    //         Swipe,
+    //         SwipeItem
+    //     }
+    // }
+    import Slide from "@/components/Slide.vue";
+     export default {
+         data() {
+             return {
+                 imgs:[
+                    "https://img3.doubanio.com/lpic/s24468373.jpg",
+                    "https://img3.doubanio.com/lpic/s27102925.jpg",
+                    "https://img3.doubanio.com/lpic/s6989253.jpg"
+                ]
+             }
+         }, 
         components: {
-            Swipe,
-            SwipeItem
+            Slide
         }
     }
 </script>
 
 <style scoped>
-.my-swipe {
+/* .my-swipe {
   height: 200px;
   color: #fff;
   font-size: 30px;
@@ -42,5 +58,5 @@
   background-color: #ff2d4b;
   color: #fff;
 
-}
+} */
 </style>
