@@ -2,16 +2,16 @@
     <div class="movie-container">
         <ul>
             <!-- key唯一 -->
-            <li class="movie-list" v-for="(obj,index) in movieList" :key="index"> 
+            <li class="movie-list" v-for="(obj,index) in movieList" :key="index" @click='goDetail(obj.id)'> 
                 <img class="movie-img" :src="obj.images.medium"/>
                 <div class="movie-text">
                     <h4>{{obj.title}}</h4>
                     <p>
                         <span v-for="(cast,index) in obj.casts" :key="index">{{cast.name}}</span>
                     </p>
-                    <p>590302已观看</p>
-                    <p>年份：2019</p>
-                    <p>奇幻/</p>
+                    <p>{{obj.collect_count}}已观看</p>
+                    <p>年份：{{obj.year}}</p>
+                    <span v-for="(genres,index) in obj.genres" :key="index">{{genres}}</span>
                 </div>
             </li>
         </ul>
@@ -42,7 +42,7 @@
             //     this.movieList = result.data.subjects;
             //     this.isShow = false;
             // })
-            // this.getMovie();
+            this.getMovie();
             window.onscroll = () =>{
                 let scrollTop = document.documentElement.scrollTop;//滚动高度
                 let clinetHeight = document.documentElement.clientHeight;//可视高度
@@ -58,18 +58,20 @@
             getMovie(){
                 this.isShow = true;
                 //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start=0&count=10')
-                axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start='+this.movieList.length+'&count=10')
+                //axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start='+this.movieList.length+'&count=10')
                 // /public
-                //axios.get('/data/movie0.json')
+                axios.get('/data/movie0.json')
                 .then((result)=>{
                     this.isShow = false;
                     // this.movieList = result.data.subjects;
                     this.movieList = [...this.movieList,...result.data.subjects];           
                     if(this.movieList.length == result.data.total){
-                        this.isBottom = ture;
+                        this.isBottom = true;
                     }
                 })
-                
+            },
+            goDetail(id){
+                this.$router.push('/moviedetail/'+id)
             }
         }
     }

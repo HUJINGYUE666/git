@@ -8,7 +8,7 @@
     import axios from 'axios'
     export default {
         data() {
-            return { //避免组件相互影响
+            return { 
                 musicList:[]
             }
         },

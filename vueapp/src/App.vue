@@ -18,7 +18,7 @@
       },
       // 传值方便
       data() {
-        return {
+        return { //避免组件相互影响
           menu:[
             {
               name:"电影",
