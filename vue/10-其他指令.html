@@ -13,11 +13,10 @@
 </head>
 <body>
     <div id="app">
-        <!-- 解决闪动问题 -->
-        <div v-cloak>{{msg}}</div>
         <!-- 原样输出 -->
         <div v-pre>{{msg}}</div>
-
+        <!-- 解决闪动问题 -->
+        <div v-cloak>{{msg}}</div>
     </div>
     <!-- <script src="vue.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -25,7 +24,7 @@
         new Vue({
             el:'#app',//挂载元素
             data:{
-                msg:'hello world'
+                msg:'hello'
             }
         })
     </script>

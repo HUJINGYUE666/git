@@ -22,10 +22,9 @@
 </head>
 <body>
     <div id="app">
-        <!-- e -->
         <!-- once执行一次 -->
-        <button v-on:click.once='onClick(2,$event)'>点我+1</button>
-        <!-- @keyup.enter -->
+        <button v-on:click.once='onClick(1,$event)'>+</button>
+        <!-- @keyup.enter回车 -->
         <input type="number" v-model='num' @keyup.13='keyup($event)'>
         <h1>{{count}}</h1>
         <!-- 阻止事件冒泡 -->
@@ -42,14 +41,13 @@
                 num: 0,
             },
             methods: {
-                // onClick(n, e) {
-                //     console.log(Math.random());
-                //     this.count += n;
-                //     console.log(e);
-                // },
+                onClick(n, e) {
+                    console.log(1);
+                    this.count += n;
+                    console.log(e);
+                },
                 keyup(e) {
-                    // console.log(e.keyCode)
-                    // 
+                    console.log(e.keyCode)
                     {
                         this.count += parseInt(this.num);
                     }
@@ -62,8 +60,8 @@
                 }
             }
         })
-        // .prevent - 调用 event.preventDefault()阻止默认行为
+    // .stop - 调用event.stopPropagation()。阻止事件冒泡
+    // .prevent - 调用event.preventDefault()。 阻止默认行为
     </script>
 </body>
-
 </html>
