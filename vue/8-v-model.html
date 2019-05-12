@@ -23,7 +23,8 @@
             </p>
             <p>
                 性别：
-                <input type="radio" name="sex" value="1" v-model='sex'>男
+                <!-- name一组 value后端提交值 -->
+                <input type="radio" name="sex" value="1" v-model='sex'>男 
                 <input type="radio" name="sex" value="0" v-model='sex'>女
                 <p>性别：{{sex}}</p>
             </p>
@@ -32,7 +33,7 @@
                 <input type="checkbox" name="hobby" v-model="hobby" value="足球">足球
                 <input type="checkbox" name="hobby" v-model="hobby" value="篮球">篮球
                 <input type="checkbox" name="hobby" v-model="hobby" value="排球">排球
-                <p>爱好是: {{ hobby }}</p>
+                <p>爱好是: {{hobby}}</p>
             </p>
             <p>
                 学校：
@@ -43,10 +44,11 @@
                 </select>
                 <p>学校：{{school}}</p>
             </p>
-            <!-- 兼容性不好 -->
+            <!-- 兼容性问题 -->
             <input type="email"> 
             <!-- 滚动条 -->
             <input type="range">
+            <!-- 日期 -->
             <input type="date">
             <!-- 地址 -->
             <input type="url"> 

@@ -8,13 +8,11 @@
 </head>
 <body>
     <div id="app">
-        {{msg}}
-        <!-- if和else show -->
-        <!-- 不需要频繁切换 if -->
-        <div v-if='isLogin'>馒头</div> 
-        <div v-else>狐狸</div>
-        <!-- 频繁切换show -->
-        <div v-show='isLogin'>狐狸</div>
+        <!-- if 不频繁切换  -->
+        <!-- show 频繁切换-->
+        <div v-if='isShow'>mt</div> 
+        <div v-else>hl</div>
+        <div v-show='isShow'>ph</div>
 
         <div v-if='str == "A"'>A</div>
         <div v-else-if='str == "B"'>B</div>
@@ -26,8 +24,7 @@
         new Vue({
             el:'#app',
             data:{
-                msg:'hello world',
-                isLogin:true,
+                isShow:true,
                 str:'A'
             }
         })

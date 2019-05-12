@@ -8,21 +8,20 @@
 </head>
 <body>
     <div id="app">
-        {{msg}}
         <!-- 循环 -->
-        <div v-for='(item,index) in arr'> 
-            {{item}} {{index}}
+        <div v-for='(obj,index) in arr'> 
+            {{obj}} {{index}}
         </div>
-        <div v-for='user in listSort'>
-            {{user.name}} {{user.age}}
-            <!-- <button @click = 'showName(user.name)'>show</button> -->
-            <button @click = 'showName(user)'>show</button>            
+        <div v-for='obj in listSort'>
+            {{obj.name}} {{obj.age}}
+            <button @click = 'isShow(obj.name)'>show</button>
+            <button @click='isShow(obj)'>show</button>            
         </div>
-        <div v-for='attr in cat'>
-            {{attr}}
+        <div v-for='obj in cat'>
+            {{obj}}
         </div>
-        <div v-for='(attr,key) in cat'>
-            {{attr}} {{key}}
+        <div v-for='(obj,key) in cat'>
+            {{obj}} {{key}}
         </div>
     </div>
     <script src="vue.js"></script>
@@ -31,23 +30,22 @@
         const vm = new Vue({
             el:'#app',
             data:{
-                msg:'hello',
-                arr:['html','css','js'],
+                arr:['mt','hl','ph'],
                 list:[
                     {
-                        name:'mantou',
+                        name:'mt',
+                        age:1
+                    },{
+                        name:'hl',
                         age:2
                     },{
-                        name:'huli',
+                        name:'ph',
                         age:3
-                    },{
-                        name:'panghu',
-                        age:4
                     }
                 ],
                 cat:{
-                    name:'meimei',
-                    age:5
+                    name:'mm',
+                    age:4
                 }
             },
             computed:{
@@ -58,10 +56,7 @@
                 }
             },
             methods:{
-                // showName(name){
-                //     console.log(name);
-                // }
-                showName(obj){
+                isShow(obj){
                     console.log(obj);
                 }
             }
