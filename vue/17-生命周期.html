@@ -27,10 +27,10 @@
             created(){ //创建
                 console.log('created,this'.$el,this.$data);
             },
-            beforeMount(){ //挂载前 页面显示值
+            beforeMount(){ //挂载前 页面显示值 {{msg}}
                 console.log('beforeMount',this.$el,this.$data);
             },
-            mounted(){ //挂载后
+            mounted(){ //挂载后 hello
                 console.log('mounted',this.$el,this.$data);
             },
             beforeUpdate(){ //更新前 修改data值
@@ -39,10 +39,10 @@
             updated(){ //更新后
                 console.log('updated');
             },
-            beforeDestroy(){ //销毁
+            beforeDestroy(){ //销毁前
                 console.log('beforeDestroy');
             },
-            destroyed(){ //销毁
+            destroyed(){ //销毁后
                 console.log('destroye');
             },
             methods:{

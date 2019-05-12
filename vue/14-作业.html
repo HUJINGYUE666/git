@@ -10,30 +10,28 @@
     <div id="app">
         <div>
             是否需要额外付费设施
-            <input type="checkbox" v-model='isShow' @click='fn()'>
-            <ul v-show='isShow'>
-                <li v-for='obj in payList'>
-                    {{obj.name}} {{obj.price}}
-                    <input type="checkbox" :value='obj' v-model="orderList"> 
+            <input type="checkbox" v-model="isCheck" @click="fn()">
+            <ul v-show="isCheck">
+                <li v-for="obj in payList">
+                    {{obj.name}}（{{obj.price}}）
+                    <input type="checkbox" v-model="orderList" :value="obj"> 
                 </li>
             </ul>
         </div>
         <div>
             <p>订单费用信息</p>   
             <ul>
-                <li v-for='obj in orderList'>
-                    {{obj.name}} {{obj.price}}</li>
+                <li v-for="obj in orderList">{{obj.name}}({{obj.price}})</li>
             </ul>
         </div>
-        <!--methods {{total()}}-->
-        <div>总金额：{{total}}</div>  
+        <div>总金额：{{total()}}</div>
     </div>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
             el:'#app',
             data:{
-                isShow:false,
+                isCheck:false,
                 payList:[
                     {
                         name:'沙发',
@@ -57,17 +55,15 @@
                 ]
             },
             methods:{
-                fn(){
-                    this.orderList.splice(1);
-                }
-            },
-            computed:{
                 total(){
                     let count = 0;
                     this.orderList.forEach(function(obj,index){
                         count += obj.price;
                     })
                     return count;
+                },
+                fn(){
+                    this.orderList.splice(1);
                 }
             }
         });

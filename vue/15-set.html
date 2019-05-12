@@ -18,16 +18,16 @@
         new Vue({
             el:'#app',
             data:{
-                arr:[1,2,3,4]
+                arr:[1,2,3]
             },
             methods:{
                 fn(){
                     //this.arr[1] = 666; 修改数组索引改变不更新
-                    Vue.set(this.arr,1,666);
+                    Vue.set(this.arr,0,666);
                 }
             }
         })
-        //es5 object.definProperty() vue2 检测arr方法
+        //es5 object.definProperty() 检测数组方法 vue2 IE8以上 
         //es6 proxy()
     </script>
 </body>
