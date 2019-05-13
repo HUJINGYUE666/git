@@ -15,12 +15,15 @@
         class MyComponent extends React.Component{
             constructor(params){
                 super(params);
+                // 初始化数据
                 this.state = {
                     num:0
                 };
                 this.add = this.add.bind(this)
             }
+            //自定义方法 this是undefined
             add(){
+                //修改state setState
                 this.setState({
                     num:2
                 })
@@ -28,8 +31,7 @@
             render(){
                 return(
                     <div>
-                         <div>{this.state.num}</div>
-                         <button onClick={this.add.bind(this)}>+</button>                          
+                         <div>{this.state.num}</div>                      
                          <button onClick={this.add}>+</button>
                     </div>
                 )
