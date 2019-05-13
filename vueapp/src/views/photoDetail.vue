@@ -1,13 +1,11 @@
 <template>
     <div>
-
         <!-- <img :src="url"/> -->
         <!-- {{$route.params.index}} -->
         <router-link to="/photo">
             <v-touch class="img-box" :style="{backgroundImage:'url('+url+')'}" @swipeleft="next()">
             </v-touch>
         </router-link>
-        
     </div>
 </template>
 
@@ -29,6 +27,7 @@
         },
         methods: {
             next(){
+                console.log(1);
                 this.idx++;
                 if(this.idx == this.$store.state.photoData.length){
                     this.idx = 0;

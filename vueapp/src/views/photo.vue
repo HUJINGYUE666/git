@@ -9,14 +9,13 @@
     export default {
         data(){
             return {
-               
+               photoData:[]
             }
         },
         created() {
             axios.get('/data/photodata.json')
             .then((result)=>{
                 // this.photoData = result.data.photoData;
-
                 this.$store.commit('addPhoto',result.data.photoData)
             })
         },

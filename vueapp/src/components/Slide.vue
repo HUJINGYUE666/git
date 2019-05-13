@@ -8,11 +8,6 @@
     </div>
 </template>
 <script>
-// [
-//                     "https://img3.doubanio.com/lpic/s24468373.jpg",
-//                     "https://img3.doubanio.com/lpic/s27102925.jpg",
-//                     "https://img3.doubanio.com/lpic/s6989253.jpg"
-//                 ],
     export default {
         props:['imgs'],
         data(){
@@ -27,7 +22,6 @@
                     this.idx = 0;
                 }
             }, 1000);
-
         },
     }
 </script>
@@ -58,7 +52,7 @@
         height:100%;
     }
 
-    /* 过度的动画  */
+    /* 过渡的动画  */
     .fade-enter{
         transform: translateX(-100%);
     }
