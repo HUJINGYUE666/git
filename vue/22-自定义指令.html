@@ -15,7 +15,7 @@
     <script>
         // 钩子函数
         Vue.directive('bg',{ //自定义指令
-            bind:function(el,binding,vNode){ //绑定指令
+            bind:function(el,binding,vNode){ //绑定指令 el元素 binding指令信息 vNode虚拟dom
                 el.style.background = binding.value;
             }
         })

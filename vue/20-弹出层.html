@@ -6,48 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #app{
+        .dialog{
             width: 300px;
             height: 200px;
             background: #ccc;
+            border: 1px solid #000;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <dial title='登录' @close='fn'></dial>
-        <h1>内容内容内容</h1>
+        <my-dialog title='登录' @close='fn'>
+            <h1>content</h1>
+        </my-dialog>
+        <my-dialog title='注册' @close='fn'>
+            <div>
+                <div>
+                    <label>用户名：</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>密码：</label>
+                    <input type="password">
+                </div>  
+            </div>
+        </my-dialog>
     </div>
-    <template id="dia">
-        <div>
-            <div class="dl-title">
+    <template id="dial">
+        <div class="dialog">
+            <div class="dialog-title">
                 <span>{{title}}</span>
-                <!-- 自定义组件 父到子传值 
-                    值不能修改 
-                    兄弟不能直接传值-->
+                <!--自定义组件,兄弟不可以直接传值,只能子传父,父传子,值不能修改-->
                 <span @click='$emit("close",title)'>❌</span>
             </div>
-            <div>
+            <div class="dialog-content">
                 <slot></slot>
             </div>
-            <div class="dl-content"></div>
         </div>
     </template>
     <script src='vue.js'></script>
     <script>
         let vm = new Vue({
             el:'#app',
-            data:{
-
-            },
             methods:{
                 fn(msg){
                     console.log(msg);
                 }
             },
             components:{
-                'dial':{
-                    template:'#dia',
+                'my-dialog':{
+                    template:'#dial',
                     props:['title'] 
                 }
             }
