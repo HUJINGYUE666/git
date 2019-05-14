@@ -8,52 +8,89 @@
 </head>
 <body>
     <script>
-        var reg = /a/;
-        var str = 'abcd';
-        console.log(reg.exec(str));
+        // /c{n}/; 连续n个
+        // var reg = /c{1}/; //连续1个
+        // var str = 'abc';
+        // document.write(reg.exec(str));
 
-        // reg = /c{n}/; 匹配n个c
-        // reg = /c{n,m}/; 匹配n至m个 
-        // reg = /c{n,}/; 匹配n个及以上
+        // var reg = /c{2}/; //连续2个
+        // var str = 'aabbcc';
+        // document.write(reg.exec(str));
 
-        /*
-        区分大小写
-        /c{n}/; n个
-        /c{n,m}/; n-m个 /c{3,5}/ 3-5个
-        /c{n,}/; 表示n个以上的c 包含n
-        *  0或多个 c* 和 c{0,} 是一个意思。
-        +  1或多个 c+ 和 c{1,} 是一个意思。
-        ?  0个或1个 c? 和 c{0,1} 是一个意思。
-        c{n,m}？ 非贪婪模式 尽可能少的匹配 表示数量的符号后加？  
+        // /c{n,m}/; 连续n-m个
+        // var reg = /c{3,5}/; //连续3-5个
+        // var str = 'abccccccccc';
+        // document.write(reg.exec(str));
 
-        ^开头
-        结尾$
+        ///c{n,}/; 表示n个以上连续c 包含n
+        // var reg = /c{1,}/; //
+        // var str = 'abccccccccc';
+        // document.write(reg.exec(str));
 
-        . 除了/n以外的任意字符
+        //*  0或多个 c* 和 c{0,} 是一个意思。
+        var reg = /c*/;
+        var str = 'abccccccccc';
+        document.write(reg.exec(str));
 
-        b|c表示,匹配b或者c
+        //+  1或多个 c+ 和 c{1,} 是一个意思。
+        // var reg = /c+/;
+        // var str = 'abccccccccc';
+        // document.write(reg.exec(str));
 
+        // ?  0个或1个 c? 和 c{0,1} 是一个意思。
+        // var reg = /c{1,}?/;
+        // var str = 'abccccccccc';
+        // document.write(reg.exec(str));  
 
-        字符集合 [abc] a或b或c
-        [^abc] 非a或b或c开头 [^a-z] 非小写字母开头
+        //^开头
+        // var reg = /^c/;
+        // var str = 'c维生素';
+        // document.write(reg.exec(str)); 
 
-        /\bc/ 前边界c /c\b/ 后边界c 中文除外 两边中间空格都算
-        /\d/ 数字 
-        /\D/ 非数字 
-        /\w/ 字符集合 数字字母下划线
+        // ^开头
+        // var reg = /c$/;
+        // var str = '维生素c';
+        // document.write(reg.exec(str)); 
 
-        //反向引用  
-        () 子字符集
-        \1 代表第一个子字符集的反向引用
-        /(\w)(\w)\2\1/ abba cddc
-        \i 忽略大小写
-        \g 全局匹配 所有
-        \s 空格
+        //. 除了/n以外的第一个任意字符
+        // var reg = /./;
+        // var str = 'abc';
+        // document.write(reg.exec(str)); 
 
-        search 
-        match 
+        // b|c表示 第一个出现b或者c
+        // var reg = /b|c/;
+        // var str = 'blueidea';
+        // document.write(reg.exec(str));
 
-        */
+        //字符集合 [abc] 第一个a或b或c 
+        //^在字符集合中表示非 [^abc] 非a或b或c开头 [^a-z] 非小写字母开头 
+        // var reg = /[abc]/;
+        // var str = 'abc';
+        // document.write(reg.exec(str));
+
+        // var reg = /[^abc]/;
+        // var str = 'abcd';
+        // document.write(reg.exec(str));
+
+        // var reg = /[^a-z]/;
+        // var str = 'abcdE';
+        // document.write(reg.exec(str));
+
+        ///\bc/ 前边界c /c\b/ 后边界c 中文除外 两边中间空格都算
+        // var reg = /\bc/;
+        // var str = 'cde';
+        // document.write(reg.exec(str));
+
+        // var reg = /c\b/;
+        // var str = 'abc';
+        // document.write(reg.exec(str));
+
+        /// \d/ 第一个数字  /\D/ 第一个非数字 
+        // \w表示所有单词字符，等同于字符集合[a-zA-Z0-9]
+        // /(\w)(\w)\2\1/ abba cddc /1第一个括号表示的内容 /2第二个括号表示的内容
+        // \i 忽略大小写
+        // \g 全局匹配 所有
+        // \s 空格
     </script>
 </body>
 </html>

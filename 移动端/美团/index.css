@@ -17,13 +17,21 @@ body{
     color:#fff;
 }
 .search{
-    flex:1
+    flex:1;
+    text-align: center;
+    line-height: 1.01rem;
 }
 .mine{
     width:0.94rem;
+    text-align: center;
+    line-height: 1.01rem;
+    color:#fff;
+}
+#content{
+    margin: 0.2rem;
 }
 .product li{
-    display: flex;
+    display: flex; 
 }
 .product .img{
     width:1.8rem;
