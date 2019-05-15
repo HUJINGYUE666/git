@@ -11,36 +11,31 @@
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
-    <script type="text/babel">
+    <script type="text/babel"> //type="text/babel"
         class MyComponent extends React.Component{
             constructor(params){
                 super(params);
-                // 初始化数据
-                this.state = {
-                    num:0
-                };
-                this.add = this.add.bind(this)
+                this.clickHandle = this.clickHandle.bind(this); 
             }
-            //自定义方法 this是undefined
-            add(){
-                //修改state setState
-                this.setState({
-                    num:1
-                })
+            clickHandle(){ //event
+                console.log(this.refs.name.value);
+                console.log(this.name.value);
+                // console.log(event.tager);
             }
             render(){
                 return(
                     <div>
-                         <div>{this.state.num}</div>                      
-                         <button onClick={this.add}>+</button>
+                        用户名：<input type='text' ref='name'/> 
+                        密码：<input type='password' ref={input => this.name =input}/> 
+                        <button onClick={this.clickHandle}>click</button>
                     </div>
                 )
             }
         }
-        ReactDOM.render(
-            <MyComponent title='hello' content='hello world'></MyComponent>,
+        ReactDOM.render( 
+            <MyComponent></MyComponent>,
             document.getElementById('app')
-        )
+        );
     </script>
 </body>
 </html>

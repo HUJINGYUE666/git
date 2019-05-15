@@ -8,7 +8,7 @@
     left:0;
     top:0;
     right:0;
-    bottom:0px;
+    bottom:0;
     background: #083846;
 }
 .page-1 .img1{
@@ -72,8 +72,6 @@
     left: 50%;
     margin-left: -120px;
 }
-
-/* page-2的样式结束 */
 /* page-3的样式开始 */
 .page-3{
     position: absolute;
@@ -111,8 +109,6 @@
     top: 43%;
     margin-left: -124px;
 }
-
-/* page-3的样式结束 */
 /* page-4的样式开始 */
 .page-4{
     position: absolute;
@@ -154,10 +150,6 @@
     margin-left: -135px;
 }
 
-
-
-/* page-4的样式结束 */
- 
 .moveFromTop{
     animation: moveFromTop 0.6s ease forwards;
 }
@@ -205,7 +197,7 @@
 }
 
 .moveScale{
-    animation: moveScale  0.6s ease forwards;
+    animation: moveScale 0.6s ease forwards;
 }
 @keyframes moveScale{
     0%{

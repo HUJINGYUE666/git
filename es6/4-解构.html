@@ -13,9 +13,13 @@
         // 变量的解构赋值
         // 从数组和对象中提取值，对变量进行赋值，这被称为解构
         // 1.数组解构
-        let arr = [1,2,3];
-        let [a,b,c] = arr; 
-        console.log(a,b,c); 
+        // let arr = [1,2,3];
+        // let [a,b,c] = arr; 
+        // console.log(a,b,c); 
+
+        let arr = [1,[2,3],4];
+        let [a,[b,c],d] = arr; 
+        console.log(a,b,c,d); 
 
         // 2.对象解构
         // let obj = {
