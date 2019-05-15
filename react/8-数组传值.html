@@ -12,29 +12,39 @@
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
     <script type="text/babel"> //type="text/babel"
-        class MyComponent extends React.Component{
+        class Main extends React.Component{
             constructor(params){
                 super(params);
-                this.clickHandle = this.clickHandle.bind(this); 
+                this.state = {
+                    num:0
+                };
+                this.add = this.add.bind(this); 
             }
-            clickHandle(){ //event
-                console.log(this.refs.name.value);
-                console.log(this.name.value);
-                // console.log(event.tager);
-
+            add(count){
+                this.setState({
+                    num:this.state.num + count
+                })
             }
             render(){
                 return(
                     <div>
-                        用户名：<input type='text' ref='name'/> 
-                        密码：<input type='password' ref={input => this.name =input}/> 
-                        <button onClick={this.clickHandle}>click</button>
+                        <h1>main组件 {this.state.num}</h1>
+                        <A add={this.add}></A>
                     </div>
                 )
             }
         }
+        class A extends React.Component{
+            render() {
+                return(
+                    <button onClick={()=>{
+                        this.props.add(1);
+                    }}>add</button>
+                )
+            }
+        }
         ReactDOM.render( 
-            <MyComponent></MyComponent>,
+            <Main></Main>,
             document.getElementById('app')
         );
     </script>
