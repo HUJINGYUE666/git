@@ -7,11 +7,12 @@
 var oStartPage = document.getElementById('startPage');
 var oStartGame = document.getElementById('startGame');
 
+var oLeftSide = document.getElementById('leftSide');
+var oScore = document.getElementById('score');
 var oContent = document.getElementById('content');
 
 var oLoser = document.getElementById('loser');
-var oLoserScore = document.getElementById('loser-score');
-var oScore = document.getElementById('score');
+var oLoserScore = document.getElementById('loserScore');
 var oReturn = document.getElementById('return');
 
 var oSnakeMove;
@@ -32,13 +33,13 @@ function init() {
     this.foodH = 20;
     this.foodX = 0;
     this.foodY = 0;
-    //蛇
+    //蛇宽高 
     this.snakeW = 20;
     this.snakeH = 20;
     this.snakeBody = [
-        [4, 3, 'head'],
-        [3, 3, 'body'],
-        [2, 3, 'body']
+        [4, 2, 'head'],
+        [3, 2, 'body'],
+        [2, 2, 'body']
     ];
     //游戏属性
     this.direct = 'right';
@@ -59,8 +60,8 @@ function startGame() {
         move();
     }, speed)
     bindEvent();
-    oStartPush.style.display = 'block';
     oStarPage.style.display = 'none';
+    oLeftSide.style.display = 'block';
 }
 
 function food() { //地图范围 食物坐标 随机出现
@@ -75,16 +76,17 @@ function food() { //地图范围 食物坐标 随机出现
     this.mapDiv.appendChild(oFood).setAttribute('class', 'food');
 }
 
-function snake() {
+function snake() { //蛇 蛇身 移动方向
     for (var i = 0; i < this.snakeBody.length; i++) {
         var oSnake = document.createElement('div');
-        this.mapDiv.appendChild(oSnake).setAttribute('class', 'snake');
+        // this.mapDiv.appendChild(oSnake).setAttribute('class', 'snake');
         oSnake.style.width = this.snakeW + 'px';
         oSnake.style.height = this.snakeH + 'px';
         oSnake.style.position = 'absolute';
         oSnake.style.left = this.snakeBody[i][0] * 20 + 'px';
         oSnake.style.top = this.snakeBody[i][1] * 20 + 'px';
         oSnake.classList.add(this.snakeBody[i][2]);
+        this.mapDiv.appendChild(oSnake).classList.add('snake');
         switch (this.direct) {
             case 'right':
                 break;
@@ -103,10 +105,10 @@ function snake() {
     }
 }
 
-function move() {
+function move() { //蛇移动
     for (var i = this.snakeBody.length - 1; i > 0; i--) {
-        this.snakeBody[i][0] = this.snakeBody[i - 1][0];
-        this.snakeBody[i][1] = this.snakeBody[i - 1][1];
+        this.snakeBody[i][0] = this.snakeBody[i - 1][0]; //前面x值
+        this.snakeBody[i][1] = this.snakeBody[i - 1][1]; //前面y值
     }
     switch (this.direct) {
         case 'right':
@@ -124,10 +126,11 @@ function move() {
         default:
             break;
     }
-    removeClass('snake');
-    snake();
-
+    removeClass('snake'); //删除最后一个蛇身体
+    snake(); //新蛇
+    //蛇头碰到食物 碰到边界
     if (this.snakeBody[0][0] * 20 == this.foodX && this.snakeBody[0][1] * 20 == this.foodY) {
+        //吃到食物 身体加1
         var snakeEndX = this.snakeBody[this.snakeBody.length - 1][0];
         var snakeEndY = this.snakeBody[this.snakeBody.length - 1][1];
         switch (this.direct) {
@@ -135,10 +138,10 @@ function move() {
                 this.snakeBody.push([snakeEndX + 1, snakeEndY, 'body']);
                 break;
             case 'up':
-                this.snakeBody.push([snakeEndX, snakeEndY - 1, 'body']);
+                this.snakeBody.push([snakeEndX, snakeEndY + 1, 'body']);
                 break;
             case 'left':
-                this.snakeBody.push([snakeEndX - 1, snakeEndY, 'body']);
+                this.snakeBody.push([snakeEndX + 1, snakeEndY, 'body']);
                 break;
             case 'down':
                 this.snakeBody.push([snakeEndX, snakeEndY + 1, 'body']);
@@ -146,11 +149,12 @@ function move() {
             default:
                 break;
         }
-        this.score += 1;
+        this.score += 1; //吃到食物 分数加1
         oScore.innerHTML = this.score;
-        removeClass('food');
-        food();
+        removeClass('food'); //食物消失
+        food(); //新食物
     }
+    //碰到边界 游戏结束
     if (this.snakeBody[0][0] < 0 || this.snakeBody[0][0] > this.mapW / 20) {
         gameOver();
     }
@@ -159,6 +163,7 @@ function move() {
     }
     var snakeHX = this.snakeBody[0][0];
     var snakeHY = this.snakeBody[0][1];
+    //碰到自己身体 游戏结束
     for (var i = 1; i < this.snakeBody.length; i++) {
         if (snakeHX == this.snakeBody[i][0] && snakeHY == this.snakeBody[i][1]) {
             gameOver();
@@ -166,10 +171,11 @@ function move() {
     }
 }
 
-function gameOver() {
+function gameOver() { //游戏结束
     removeClass('snake');
     removeClass('food');
     clearInterval(oSnakeMove);
+    //游戏初始值
     this.snakeBody = [
         [4, 3, 'head'],
         [3, 3, 'body'],
@@ -181,11 +187,12 @@ function gameOver() {
     this.up = true;
     this.down = true;
 
-    this.score = 0;
+    // this.score = 0;
+    oScore.innerHTML = this.score; 
     oLoser.style.display = 'block';
+    // oLoserScore.innerHTML = oScore.innerHTML;
     oLoserScore.innerHTML = oScore.innerHTML;
     this.score = 0;
-    oScore.innerHTML = this.score; 
 }
 
 function removeClass(className) {
@@ -195,7 +202,7 @@ function removeClass(className) {
     }
 }
 
-function setDirect(code) {
+function setDirect(code) { //游戏属性 键盘码
     switch (code) {
         case 37:
             if (this.left) {
@@ -238,12 +245,27 @@ function setDirect(code) {
     }
 }
 
-function bindEvent(e) {
+function bindEvent(e) { //点击事件
     document.onkeydown = function (e) {
         var code = e.keyCode;
         setDirect(code);
     } 
-    oReturn.onclick = function(){
+    oReturn.onclick = function(){ //点击return 关闭loser框
         oLoser.style.display = 'none';
+        startGame();
+    }
+    // oStartGame.onclick = function(){
+    //     startAndPush();
+    // }
+    // oLeftSide.onclick = function(){
+    //     startAndPush();
+    // }
+}
+
+function  startAndPush(){
+    if(startPushBool){
+        if(startGameBool)
+            startGame();
+            startGameBool = false;
     }
 }

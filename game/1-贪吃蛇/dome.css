@@ -37,14 +37,23 @@
     height: 700px;
 }
 
-.top-side{
+#leftSide{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 150px;
+    color: #fff;
+    font-size: 100px;
+}
+
+.wrapper .topSide{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 50px;
 }
 
-.top-side .score{
+.wrapper .topSide .score{
     color: #fff;
     font-size: 30px;
 }
