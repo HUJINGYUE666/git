@@ -43,13 +43,13 @@
                 super(params);
                 this.add = this.add.bind(this); 
             }
-            add(){
-                this.props.reduction(this.myInput.value,this.props.name);
-            }
+            // add(){
+            //     this.props.reduction(this.myInput.value,this.props.name);
+            // }
             render() {
                 return(
                     <div>
-                        <p>{this.props.name}有士兵：{this.props.num}</p>
+                        <p>将军{this.props.name}有士兵：{this.props.num}</p>
                         <div>
                             <input type="number" ref={input => this.myInput = input}></input>
                             <button onClick={this.add}>调兵</button>

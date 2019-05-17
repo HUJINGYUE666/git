@@ -22,33 +22,33 @@
         //返回{value: yield后的表达式结果/undefined, done: false/true}
         //5、再次调用next方法会从上一次停止时的yield处开始，直到最后 
         //6、yield语句返回结果通常为undefined， 当调用next方法时传参内容 会作为启动时yield语句的返回值。
-        function* fn() {
-            console.log('开始');
-            let aa = yield "哈哈";
-            console.log(aa);
-            console.log('yield 1结束');
-        }
-        let a = fn();
-        console.log(a.next()); //{value: "哈哈", done: false}
-        console.log(a.next('aa')); //{value: undefined, done: true}
+        // function* fn() {
+        //     console.log('开始');
+        //     let aa = yield "哈哈";
+        //     // console.log(aa);
+        //     console.log('yield 1结束');
+        // }
+        // let a = fn();
+        // console.log(a.next()); //{value: "哈哈", done: false}
+        // console.log(a.next('aa')); //{value: undefined, done: true}
         //传参启动时的值
 
-        // function* fn() {
-        //     console.log('开始'); //1.
-        //     let data = yield request();
-        //     console.log('请求1已经成功 可以进行请求2') //4. 
-        //     yield request2(data);
-        // }
-        // let f = fn();
-        // console.log(f.next()); //2.返回{value: undefined, done: false}
+        function* fn() {
+            console.log('开始'); //1.
+            let data = yield request();
+            console.log('请求1已经成功 可以进行请求2') //4. 
+            yield request2(data);
+        }
+        let f = fn();
+        console.log(f.next()); //2.返回{value: undefined, done: false}
 
-        // function request() {
-        //     let data = 100;
-        //     setTimeout(() => {
-        //         console.log('请求1成功 返回数据' + data);//3.
-        //         console.log(f.next(data));//5.返回{value: undefined, done: true}
-        //     }, 1000)
-        // }
+        function request() {
+            let data = 100;
+            setTimeout(() => {
+                console.log('请求1成功 返回数据' + data);//3.
+                console.log(f.next(data));//5.返回{value: undefined, done: true}
+            }, 1000)
+        }
 
         // function request2(data){
 

@@ -17,17 +17,17 @@
                 super(params);
                 this.clickHandle = this.clickHandle.bind(this); 
             }
-            clickHandle(){ //event
-                console.log(this.refs.name.value);
-                console.log(this.name.value);
-                // console.log(event.tager);
+            clickHandle(event){  
+                console.log(this.refs.myInput.value);
+                console.log(this.myInput.value);
+                console.log(event.target);
 
             }
             render(){
                 return(
                     <div>
-                        用户名：<input type='text' ref='name'/> 
-                        密码：<input type='password' ref={input => this.name =input}/> 
+                        用户名：<input type='text' ref='myInput'/> 
+                        密码：<input type='password' ref={input => this.myInput =input}/> 
                         <button onClick={this.clickHandle}>click</button>
                     </div>
                 )
