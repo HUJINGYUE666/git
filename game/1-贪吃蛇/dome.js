@@ -1,13 +1,8 @@
-//点击startGame startPage消失 游戏开始
-//随机出现食物 出现三节蛇开始运动
-//上下左右 改变方向运动
-//判断是否吃到食物 食物消失 蛇加1
-//判断游戏结束 弹出框
+//随机出现食物 出现蛇开始运动
+//上下左右 改变蛇运动方向
+//判断蛇是否吃到食物 食物消失 蛇加1
+//判断游戏结束 弹出结束框
 
-var oStartPage = document.getElementById('startPage');
-var oStartGame = document.getElementById('startGame');
-
-var oLeftSide = document.getElementById('leftSide');
 var oScore = document.getElementById('score');
 var oContent = document.getElementById('content');
 
@@ -17,8 +12,6 @@ var oReturn = document.getElementById('return');
 
 var oSnakeMove;
 var speed = 200;
-var startGameBool = true;
-var startPushBool = true;
 
 init();
 function init() {
@@ -33,7 +26,7 @@ function init() {
     this.foodH = 20;
     this.foodX = 0;
     this.foodY = 0;
-    //蛇宽高 
+    //蛇宽高 蛇身
     this.snakeW = 20;
     this.snakeH = 20;
     this.snakeBody = [
@@ -49,19 +42,16 @@ function init() {
     this.down = true;
 
     this.score = 0;
-
     startGame();
 }
 
-function startGame() {
+function startGame() { //开始游戏
     food();
     snake();
     oSnakeMove = setInterval(function () {
         move();
     }, speed)
     bindEvent();
-    oStarPage.style.display = 'none';
-    oLeftSide.style.display = 'block';
 }
 
 function food() { //地图范围 食物坐标 随机出现
@@ -126,9 +116,9 @@ function move() { //蛇移动
         default:
             break;
     }
-    removeClass('snake'); //删除最后一个蛇身体
+    removeClass('snake'); //删除最后一个蛇身
     snake(); //新蛇
-    //蛇头碰到食物 碰到边界
+    //蛇头碰到食物 碰到边界 碰到蛇身
     if (this.snakeBody[0][0] * 20 == this.foodX && this.snakeBody[0][1] * 20 == this.foodY) {
         //吃到食物 身体加1
         var snakeEndX = this.snakeBody[this.snakeBody.length - 1][0];
@@ -163,7 +153,7 @@ function move() { //蛇移动
     }
     var snakeHX = this.snakeBody[0][0];
     var snakeHY = this.snakeBody[0][1];
-    //碰到自己身体 游戏结束
+    //碰到蛇身 游戏结束
     for (var i = 1; i < this.snakeBody.length; i++) {
         if (snakeHX == this.snakeBody[i][0] && snakeHY == this.snakeBody[i][1]) {
             gameOver();
@@ -187,15 +177,14 @@ function gameOver() { //游戏结束
     this.up = true;
     this.down = true;
 
-    // this.score = 0;
     oScore.innerHTML = this.score; 
     oLoser.style.display = 'block';
-    // oLoserScore.innerHTML = oScore.innerHTML;
+
     oLoserScore.innerHTML = oScore.innerHTML;
     this.score = 0;
 }
 
-function removeClass(className) {
+function removeClass(className) { //删除最后一个蛇身
     var ele = document.getElementsByClassName(className);
     while (ele.length > 0) {
         ele[0].parentNode.removeChild(ele[0]);
@@ -253,19 +242,5 @@ function bindEvent(e) { //点击事件
     oReturn.onclick = function(){ //点击return 关闭loser框
         oLoser.style.display = 'none';
         startGame();
-    }
-    // oStartGame.onclick = function(){
-    //     startAndPush();
-    // }
-    // oLeftSide.onclick = function(){
-    //     startAndPush();
-    // }
-}
-
-function  startAndPush(){
-    if(startPushBool){
-        if(startGameBool)
-            startGame();
-            startGameBool = false;
     }
 }
