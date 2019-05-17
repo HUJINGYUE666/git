@@ -1,32 +1,33 @@
-//点击开始游戏 starPage消失 游戏开始
-//随机出现实物 出现三节蛇开始运动
-//上下左右 根据方向 改变方向运动
+//点击startGame startPage消失 游戏开始
+//随机出现食物 出现三节蛇开始运动
+//上下左右 改变方向运动
 //判断是否吃到食物 食物消失 蛇加1
 //判断游戏结束 弹出框
 
+var oStartPage = document.getElementById('startPage');
+var oStartGame = document.getElementById('startGame');
 
 var oContent = document.getElementById('content');
-var oStarPage = document.getElementById('starPage');
-var oStarBtn = document.getElementById('starBtn');
+
 var oLoser = document.getElementById('loser');
 var oLoserScore = document.getElementById('loser-score');
 var oScore = document.getElementById('score');
 var oReturn = document.getElementById('return');
+
 var oSnakeMove;
 var speed = 200;
 var startGameBool = true;
 var startPushBool = true;
 
-
 init();
-
 function init() {
-    //地图
-    this.mapW = parseInt(getComputedStyle(content).width);
-    this.mapH = parseInt(getComputedStyle(content).height);
+    //地图宽高
+    // this.mapW = parseInt(getComputedStyle(content).width);
+    // this.mapH = parseInt(getComputedStyle(content).height);
+    this.mapW = 730;
+    this.mapH = 490;
     this.mapDiv = oContent;
-
-    //食物
+    //食物宽高坐标
     this.foodW = 20;
     this.foodH = 20;
     this.foodX = 0;
@@ -62,9 +63,8 @@ function startGame() {
     oStarPage.style.display = 'none';
 }
 
-function food() {
+function food() { //地图范围 食物坐标 随机出现
     var oFood = document.createElement('div');
-    this.mapDiv.appendChild(oFood).setAttribute('class', 'food');
     oFood.style.width = this.foodW + 'px';
     oFood.style.height = this.foodH + 'px';
     oFood.style.position = 'absolute';
@@ -72,6 +72,7 @@ function food() {
     this.foodY = Math.floor(Math.random() * (this.mapH / 20)) * 20;
     oFood.style.left = this.foodX + 'px';
     oFood.style.top = this.foodY + 'px';
+    this.mapDiv.appendChild(oFood).setAttribute('class', 'food');
 }
 
 function snake() {
@@ -246,5 +247,3 @@ function bindEvent(e) {
         oLoser.style.display = 'none';
     }
 }
-
-
