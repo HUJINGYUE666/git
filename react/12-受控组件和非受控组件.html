@@ -35,18 +35,17 @@
                 })
             }
             render(){
+                let style = {
+                       background:'#0f0'
+                }
                 return(
-                    // let style{
-                    //     color:#f00;
-                    //     background:#0f0
-                    // }
                     <div>
                         <form>
                             用户名：
                             <input type='text' ref={input => this.myText = input} className='red'></input> //受控
                             密码：
-                            <input type='password' onChange={this.change}></input> //非受控
-                            <button onClick={this.show}>点击</button>
+                            <input type='password' onChange={this.change} style={style}></input> //非受控
+                            <button onClick={this.show} style={{background:'#00f'}}>点击</button>
                         </form>
                     </div>
                 )
