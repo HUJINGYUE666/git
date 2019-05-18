@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <style>
+        .red{
+            background: #f00;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+<body>
+    <div id="app"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel"> //type="text/babel"
+        class Main extends React.Component{
+            constructor(params){
+                super(params);
+                this.state = {
+                   list:[
+                       {
+                            name:'吃饭',
+                            isRed:false,
+                            id:1,
+                            isShow:true
+                       },
+                       {
+                            name:'睡觉',
+                            isRed:false,
+                            id:2,
+                            isShow:true
+                       },
+                       {
+                            name:'敲代码',
+                            isRed:false,
+                            id:1,
+                            isShow:true
+                        }
+                       ]
+                };
+                this.add = this.add.bind(this); 
+                this.red = this.red.bind(this); 
+                this.delete = this.delete.bind(this); 
+                this.search = this.search.bind(this); 
+            }
+            add(value){
+                let list = [...this.state.list];
+                list.push({
+                    name:value,
+                    isRed:false,
+                    id:(new Date()).getTime(),
+                    isShow:true
+                });
+                this.setState({
+                    list 
+                })
+            }
+            red(index){
+                let list = [...this.state.list];
+                list[index].isRed = !list[index].isRed
+                this.setState({
+                    list 
+                })
+            }
+            delete(index){
+                let list = [...this.state.list];
+                list.splice(index,1);
+                this.setState({
+                    list
+                })
+            }
+            search(value){
+                let list = [...this.state.list];
+                list.forEach((obj,index) => {
+                    if(obj.name.includes(value)){
+                        obj.isShow = true
+                    }else{
+                        obj.isShow = false
+                    }
+                });
+                this.setState({
+                    list
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>todoList</h1>
+                        <Search search={this.search}></Search>
+                        <Add add={this.add}></Add>
+                        <List list={this.state.list} red={this.red} delete={this.delete} search={this.search}></List> 
+                    </div>
+                )
+            }
+        }
+        class Search extends React.Component{
+            render() {
+                return(
+                    <div>
+                        搜索：<input type='text' onChange={(e)=>{
+                            this.props.search(e.target.value)
+                        }}/>
+                    </div>
+                )
+            }
+        }
+        class Add extends React.Component{
+            render() {
+                return(
+                    <div>
+                        添加：<input type='text' ref={input => this.myInput =input}/>
+                        <button onClick={()=>{
+                            this.props.add(this.myInput.value);
+                            this.myInput.value = "";
+                        }}>添加</button>
+                    </div>
+                )
+            }
+        }
+        class List extends React.Component{
+            render() {
+                return(
+                    <ul>
+                        {
+                            this.props.list.map((obj,index)=>{
+                                let class1 = obj.isRed?'red':'';
+                                let class2 = obj.isShow?'':'hide'
+                                return (
+                                    <li key={index} className={class1+' '+class2} onClick={()=>{
+                                        this.props.red(index);
+                                    }}>
+                                        {obj.name}
+                                        <button onClick={(e)=>{
+                                            this.props.delete(index);
+                                            e.stopPropagation();
+                                        }}>删除</button>
+                                    </li>
+                                    )
+                            })
+                        }
+                    </ul>
+                )
+            }
+        }
+        ReactDOM.render( 
+            <Main></Main>,
+            document.getElementById('app')
+        );
+    </script>
+</body>
+</html>
