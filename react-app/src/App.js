@@ -20,15 +20,17 @@ function App() {
         ----
         <NavLink to='/a'>A页面</NavLink>
         ----
-        <NavLink to='/b/1'>B页面</NavLink>
+        <NavLink to='/b/1' activeStyle={{color:'green'}}>B页面</NavLink>
         ----
-        <NavLink to='/c/2'>C页面</NavLink>
+        <NavLink to='/c/2' isActive={()=>{
+              return true;
+        }}>C页面</NavLink>
         ----
         <NavLink to='/d'>D页面</NavLink>
         ----
         <NavLink to="/children">children</NavLink>
         ----
-        <NavLink to="/redirect">redirect</NavLink>
+        <NavLink to="/e">redirect</NavLink>
         {/* <Route exact path='/' component={Home}></Route>
         <Route path='/a' component={A}></Route>
         <Route path='/b' component={B}></Route> */}
@@ -46,12 +48,11 @@ function App() {
             return <Children str={str}></Children>
           }}></Route>     
           <Route path="/e" render={()=><Redirect to="/"></Redirect>}></Route>
-          <Jump to='/xxx'>xxx</Jump>
+          <Jump to='/xxx'>Jump</Jump>
           <F></F>
         {/* </Switch> */}
       </Router>
     </div>
   );
 }
-
 export default App;
