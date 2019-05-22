@@ -9,7 +9,8 @@ import Children from './components/Children';
 import F from './components/F'
 import './App.css'
 import store from './store';
-import add from './action'
+import {add,reduce} from './action'
+import { connect } from 'react-redux';
 
 let Jump = (props) =>{
   return <Link to={props.to}>{props.children}</Link>
@@ -21,6 +22,11 @@ function App() {
         console.log('修改num值');
         store.dispatch(add());
       }}>add</button>
+      <button onClick={()=>{
+            console.log('修改num值');
+            // 通过store.dispatch触发action修改num 
+            store.dispatch(reduce());
+        }}>reduce</button>
       <Router>
         <NavLink exact activeClassName="selected" to='/'>首页</NavLink>
         ----
@@ -61,4 +67,10 @@ function App() {
     </div>
   );
 }
-export default App;
+let mapStateToProps = (state) =>{
+  return {
+      num:state.num
+  }
+}
+
+export default connect(mapStateToProps)(App);
