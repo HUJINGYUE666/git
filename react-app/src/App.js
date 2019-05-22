@@ -8,6 +8,8 @@ import C from './components/C'
 import Children from './components/Children';
 import F from './components/F'
 import './App.css'
+import store from './store';
+import add from './action'
 
 let Jump = (props) =>{
   return <Link to={props.to}>{props.children}</Link>
@@ -15,6 +17,10 @@ let Jump = (props) =>{
 function App() {
   return (
     <div className="App">
+      <button onClick={()=>{
+        console.log('修改num值');
+        store.dispatch(add());
+      }}>add</button>
       <Router>
         <NavLink exact activeClassName="selected" to='/'>首页</NavLink>
         ----
