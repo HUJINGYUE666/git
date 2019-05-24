@@ -15,17 +15,19 @@ import { connect } from 'react-redux';
 let Jump = (props) =>{
   return <Link to={props.to}>{props.children}</Link>
 }
-function App() {
+function App(props) {
   return (
     <div className="App">
+      <div>{props.num}</div>
+      {/* <div>{store.getState().num}</div> */}
       <button onClick={()=>{
         console.log('修改num值');
-        store.dispatch(add());
+        store.dispatch(add(2));
       }}>add</button>
       <button onClick={()=>{
-            console.log('修改num值');
-            // 通过store.dispatch触发action修改num 
-            store.dispatch(reduce());
+        console.log('修改num值');
+        // 通过store.dispatch触发action修改num 
+        store.dispatch(reduce());
         }}>reduce</button>
       <Router>
         <NavLink exact activeClassName="selected" to='/'>首页</NavLink>
@@ -72,5 +74,4 @@ let mapStateToProps = (state) =>{
       num:state.num
   }
 }
-
 export default connect(mapStateToProps)(App);
