@@ -17,23 +17,10 @@ export default class NavLift extends Component {
             }
             return (
                 <Menu.Item key={elem.path}>
-                    {elem.icon?<Icon type={elem.icon}></Icon>:null}
-                    {/* <Icon type={elem.icon}></Icon> */}
-                    {elem.title}
+                    {elem.icon?<Icon type={elem.icon}></Icon>:null}{elem.title}
                 </Menu.Item>     
             )
         })
-        // let list = menuList.map((elem) => {
-        //     return (
-        //         <Menu.Item>
-        //             <Icon type={elem.icon}></Icon>
-        //             {elem.title}
-        //         </Menu.Item>     
-        //     )
-        // })
-        // this.setState({
-        //     list
-        // })
     }
     componentWillMount = () => {
         let list = this.createMenu(menuList);
@@ -49,6 +36,14 @@ export default class NavLift extends Component {
                 </div>
                 <Menu theme='dark' mode='inline' defaultOpenKeys={['/admin/student']}>
                     {this.state.list}
+                    {/* <Menu.Item>菜单项</Menu.Item>
+                    <Menu.Item>菜单项</Menu.Item>
+                    <Menu.Item>菜单项</Menu.Item>
+                    <SubMenu title="子菜单">
+                    <Menu.Item>子菜单项</Menu.Item>
+                    <Menu.Item>子菜单项</Menu.Item>
+                    <Menu.Item>子菜单项</Menu.Item>
+                </SubMenu> */}
                </Menu>
             </div>
         )

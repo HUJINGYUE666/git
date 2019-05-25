@@ -6,7 +6,7 @@ const menuList = [
     },
     {
         title:"11111",
-        path:'/admin/home',
+        path:'/admin/xxx',
         icon:'home'
     },
     {
