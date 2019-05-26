@@ -1,7 +1,7 @@
 const menuList = [
     {
         title:"首页",
-        path:'/admin/home',
+        path:'/home',
         icon:'home'
     },
     {
@@ -20,7 +20,7 @@ const menuList = [
             },
             {
                 title:"学生列表",
-                path:'/admin/student/list'
+                path:'/student'
             },
             {
                 title:"学生成绩",

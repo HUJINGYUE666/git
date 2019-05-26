@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Menu ,Icon} from 'antd';
 import menuList from './../../config/menuconfig'
 import './index.css';
+import '../../router'
+import {Link} from 'react-router-dom'
 
 const { SubMenu } = Menu;
 
@@ -17,7 +19,10 @@ export default class NavLift extends Component {
             }
             return (
                 <Menu.Item key={elem.path}>
-                    {elem.icon?<Icon type={elem.icon}></Icon>:null}{elem.title}
+                    <Link to={elem.path}>
+                        {elem.icon?<Icon type={elem.icon}></Icon>:null}
+                        {elem.title}
+                    </Link>
                 </Menu.Item>     
             )
         })

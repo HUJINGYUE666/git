@@ -6,7 +6,7 @@ import CHeader from './component/CHeader';
 import CFooter from './component/CFooter';
 import Home from './page/Home/index';
 
-function App() {
+function App(props) {
   return (
       <div className="App">
         <Row>
@@ -15,7 +15,7 @@ function App() {
           </Col>
           <Col span={20}>
               <CHeader/>
-              <Home/>
+              {props.children}
               <CFooter/>
           </Col>
         </Row>
