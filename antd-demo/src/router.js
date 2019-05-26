@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router , Route} from "react-router-dom";
 import App from './App'
 import Home from './page/Home'
-import Student from './page/student'
+import Student from './page/Student'
 
 export default class IRouter extends Component {
     render() {

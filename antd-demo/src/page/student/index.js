@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 import axios from 'axios';
   
-export default class student extends Component {
+export default class Student extends Component {
     constructor(params){
         super(params);
         this.state = {
@@ -10,10 +10,11 @@ export default class student extends Component {
         }
     }
     componentWillMount() {
-        axios.get('https://easy-mock.com/mock/5ce94187843fd568acd104c2/example/student')
+        axios.get('https://www.easy-mock.com/mock/5cea35c58347da71af1d4b50/666')
         .then((result)=>{
+          // console.log(result.data.data.data);
             this.setState({
-                dataSource:result.data.data.projects
+                dataSource:result.data.data.data
             })
         })
     }
