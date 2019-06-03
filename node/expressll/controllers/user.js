@@ -9,7 +9,7 @@ exports.do_reg = function(req,res,next){
     var pass = req.body.pass;
     // console.log(name);
     // console.log(pass);
-    User_models.insert_data(){
-        
-    }
+    // User_models.insert_data(){
+
+    // }
 } 
