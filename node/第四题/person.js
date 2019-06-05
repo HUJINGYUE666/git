@@ -1,10 +1,10 @@
 function Person(){
-    this.sleep = function(){
-        console.log('sleeping')
-    };
     this.eat = function(){
         console.log('eating')
     };
+    this.sleep = function(){
+        console.log('sleeping')
+    };
 }
 
-moudle.exports = person;
+module.exports = Person;

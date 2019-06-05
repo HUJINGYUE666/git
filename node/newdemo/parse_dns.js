@@ -1,15 +1,14 @@
 var querystring=require("querystring");
 var dns=require("dns");
 var util=require("util");
-
-exports.parseDns = function(req,res){
-    req.setEncoding("utf8");
+exports.parseDns=function(req,res){
+	req.setEncoding("utf8");
 	var postData="";
 	req.addListener("data",function(postChunkData){
 		postData+=postChunkData
-    });
-    
-    req.addListener("end",function(){
+	});
+
+	req.addListener("end",function(){
 		//console.log(postData);
 		var Param=querystring.parse(postData);
 		var dname=Param.dnsname;
@@ -22,6 +21,5 @@ exports.parseDns = function(req,res){
 				res.end(util.inspect(addresses))
 			}
 		})
-
 	})
 }
