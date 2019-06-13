@@ -1,12 +1,17 @@
-var db=require("./db.js");
+var db = require("./db.js");
 
-exports.insert_data=function(name,pass,callback){
-	var sql="insert into user(uname,pass) values(?,?)";
+exports.insert_data = function(name,pass,callback){
+	var sql = "insert into user(uname,pass) values(?,?)";
 	db.query(sql,[name,pass],callback);
 }
 
-exports.sel_name_by_pass=function(name,pass,callback){
-	var sql="select * from user where uname=? and pass=?";
+exports.checkName = function(name,callback){
+  var sql = "select * from user where uname=?"
+  db.query(sql,[name],callback);
+}
+
+exports.sel_name_by_pass = function(name,pass,callback){
+	var sql = "select * from user where uname=? and pass=?";
 	db.query(sql,[name,pass],callback);
 }
 // 重复组件
