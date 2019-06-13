@@ -1,5 +1,9 @@
 var User_model = require('../models/user_model');
 
+exports.index = function(req,res,next){
+    res.render('index.ejs',{title:'Express'});
+}
+
 exports.reg = function(req,res,next){
     res.render('reg.ejs');
 }
