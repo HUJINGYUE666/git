@@ -19,9 +19,12 @@ router.post('/login',User.do_login);
 router.get('/index_logined',Blog.index_logined); //博客
 router.get('/newblog',Blog.newblog); //发表博客
 
-router.get('/inbox',Blog.inbox); //编辑个人资料
-router.get('/profile',Blog.profile); //编辑个人资料
-router.get('/chpwd',Blog.chpwd); //编辑个人资料
-router.get('/userSettings',Blog.userSettings); //编辑个人资料
+router.get('/inbox',Blog.inbox);  
+router.get('/profile',Blog.profile);  
+router.get('/chpwd',Blog.chpwd);  
+router.get('/userSettings',Blog.userSettings);  
+router.get('/blogCatalogs',Blog.blogCatalogs);  
+router.get('/blogs',Blog.blogs);  
+router.get('/blogComments',Blog.blogComments);  
 
 module.exports = router;

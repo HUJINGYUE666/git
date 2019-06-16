@@ -20,4 +20,12 @@ exports.chpwd=function(req,res,next){
 exports.userSettings=function(req,res,next){
 	res.render("userSettings.ejs");
 }
- 
+exports.blogCatalogs=function(req,res,next){
+	res.render("blogCatalogs.ejs");
+}
+exports.blogs=function(req,res,next){
+	res.render("blogs.ejs");
+}
+exports.blogComments=function(req,res,next){
+	res.render("blogComments.ejs");
+} 
