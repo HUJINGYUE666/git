@@ -48,7 +48,7 @@ exports.do_login=function(req,res,next){
 		if(data.length>0){
 			//console.log("lognin success");
 			req.session=data[0];
-			res.redirect('/');
+			res.redirect('/index');
 		}else{
 			res.redirect("/login");
 		}
