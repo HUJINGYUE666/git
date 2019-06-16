@@ -6,7 +6,6 @@ exports.reg=function(req,res,next){
 
 exports.do_reg=function(req,res,next){
 	var email=req.body.email;
-	var pwd=req.body.pwd;
 	console.log(email);
 	User_model.checkName(email,function(err,data){
 		//console.log(data);
@@ -36,7 +35,6 @@ exports.checkajax=function(req,res,next){
 	});
 }
 
-
 exports.login=function(req,res,next){
 	res.render("login.ejs");
 }
@@ -55,5 +53,9 @@ exports.do_login=function(req,res,next){
 			res.redirect("/login");
 		}
 	});
+}
+
+exports.blog=function(req,res,next){
+	res.render("newBlog.ejs");
 }
 

@@ -3,9 +3,11 @@ var router = express.Router();
 var User=require("../controllers/user.js");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
+
+router.get('/',User.blog);
 
 router.get('/reg',User.reg);
 router.post('/reg',User.do_reg);
@@ -13,5 +15,7 @@ router.post('/checkname',User.checkajax);
 
 router.get('/login',User.login);
 router.post('/login',User.do_login);
+
+
 
 module.exports = router;
