@@ -1,5 +1,9 @@
 var User_model=require("../models/user_model.js");
 
+exports.exit=function(req,res,next){
+	res.render("index.ejs");
+}
+
 exports.reg=function(req,res,next){
 	res.render("reg.ejs");
 }
@@ -48,14 +52,13 @@ exports.do_login=function(req,res,next){
 		if(data.length>0){
 			//console.log("lognin success");
 			req.session=data[0];
-			res.redirect('/index');
+			res.redirect('/index_logined');
 		}else{
 			res.redirect("/login");
 		}
 	});
 }
 
-exports.exit=function(req,res,next){
-	res.render("index.ejs");
-}
+
+
 

@@ -1,9 +1,23 @@
 var User_blog=require("../models/user_blog.js");
 
-exports.blog=function(req,res,next){
+exports.index_logined=function(req,res,next){
 	res.render("index_logined.ejs");
 }
 
 exports.newblog=function(req,res,next){
 	res.render("newBlog.ejs");
 }
+
+exports.inbox=function(req,res,next){
+	res.render("inbox.ejs");
+}
+exports.profile=function(req,res,next){
+	res.render("profile.ejs");
+}
+exports.chpwd=function(req,res,next){
+	res.render("chpwd.ejs");
+}
+exports.userSettings=function(req,res,next){
+	res.render("userSettings.ejs");
+}
+ 
