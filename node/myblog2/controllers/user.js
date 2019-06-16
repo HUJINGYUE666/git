@@ -55,7 +55,7 @@ exports.do_login=function(req,res,next){
 	});
 }
 
-exports.blog=function(req,res,next){
-	res.render("newBlog.ejs");
+exports.exit=function(req,res,next){
+	res.render("index.ejs");
 }
 
