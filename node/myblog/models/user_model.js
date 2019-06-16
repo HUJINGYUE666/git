@@ -17,9 +17,6 @@ exports.sel_name_by_pass=function(name,pass,callback){
 	db.query(sql,[name,pass],callback);
 }
 
-
-
-
 /*
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -30,7 +27,7 @@ var connection = mysql.createConnection({
 });
 
 exports.insert_data=function(name,pass,callback){
-	//连上数据库  当前数据库引擎  用户名密码配置好
+	//连上数据库  当前数据库引擎  用户名密码配置
 	connection.connect();
  
 	connection.query('select * from user', function (error, results, fields) {
