@@ -7,7 +7,45 @@ exports.reg=function(req,res,next){
 exports.do_reg=function(req,res,next){
 	var email=req.body.email;
 	var pwd=req.body.pwd;
-	User_model.sel_name_by_pass(email,pwd,function(err,data){
+	console.log(email);
+	User_model.checkName(email,function(err,data){
+		//console.log(data);
+		if(data.length>0){
+			// res.send("用户名已存在");
+			res.redirect("/reg");
+		}else{
+			User_model.insert_data(email,pwd,function(err,data){
+				//console.log(data);
+				if(data.affectedRows>0){
+					res.redirect("/login");
+				}
+			});
+		}
+	})
+}
+
+exports.checkajax=function(req,res,next){
+	var email=req.body.value;
+	//res.send("success");
+	User_model.checkName(email,function(err,data){
+		if(data.length>0){
+			res.send("success");
+		}else{
+			res.send("error");
+		}
+	});
+}
+
+
+exports.login=function(req,res,next){
+	res.render("login.ejs");
+}
+
+exports.do_login=function(req,res,next){
+	var email=req.body.email;
+	var pwd=req.body.pwd;
+	console.log(email);
+	User_model.sel_email_by_pwd(email,pwd,function(err,data){
 		//console.log(data);
 		if(data.length>0){
 			//console.log("lognin success");
@@ -17,9 +55,5 @@ exports.do_reg=function(req,res,next){
 			res.redirect("/login");
 		}
 	});
-}
-
-exports.login=function(req,res,next){
-	res.render("login.ejs");
 }
 

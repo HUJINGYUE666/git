@@ -8,8 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/reg',User.reg);
-router.get('/reg',User.do_reg);
+router.post('/reg',User.do_reg);
+router.post('/checkname',User.checkajax);
 
 router.get('/login',User.login);
+router.post('/login',User.do_login);
 
 module.exports = router;

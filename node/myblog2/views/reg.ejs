@@ -9,7 +9,8 @@
   <script type="text/javascript" src="javascripts/jquery-1.js"></script>
   <script type="text/javascript" src="javascripts/jquery.js"></script>
   <script type="text/javascript" src="javascripts/thickbox.js"></script>
-  <script type="text/javascript" src="javascripts/common.js"></script>
+	<script type="text/javascript" src="javascripts/common.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>	
   <style type="text/css">
     body,table,input,textarea,select {font-family:Verdana,Simsun,sans-serif;}  
   </style>
@@ -196,4 +197,18 @@
 </script></div>
 	<div id="OSC_Footer">© 赛斯特(WWW.SYSIT.ORG)</div>
 </div>
+<script>
+	$('#f_email').blur(function(){
+			var val = $(this).val();
+			$.post('/checkname',"value="+val,function(data){
+			//console.log(data);
+			if(data=="success"){
+				$("#f_email").after("<span id='s1'>用户名已存在</span>");
+			}
+			if(data=="error"){
+				$("#s1").remove();
+			}
+		},'text');
+	})
+</script>
 </body></html>
