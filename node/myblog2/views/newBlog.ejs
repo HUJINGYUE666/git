@@ -160,335 +160,335 @@
 
 // <!--
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-// KE.lang['code'] = "插入程序代码或脚本";
+KE.lang['code'] = "插入程序代码或脚本";
 
-// KE.plugin['code'] = {
+KE.plugin['code'] = {
 
-// 	click : function(id) {
+	click : function(id) {
 
-// 		KE.util.selection(id);
+		KE.util.selection(id);
 
-// 		var dialog = new KE.dialog({
+		var dialog = new KE.dialog({
 
-// 			id : id,
+			id : id,
 
-// 			cmd : 'code',
+			cmd : 'code',
 
-// 			file : 'code/insert_code.html',
+			file : 'code/insert_code.html',
 
-// 			width : 530,
+			width : 530,
 
-// 			height : 300,
+			height : 300,
 
-// 			title : KE.lang['code'],
+			title : KE.lang['code'],
 
-// 			yesButton : KE.lang['yes'],
+			yesButton : KE.lang['yes'],
 
-// 			noButton : KE.lang['no']
+			noButton : KE.lang['no']
 
-// 		});
+		});
 
-// 		dialog.show();
+		dialog.show();
 
-// 	},
+	},
 
-// 	check : function(id) {
+	check : function(id) {
 
-// 		var dialogDoc = KE.util.getIframeDoc(KE.g[id].dialog);
+		var dialogDoc = KE.util.getIframeDoc(KE.g[id].dialog);
 
-// 		var lang = KE.$('ic_lang', dialogDoc).value;
+		var lang = KE.$('ic_lang', dialogDoc).value;
 
-// 		var source = KE.$('ic_source', dialogDoc).value;
+		var source = KE.$('ic_source', dialogDoc).value;
 
-// 		if(lang == ''){
+		if(lang == ''){
 
-// 			alert('编程语言必须选择');
+			alert('编程语言必须选择');
 
-// 			return false;
+			return false;
 
-// 		}
+		}
 
-// 		if(source == ''){
+		if(source == ''){
 
-// 			alert('请输入程序代码或者脚本');
+			alert('请输入程序代码或者脚本');
 
-// 			return false;
+			return false;
 
-// 		}
+		}
 
-// 		return true;
+		return true;
 
-// 	},
+	},
 
-// 	exec : function(id) {
+	exec : function(id) {
 
-// 		KE.util.select(id);
+		KE.util.select(id);
 
-// 		var iframeDoc = KE.g[id].iframeDoc;
+		var iframeDoc = KE.g[id].iframeDoc;
 
-// 		var dialogDoc = KE.util.getIframeDoc(KE.g[id].dialog);
+		var dialogDoc = KE.util.getIframeDoc(KE.g[id].dialog);
 
-// 		if (!this.check(id)) return false;
+		if (!this.check(id)) return false;
 
-// 		var lang = KE.$('ic_lang', dialogDoc).value;
+		var lang = KE.$('ic_lang', dialogDoc).value;
 
-// 		var source = KE.$('ic_source', dialogDoc).value;
+		var source = KE.$('ic_source', dialogDoc).value;
 
-// 		this.insert(id, lang, source);
+		this.insert(id, lang, source);
 
-// 	},
+	},
 
-// 	insert : function(id, lang,source) {
+	insert : function(id, lang,source) {
 
-// 		var html = '<pre class="brush:' + lang + '; toolbar: true; auto-links: false;">';
+		var html = '<pre class="brush:' + lang + '; toolbar: true; auto-links: false;">';
 
-// 		html += html_encode(source);
+		html += html_encode(source);
 
-// 		html += '</pre>';
+		html += '</pre>';
 
-// 		KE.util.insertHtml(id, html);
+		KE.util.insertHtml(id, html);
 
-// 		KE.layout.hide(id);
+		KE.layout.hide(id);
 
-// 		KE.util.focus(id);
+		KE.util.focus(id);
 
-// 	}
+	}
 
-// };
+};
 
-// });
-
-// //-->
-
-// </script>
-
-// <script type='text/javascript'>
-
-// <!--
-
-// $(document).ready(function(){
-
-// 	KE.show({
-
-// 		id : 'ta_blog_content',
-
-// 		resizeMode : 1,
-
-// 		shadowMode : false,
-
-// 		allowPreviewEmoticons : false,
-
-// 		allowUpload : true,
-
-// 		syncType : 'auto',
-
-// 		urlType : 'domain',
-
-// 		cssPath : 'css/ke-oschina.css',
-
-// 		imageUploadJson : '/action/blog/upload_img',
-
-// 		items : [ 'bold', 'italic', 'underline', 'strikethrough', 'removeformat','|','textcolor', 'bgcolor',  
-
-// 				 'title', 'fontname', 'fontsize',  '|', 
-
-// 				 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|', 
-
-// 				 'code', 'image', 'flash', 'emoticons', 'link', 'unlink','|','selectall','source' ,'about'
-
-// 				 ]
-
-// 	});
-
-// });
-
-// //-->
-
-// </script>
-
-// <script type='text/javascript'>
-
-// <!--
-
-// $(document).ready(function(){
-
-//     $('#BlogForm').ajaxForm({
-
-// 		dataType: 'json',
-
-// 		beforeSerialize: function($form, options) { 
-
-// 			KE.sync('ta_blog_content');           
-
-//         },
-
-//         success: function(json) {
-
-// 			if(json.msg){
-
-//         		$('#submit_msg').hide();
-
-//         		$('#submit_msg').html("<span class='error_msg'>"+json.msg+"</span>");
-
-//         		$('#submit_msg').show();
-
-// 			}
-
-// 			else if(json.id){
-
-// 				location.href = "index.htm";
-
-// 			}
-
-// 			else if(json.draft){
-
-// 				location.href = "index.htm";
-
-// 			}
-
-//         }
-
-//     });
-
-// 	$("#BlogForm").ajaxStart(function(){
-
-// 		$('#submit_msg').hide();
-
-// 		$('#ajax_processing').show();
-
-//     });
-
-// 	$("#BlogForm").ajaxComplete(function(event,request, settings){
-
-// 		$('#ajax_processing').hide();
-
-//     }); 
-
-// });
-
-// function save_to_draft(){
-
-// 	var form = $('#BlogForm').formSerialize();
-
-// 	ajax_post("/action/blog/save?save_as_draft=1",form,function(html){
-
-// 		var json = eval('(' + html + ')');
-
-// 		if(json.msg)
-
-// 			alert(json.msg);
-
-// 		else if(json.draft){
-
-// 			$('#hdn_blog_id').val(json.draft);
-
-// 			$('#save_draft_msg').hide();
-
-// 			$('#save_draft_msg').text("已保存到草稿箱，编号为#" + json.draft);
-
-// 			$('#save_draft_msg').fadeIn();
-
-// 		}
-
-// 	});
-
-// }
-
-// function switch_src(rd){
-
-// 	if(rd.value=='4' && rd.checked){
-
-// 		$('#f_origin_url').show();
-
-// 		$('#t_origin_url').focus();
-
-// 	}
-
-// 	else
-
-// 		$('#f_origin_url').hide();
-
-// }
-
-// //-->
-
-// </script></div>
-
-// 	<div class='clear'></div>
-
-// </div>
-
-// <script type='text/javascript'>
-
-// <!--
-
-// $(document).ready(function() {
-
-// 	$('#AdminTitle').text('发表博客');
-
-// });
-
-// $('.AutoCommitForm').ajaxForm({
-
-//     success: function(html) {	
-
-// 		$('#error_msg').hide();
-
-// 		if(html.length>0)
-
-// 			$('#error_msg').html("<span class='error_msg'>"+html+"</span>");
-
-// 		else
-
-// 			$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>")
-
-// 		$('#error_msg').show("fast");
-
-//     }
-
-// });
-
-// $('.AutoCommitJSONForm').ajaxForm({
-
-// 	dataType: 'json',
-
-//     success: function(json) {	
-
-// 		$('#error_msg').hide();
-
-// 		if(json.error==0){
-
-// 			if(json.msg)
-
-// 				$('#error_msg').html("<span class='ok_msg'>"+json.msg+"</span>");
-
-// 			else
-
-// 				$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>");
-
-// 		}
-
-// 		else {
-
-// 			if(json.msg)
-
-// 				$('#error_msg').html("<span class='error_msg'>"+json.msg+"</span>");
-
-// 			else
-
-// 				$('#error_msg').html("<span class='error_msg'>操作已成功完成</span>");
-
-// 		}
-
-// 		$('#error_msg').show("fast");
-
-//     }
-
-// });
+});
 
 //-->
+
+</script>
+
+<script type='text/javascript'>
+
+// <!--
+
+$(document).ready(function(){
+
+	KE.show({
+
+		id : 'ta_blog_content',
+
+		resizeMode : 1,
+
+		shadowMode : false,
+
+		allowPreviewEmoticons : false,
+
+		allowUpload : true,
+
+		syncType : 'auto',
+
+		urlType : 'domain',
+
+		cssPath : 'css/ke-oschina.css',
+
+		imageUploadJson : '/action/blog/upload_img',
+
+		items : [ 'bold', 'italic', 'underline', 'strikethrough', 'removeformat','|','textcolor', 'bgcolor',  
+
+				 'title', 'fontname', 'fontsize',  '|', 
+
+				 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|', 
+
+				 'code', 'image', 'flash', 'emoticons', 'link', 'unlink','|','selectall','source' ,'about'
+
+				 ]
+
+	});
+
+});
+
+//-->
+
+</script>
+
+<script type='text/javascript'>
+
+// <!--
+
+$(document).ready(function(){
+
+    $('#BlogForm').ajaxForm({
+
+		dataType: 'json',
+
+		beforeSerialize: function($form, options) { 
+
+			KE.sync('ta_blog_content');           
+
+        },
+
+        success: function(json) {
+
+			if(json.msg){
+
+        		$('#submit_msg').hide();
+
+        		$('#submit_msg').html("<span class='error_msg'>"+json.msg+"</span>");
+
+        		$('#submit_msg').show();
+
+			}
+
+			else if(json.id){
+
+				location.href = "index.htm";
+
+			}
+
+			else if(json.draft){
+
+				location.href = "index.htm";
+
+			}
+
+        }
+
+    });
+
+	$("#BlogForm").ajaxStart(function(){
+
+		$('#submit_msg').hide();
+
+		$('#ajax_processing').show();
+
+    });
+
+	$("#BlogForm").ajaxComplete(function(event,request, settings){
+
+		$('#ajax_processing').hide();
+
+    }); 
+
+});
+
+function save_to_draft(){
+
+	var form = $('#BlogForm').formSerialize();
+
+	ajax_post("/action/blog/save?save_as_draft=1",form,function(html){
+
+		var json = eval('(' + html + ')');
+
+		if(json.msg)
+
+			alert(json.msg);
+
+		else if(json.draft){
+
+			$('#hdn_blog_id').val(json.draft);
+
+			$('#save_draft_msg').hide();
+
+			$('#save_draft_msg').text("已保存到草稿箱，编号为#" + json.draft);
+
+			$('#save_draft_msg').fadeIn();
+
+		}
+
+	});
+
+}
+
+function switch_src(rd){
+
+	if(rd.value=='4' && rd.checked){
+
+		$('#f_origin_url').show();
+
+		$('#t_origin_url').focus();
+
+	}
+
+	else
+
+		$('#f_origin_url').hide();
+
+}
+
+//-->
+
+</script></div>
+
+	<div class='clear'></div>
+
+</div>
+
+<script type='text/javascript'>
+
+// <!--
+
+$(document).ready(function() {
+
+	$('#AdminTitle').text('发表博客');
+
+});
+
+$('.AutoCommitForm').ajaxForm({
+
+    success: function(html) {	
+
+		$('#error_msg').hide();
+
+		if(html.length>0)
+
+			$('#error_msg').html("<span class='error_msg'>"+html+"</span>");
+
+		else
+
+			$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>")
+
+		$('#error_msg').show("fast");
+
+    }
+
+});
+
+$('.AutoCommitJSONForm').ajaxForm({
+
+	dataType: 'json',
+
+    success: function(json) {	
+
+		$('#error_msg').hide();
+
+		if(json.error==0){
+
+			if(json.msg)
+
+				$('#error_msg').html("<span class='ok_msg'>"+json.msg+"</span>");
+
+			else
+
+				$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>");
+
+		}
+
+		else {
+
+			if(json.msg)
+
+				$('#error_msg').html("<span class='error_msg'>"+json.msg+"</span>");
+
+			else
+
+				$('#error_msg').html("<span class='error_msg'>操作已成功完成</span>");
+
+		}
+
+		$('#error_msg').show("fast");
+
+    }
+
+});
+
+// -->
 
 </script>
 	<div class="clear"></div>
