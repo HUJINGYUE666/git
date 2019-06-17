@@ -14,5 +14,5 @@ exports.sel_email_by_pwd=function(email,pwd,callback){
 	var sql="select * from t_users where ACCOUNT=? and PASSWORD=?";
 	db.query(sql,[email,pwd],callback);
 }
-
+ 
 

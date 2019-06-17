@@ -46,7 +46,7 @@ exports.login=function(req,res,next){
 exports.do_login=function(req,res,next){
 	var email=req.body.email;
 	var pwd=req.body.pwd;
-	console.log(email);
+	// console.log(email);
 	User_model.sel_email_by_pwd(email,pwd,function(err,data){
 		//console.log(data);
 		if(data.length>0){
@@ -58,6 +58,8 @@ exports.do_login=function(req,res,next){
 		}
 	});
 }
+
+
 
 
 
