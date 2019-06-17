@@ -1,4 +1,5 @@
 var Blog_model=require("../models/blog_model.js");
+var moment=require("moment");
 
 // exports.index_logined=function(req,res,next){
 // 	res.render("index_logined.ejs");
@@ -33,7 +34,7 @@ exports.do_newblog=function(req,res,next){
 	var uid=req.session.USER_ID;
 	Blog_model.ins_blog_by_data(title,content,date,uid,function(err,data){
 		if(data.affectedRows>0){
-			res.redirect("/index");
+			res.redirect("/index_logined");
         }
     })
 }
