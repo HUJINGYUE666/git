@@ -5,25 +5,37 @@ var Blog_model=require("../models/blog_model.js");
 // }
 
 exports.index_logined=function(req,res,next){
-    Blog_model.sel_all(function(err,data){
-		console.log(data);
-		res.render("index_logined",{
-			'blogs':data,
-			'sess':req.session,
-		})
-	});
-	// var uid=req.session.USER_ID;
-	// Blog_model.sel_id_by_data(uid,function(err,data){
+    // Blog_model.sel_all(function(err,data){
 	// 	console.log(data);
 	// 	res.render("index_logined",{
 	// 		'blogs':data,
 	// 		'sess':req.session,
 	// 	})
 	// });
+	var uid=req.session.USER_ID;
+	Blog_model.sel_uid_by_data(uid,function(err,data){
+		// console.log(data);
+		res.render("index_logined",{
+			'blogs':data,
+			'sess':req.session,
+		})
+	});
 }
 
 exports.newblog=function(req,res,next){
 	res.render("newBlog.ejs");
+}
+
+exports.do_newblog=function(req,res,next){
+	var title=req.body.title;
+	var content=req.body.content;
+	var date=moment().format();
+	var uid=req.session.USER_ID;
+	Blog_model.ins_blog_by_data(title,content,date,uid,function(err,data){
+		if(data.affectedRows>0){
+			res.redirect("/index");
+        }
+    })
 }
 
 exports.inbox=function(req,res,next){

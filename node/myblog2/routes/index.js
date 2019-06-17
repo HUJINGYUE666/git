@@ -11,13 +11,14 @@ router.get('/',User.exit); //首页
 
 router.get('/reg',User.reg); //注册
 router.post('/reg',User.do_reg);
-router.post('/checkname',User.checkajax);
+router.post('/checkname',User.checkname);
 
 router.get('/login',User.login); //登录
 router.post('/login',User.do_login);
 
 router.get('/index_logined',Blog.index_logined); //博客
 router.get('/newblog',Blog.newblog); //发表博客
+router.get('/newblog',Blog.do_newblog);  
 
 router.get('/inbox',Blog.inbox);  
 router.get('/profile',Blog.profile);  

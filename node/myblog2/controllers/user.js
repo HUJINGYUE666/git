@@ -1,6 +1,7 @@
 var User_model=require("../models/user_model.js");
 
 exports.exit=function(req,res,next){
+	req.session=null;
 	res.render("index.ejs");
 }
 
@@ -10,7 +11,8 @@ exports.reg=function(req,res,next){
 
 exports.do_reg=function(req,res,next){
 	var email=req.body.email;
-	console.log(email);
+	var pwd=req.body.pwd;
+	// console.log(email);
 	User_model.checkName(email,function(err,data){
 		//console.log(data);
 		if(data.length>0){
@@ -27,7 +29,7 @@ exports.do_reg=function(req,res,next){
 	})
 }
 
-exports.checkajax=function(req,res,next){
+exports.checkname=function(req,res,next){
 	var email=req.body.value;
 	//res.send("success");
 	User_model.checkName(email,function(err,data){
