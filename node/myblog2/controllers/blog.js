@@ -1,7 +1,25 @@
-var User_blog=require("../models/user_blog.js");
+var Blog_model=require("../models/blog_model.js");
+
+// exports.index_logined=function(req,res,next){
+// 	res.render("index_logined.ejs");
+// }
 
 exports.index_logined=function(req,res,next){
-	res.render("index_logined.ejs");
+    Blog_model.sel_all(function(err,data){
+		console.log(data);
+		// res.render("index_logined",{
+		// 	'blogs':data,
+		// 	'sess':req.session,
+		// })
+	});
+	// var uid=req.session.USER_ID;
+	// Blog_model.sel_id_by_data(uid,function(err,data){
+	// 	console.log(data);
+	// 	res.render("index_logined",{
+	// 		'blogs':data,
+	// 		'sess':req.session,
+	// 	})
+	// });
 }
 
 exports.newblog=function(req,res,next){
