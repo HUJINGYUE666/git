@@ -41,22 +41,21 @@ exports.checkajax=function(req,res,next){
 
 exports.login=function(req,res,next){
 	res.render("login.ejs");
-}
+} 
 
 exports.do_login=function(req,res,next){
 	var email=req.body.email;
 	var pwd=req.body.pwd;
-	// console.log(email);
+	// res.redirect("/index_logined");
 	User_model.sel_email_by_pwd(email,pwd,function(err,data){
-		//console.log(data);
 		if(data.length>0){
-			//console.log("lognin success");
+			//设置cookie session
 			req.session=data[0];
-			res.redirect('/index_logined');
+			res.redirect("/index_logined");
 		}else{
 			res.redirect("/login");
 		}
-	});
+	})
 }
 
 

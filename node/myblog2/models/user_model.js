@@ -15,4 +15,5 @@ exports.sel_email_by_pwd=function(email,pwd,callback){
 	db.query(sql,[email,pwd],callback);
 }
  
+ 
 
