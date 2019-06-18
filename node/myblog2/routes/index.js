@@ -18,7 +18,7 @@ router.post('/login',User.do_login);
 
 router.get('/index_logined',Blog.index_logined); //博客
 router.get('/newblog',Blog.newblog); //发表博客
-router.get('/newblog',Blog.do_newblog);  
+router.post('/newblog',Blog.do_newblog);  
 
 router.get('/inbox',Blog.inbox);  
 router.get('/profile',Blog.profile);  
