@@ -7,5 +7,11 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div style='text-align:center'>
+        <form action="/parse" method='post' enctype="multipart/form-data">
+            <input type="file" name="sfile">
+            <input type="submit" name="sub" value="上传">
+        </form>
+    </div>
   </body>
 </html>
