@@ -1,10 +1,6 @@
 var Blog_model=require("../models/blog_model.js");
 var moment=require("moment");
 
-// exports.index_logined=function(req,res,next){
-// 	res.render("index_logined.ejs");
-// }
-
 exports.index_logined=function(req,res,next){
     // Blog_model.sel_all(function(err,data){
 	// 	console.log(data);
@@ -38,8 +34,8 @@ exports.do_newblog=function(req,res,next){
 	var title=req.body.title;
 	var content=req.body.content;
 	var date=moment().format();
-	var uid=req.session.USER_ID;
 	var cid=req.body.catalog;
+	var uid=req.session.USER_ID;
 	// console.log(cid);
 	Blog_model.ins_blog_by_data(title,content,date,cid,uid,function(err,data){
 		if(data.affectedRows>0){
@@ -57,18 +53,6 @@ exports.inbox=function(req,res,next){
 exports.profile=function(req,res,next){
 	res.render("profile.ejs");
 }
-// exports.do_profile=function(req,res,next){
-// 	var name=req.body.name;
-// 	var gender=req.body.gender;
-// 	var province=req.body.province;
-// 	var uid=req.session.USER_ID;
-// 	Blog_model.ins_profile_by_data(name,gender,province,uid,function(err,data){
-// 		console.log(data);
-// 		// if(data.affectedRows>0){
-// 		// 	res.redirect("/index_logined");
-//         // }
-//     })
-// }
 
 exports.chpwd=function(req,res,next){
 	res.render("chpwd.ejs");
@@ -76,6 +60,7 @@ exports.chpwd=function(req,res,next){
 exports.userSettings=function(req,res,next){
 	res.render("userSettings.ejs");
 }
+
 exports.blogCatalogs=function(req,res,next){
 	// res.render("blogCatalogs.ejs");
 	var uid=req.session.USER_ID;
@@ -87,6 +72,17 @@ exports.blogCatalogs=function(req,res,next){
 		})
 	});
 }
+exports.addBlogCatalog=function(req,res,next){
+	var name=req.body.name;
+	var uid=req.session.USER_ID;
+	// console.log(cid);
+	Blog_model.ins_blogCatalogs_by_data(name,uid,function(err,data){
+		if(data.affectedRows>0){
+			res.redirect("/blogCatalogs");
+        }
+    })
+}
+
 exports.blogs=function(req,res,next){
 	res.render("blogs.ejs");
 }

@@ -26,7 +26,10 @@ router.get('/profile',Blog.profile);
 
 router.get('/chpwd',Blog.chpwd);  
 router.get('/userSettings',Blog.userSettings);  
+
 router.get('/blogCatalogs',Blog.blogCatalogs); //博客分类 
+router.post('/blogCatalogs',Blog.addBlogCatalog);
+
 router.get('/blogs',Blog.blogs);  
 router.get('/blogComments',Blog.blogComments);  
 

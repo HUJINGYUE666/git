@@ -20,6 +20,11 @@ exports.upd_catalog_by_count=function(cid,callback){
 	db.query(sql,[cid],callback);
 }
 
+exports.ins_blogCatalogs_by_data=function(name,uid,callback){
+	var sql="insert into t_blog_catalogs(NAME,USER_id) values(?,?)";
+	db.query(sql,[name,uid],callback);
+}
+
 // exports.ins_profile_by_data=function(name,gender,province,uid,callback){
 // 	var sql="insert into t_users(NAME,GENDER,PROVINCE,USER_ID) values(?,?,?,?)";
 // 	db.query(sql,[name,gender,province,uid],callback);
