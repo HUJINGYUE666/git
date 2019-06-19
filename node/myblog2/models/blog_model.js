@@ -10,7 +10,17 @@ exports.sel_uid_by_data=function(uid,callback){
 	db.query(sql,[uid],callback);
 }
 
-exports.ins_blog_by_data=function(title,content,date,uid,callback){
-	var sql="insert into t_blogs(TITLE,CONTENT,ADD_TIME,WRITER) values(?,?,?,?)";
-	db.query(sql,[title,content,date,uid],callback);
+exports.ins_blog_by_data=function(title,content,date,cid,uid,callback){
+	var sql="insert into t_blogs(TITLE,CONTENT,ADD_TIME,CATALOG_ID,WRITER) values(?,?,?,?,?)";
+	db.query(sql,[title,content,date,cid,uid],callback);
 }
+
+exports.upd_catalog_by_count=function(cid,callback){
+	var sql="update t_blog_catalogs set BLOG_COUNT=BLOG_COUNT+1 where CATALOG_ID=?";
+	db.query(sql,[cid],callback);
+}
+
+// exports.ins_profile_by_data=function(name,gender,province,uid,callback){
+// 	var sql="insert into t_users(NAME,GENDER,PROVINCE,USER_ID) values(?,?,?,?)";
+// 	db.query(sql,[name,gender,province,uid],callback);
+// }

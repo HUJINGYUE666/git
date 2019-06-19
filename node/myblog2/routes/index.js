@@ -22,9 +22,11 @@ router.post('/newblog',Blog.do_newblog);
 
 router.get('/inbox',Blog.inbox);  
 router.get('/profile',Blog.profile);  
+// router.post('/profile',Blog.do_profile);  
+
 router.get('/chpwd',Blog.chpwd);  
 router.get('/userSettings',Blog.userSettings);  
-router.get('/blogCatalogs',Blog.blogCatalogs);  
+router.get('/blogCatalogs',Blog.blogCatalogs); //博客分类 
 router.get('/blogs',Blog.blogs);  
 router.get('/blogComments',Blog.blogComments);  
 
