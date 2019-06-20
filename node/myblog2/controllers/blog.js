@@ -29,6 +29,7 @@ exports.newblog=function(req,res,next){
 		})
 	});
 }
+
 exports.do_newblog=function(req,res,next){
 	var title=req.body.title;
 	var content=req.body.content;
