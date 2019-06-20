@@ -21,7 +21,7 @@ exports.index_logined=function(req,res,next){
 
 exports.newblog=function(req,res,next){
 	var uid=req.session.USER_ID;
-	Blog_model.sel_catalogs_by_id(uid,function(err,data){
+	Blog_model.sel_catalogs_by_uid(uid,function(err,data){
 		// console.log(data);
 		res.render("newBlog",{
 			'catalogs':data,
@@ -55,6 +55,63 @@ exports.updateBlog=function(req,res,next){
 			});
 		}
 	})
+}
+
+exports.do_updateBlog=function(req,res,next){
+	var title=req.body.title;
+	var content=req.body.content;
+	var hid=req.body.hid;
+	Blog_model.upd_updateBlog_by_title(title,content,hid,function(err,data){
+		if(data.affectedRows>0){
+			//console.log(data);
+			res.redirect("/index_logined");
+		}
+	})
+}
+
+exports.deleteBlog=function(req,res,next){
+	var bid=req.query.bid;
+	Blog_model.deleteBlog(bid,function(err,data){
+		if(data.affectedRows>0){
+			res.redirect("/index_logined");
+		}
+	})
+}
+
+exports.viewPost_logined=function(req,res,next){
+	var bid=req.query.bid;
+	Blog_model.update_hits_by_bid(bid,function(err,data){
+		if(data.affectedRows>0){
+			Blog_model.sel_data_by_bid(bid,function(err,data){
+				if(data.length>0){
+					var blog_data_one=data[0];
+					//console.log(blog_data_one);
+					Blog_model.get_up_by_one(bid,function(err,data){
+						if(data.length>0){
+							var up_data=data[0];
+						}else{
+							var up_data="";
+						}
+						//console.log(up_data);
+						Blog_model.get_down_by_one(bid,function(err,data){
+							if(data.length>0){
+								var down_data=data[0];
+							}else{
+								var down_data="";
+							}
+							//console.log(down_data);
+							res.render("viewPost_logined",{
+								'sess':req.session,
+								'maindata':blog_data_one,
+								'predata':up_data,
+								'nextdata':down_data,
+							});
+						});
+					});
+				}
+			})
+		}
+	});	
 }
 
 exports.inbox=function(req,res,next){

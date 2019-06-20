@@ -15,7 +15,7 @@ exports.ins_blog_by_data=function(title,content,date,cid,uid,callback){
 	db.query(sql,[title,content,date,cid,uid],callback);
 }
 
-exports.sel_catalogs_by_id=function(uid,callback){
+exports.sel_catalogs_by_uid=function(uid,callback){
 	var sql="select * from t_blog_catalogs where USER_ID=?";
 	db.query(sql,[uid],callback);
 }
@@ -35,3 +35,29 @@ exports.updateBlog=function(bid,callback){
 	db.query(sql,[bid],callback);
 }
  
+exports.upd_updateBlog_by_title=function(title,content,hid,callback){
+	var sql="update t_blogs set TITLE=?,CONTENT=? where BLOG_ID=?";
+	db.query(sql,[title,content,hid],callback);
+}
+
+exports.deleteBlog=function(bid,callback){
+	var sql="delete from t_blogs where BLOG_ID=?";
+	db.query(sql,[bid],callback);
+}
+
+exports.update_hits_by_bid=function(bid,callback){
+	var sql="update t_blogs set CLICK_RATE=CLICK_RATE+1 where BLOG_ID=?";
+	db.query(sql,[bid],callback);
+}
+
+//上一页数据
+exports.get_up_by_one=function(bid,callback){
+	var sql="select * from t_blogs where BLOG_ID<? ORDER BY BLOG_ID desc limit 1";
+	db.query(sql,[bid],callback);
+}
+
+//下一页数据
+exports.get_down_by_one=function(bid,callback){
+	var sql="select * from t_blogs where BLOG_ID>? ORDER BY BLOG_ID asc limit 1";
+	db.query(sql,[bid],callback);
+}

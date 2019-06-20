@@ -90,7 +90,7 @@
 				</div>
 				<div id="AdminContent">
 					<div class="MainForm">
-						<form id="BlogForm" action="/update" method="POST">
+						<form id="BlogForm" action="/updateBlog" method="POST">
 							<input id="hdn_blog_id" name="draft" value="0" type="hidden">
 							<table>
 								<tbody>
@@ -127,7 +127,7 @@
 												style="width:750px;height:300px;"><%= blog.CONTENT%></textarea></td>
 									</tr>
 									<tr class="option">
-										<td><strong>文章类型？</strong>
+										<td><strong>文章类型:</strong>
 											<input id="blog_type_1" name="type" value="1" onclick="switch_src(this)" checked="checked"
 												type="radio"> <label for="blog_type_1">原创&nbsp;</label>
 											<input id="blog_type_4" name="type" value="4" onclick="switch_src(this)" type="radio"> <label
@@ -139,7 +139,7 @@
 										</td>
 									</tr>
 									<tr class="option">
-										<td><strong>隐私设置？</strong>
+										<td><strong>隐私设置:</strong>
 											<input id="privacy_1" name="privacy" value="0" checked="checked" type="radio"> <label
 												for="privacy_1">所有人可见&nbsp;</label>
 											<input id="privacy_0" name="privacy" value="1" type="radio"> <label
@@ -148,7 +148,7 @@
 										</td>
 									</tr>
 									<tr class="option">
-										<td><strong>评论设置？ </strong>
+										<td><strong>评论设置:</strong>
 											<input id="can_comment_1" name="deny_comment" value="0" checked="checked" type="radio"> <label
 												for="can_comment_1">允许评论&nbsp;</label>
 											<input id="can_comment_0" name="deny_comment" value="1" type="radio"> <label
