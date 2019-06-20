@@ -15,6 +15,11 @@ exports.ins_blog_by_data=function(title,content,date,cid,uid,callback){
 	db.query(sql,[title,content,date,cid,uid],callback);
 }
 
+exports.get_catalogs_by_id=function(uid,callback){
+	var sql="select * from t_blog_catalogs where USER_ID=?";
+	db.query(sql,[uid],callback);
+}
+
 exports.upd_catalog_by_count=function(cid,callback){
 	var sql="update t_blog_catalogs set BLOG_COUNT=BLOG_COUNT+1 where CATALOG_ID=?";
 	db.query(sql,[cid],callback);

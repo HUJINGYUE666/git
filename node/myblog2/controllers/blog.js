@@ -22,7 +22,7 @@ exports.index_logined=function(req,res,next){
 exports.newblog=function(req,res,next){
 	// res.render("newBlog.ejs");
 	var uid=req.session.USER_ID;
-	Blog_model.sel_uid_by_data(uid,function(err,data){
+	Blog_model.get_catalogs_by_id(uid,function(err,data){
 		// console.log(data);
 		res.render("newBlog",{
 			'catalogs':data,
