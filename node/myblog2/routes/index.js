@@ -19,6 +19,8 @@ router.post('/login',User.do_login);
 router.get('/index_logined',Blog.index_logined); //博客
 router.get('/newblog',Blog.newblog); //发表博客
 router.post('/newblog',Blog.do_newblog);  
+router.get("/updateBlog",Blog.updateBlog); //修改博客
+// router.post("/index_logined",Blog.do_update); 
 
 router.get('/inbox',Blog.inbox);  
 router.get('/profile',Blog.profile);  
@@ -28,7 +30,7 @@ router.get('/chpwd',Blog.chpwd);
 router.get('/userSettings',Blog.userSettings);  
 
 router.get('/blogCatalogs',Blog.blogCatalogs); //博客分类 
-router.post('/blogCatalogs',Blog.addBlogCatalog);
+router.post('/blogCatalogs',Blog.addBlogCatalog); //添加博客分类
 
 router.get('/blogs',Blog.blogs);  
 router.get('/blogComments',Blog.blogComments);  

@@ -91,7 +91,7 @@
 				</div>
 				<div id="AdminContent">
 					<div class="MainForm BlogCatalogManage">
-						<form id="CatalogForm" action="/addBlogCatalog" method="post">
+						<form id="CatalogForm" action="/blogCatalogs" method="post">
 							<h3> 添加博客分类 </h3>
 							<div id="error_msg" class="error_msg" style="display:none;"></div>
 							<label>分类名称:</label><input id="txt_link_name" name="name" size="15" tabindex="1" type="text">
@@ -109,8 +109,8 @@
 										<th>分类名</th>
 										<th>文章</th>
 										<th>操作</th>
-										<% blogCatalogs.forEach(function(blogCatalo,index){ %>
 									</tr>
+									<% blogCatalogs.forEach(function(blogCatalo,index){ %>
 									<tr id="catalog_92334">
 										<td class="idx"><%= index+1%></td>
 										<td class="name"><a href="editCatalog.htm" title="点击修改博客分类"><%= blogCatalo.NAME%></a></td>
@@ -125,46 +125,6 @@
 							</table>
 						</form>
 					</div>
-					<script type="text/javascript">
-						// <!--
-						$('#CatalogForm').ajaxForm({
-							success: function (html) {
-								if (html.length == 0)
-									location.reload();
-								else {
-									$('#error_msg').hide();
-									$('#error_msg').html(html);
-									$('#error_msg').show("fast");
-								}
-							}
-						});
-						$('#BlogDispForm').ajaxForm({
-							success: function (html) {
-								alert(html);
-							}
-						});
-
-						function delete_catalog(space, catalog_id) {
-							if (confirm('确实要删除此博客分类吗？')) {
-								var args = "space=" + space + "&id=" + catalog_id;
-								ajax_post('/action/blog/delete_blog_catalog', args, function (html) {
-									if (html.length == 0)
-										$('#catalog_' + catalog_id).fadeOut();
-									else
-										alert(html);
-								});
-							}
-							return false;
-						}
-						$('#chb_blog_enabled').click(function () {
-							var chk = $('#chb_blog_enabled').attr("checked");
-							if (!confirm(chk ? "请确认是否要开启空间的博客功能？" : "请确认是否要关闭空间博客功能？")) return false;
-							ajax_post("/action/blog/switch_blog?space=154693", "enabled=" + chk, function () {
-								alert(chk ? "已经开启了博客功能！" : "博客功能已经关闭！");
-							});
-						});
-						//-->
-					</script>
 				</div>
 				<div class="clear"></div>
 			</div>

@@ -20,9 +20,8 @@ exports.index_logined=function(req,res,next){
 }
 
 exports.newblog=function(req,res,next){
-	// res.render("newBlog.ejs");
 	var uid=req.session.USER_ID;
-	Blog_model.get_catalogs_by_id(uid,function(err,data){
+	Blog_model.sel_catalogs_by_id(uid,function(err,data){
 		// console.log(data);
 		res.render("newBlog",{
 			'catalogs':data,
@@ -46,6 +45,18 @@ exports.do_newblog=function(req,res,next){
     })
 }
 
+exports.updateBlog=function(req,res,next){
+	var bid=req.query.bid;
+	Blog_model.updateBlog(bid,function(err,data){
+		if(data.length>0){
+			res.render("updateBlog",{
+				"sess":req.session,
+				"blog":data[0],
+			});
+		}
+	})
+}
+
 exports.inbox=function(req,res,next){
 	res.render("inbox.ejs");
 }
@@ -62,9 +73,8 @@ exports.userSettings=function(req,res,next){
 }
 
 exports.blogCatalogs=function(req,res,next){
-	// res.render("blogCatalogs.ejs");
 	var uid=req.session.USER_ID;
-	Blog_model.sel_uid_by_data(uid,function(err,data){
+	Blog_model.sel_catalogs_by_id(uid,function(err,data){
 		// console.log(data);
 		res.render("blogCatalogs",{
 			'blogCatalogs':data,
@@ -76,7 +86,7 @@ exports.addBlogCatalog=function(req,res,next){
 	var name=req.body.name;
 	var uid=req.session.USER_ID;
 	// console.log(cid);
-	Blog_model.ins_blogCatalogs_by_data(name,uid,function(err,data){
+	Blog_model.addBlogCatalog(name,uid,function(err,data){
 		if(data.affectedRows>0){
 			res.redirect("/blogCatalogs");
         }
@@ -89,3 +99,4 @@ exports.blogs=function(req,res,next){
 exports.blogComments=function(req,res,next){
 	res.render("blogComments.ejs");
 } 
+

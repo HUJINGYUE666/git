@@ -15,7 +15,7 @@ exports.ins_blog_by_data=function(title,content,date,cid,uid,callback){
 	db.query(sql,[title,content,date,cid,uid],callback);
 }
 
-exports.get_catalogs_by_id=function(uid,callback){
+exports.sel_catalogs_by_id=function(uid,callback){
 	var sql="select * from t_blog_catalogs where USER_ID=?";
 	db.query(sql,[uid],callback);
 }
@@ -25,12 +25,13 @@ exports.upd_catalog_by_count=function(cid,callback){
 	db.query(sql,[cid],callback);
 }
 
-exports.ins_blogCatalogs_by_data=function(name,uid,callback){
-	var sql="insert into t_blog_catalogs(NAME,USER_id) values(?,?)";
+exports.addBlogCatalog=function(name,uid,callback){
+	var sql="insert into t_blog_catalogs(NAME,USER_ID) values(?,?)";
 	db.query(sql,[name,uid],callback);
 }
 
-// exports.ins_profile_by_data=function(name,gender,province,uid,callback){
-// 	var sql="insert into t_users(NAME,GENDER,PROVINCE,USER_ID) values(?,?,?,?)";
-// 	db.query(sql,[name,gender,province,uid],callback);
-// }
+exports.updateBlog=function(bid,callback){
+	var sql="select * from t_blogs where BLOG_ID=?";
+	db.query(sql,[bid],callback);
+}
+ 
