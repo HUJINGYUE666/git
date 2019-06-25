@@ -83,7 +83,7 @@ exports.viewPost_logined=function(req,res,next){
 	var bid=req.query.bid;
 	Blog_model.update_hits_by_bid(bid,function(err,data){
 		if(data.affectedRows>0){
-			Blog_model.sel_data_by_bid(bid,function(err,data){
+			Blog_model.updateBlog(bid,function(err,data){
 				if(data.length>0){
 					var blog_data_one=data[0];
 					//console.log(blog_data_one);

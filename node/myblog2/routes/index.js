@@ -22,7 +22,7 @@ router.post('/newblog',Blog.do_newblog);
 router.get("/updateBlog",Blog.updateBlog); //修改博客
 router.post("/updateBlog",Blog.do_updateBlog); 
 router.get("/deleteBlog",Blog.deleteBlog); //删除博客
-router.post("/viewPost_logined",Blog.viewPost_logined); //阅读全文
+router.get("/viewPost_logined",Blog.viewPost_logined); //阅读全文
 
 router.get('/inbox',Blog.inbox);  
 router.get('/profile',Blog.profile);  
