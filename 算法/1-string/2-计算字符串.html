@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = "00110011";
+    function fn(str){
+        let arr = str.match(/^(0+|1+)/g); //0或1开头
+        let i =arr[0]; //数组第一个
+        let j = (i[0]^1).toString().repeat(i.length); //异或 转换字符串 重复
+        let reg = new RegExp(`^(${i}${j})`); 
+        if(reg.test(str)){
+            console.log(RegExp.$1);
+            return RegExp.$1;
+        }else{
+            return "";
+        }
+    }
+    function countBinarySubstrings(s){
+        let res = [];
+        for(let i=0;i<s.length-1;i++){
+            let r = fn(s.slice(i));
+            if(r){
+                res.push(r);
+            }
+        }
+        return res.length;
+    }
+    console.log(countBinarySubstrings(str))
+</script>
+</html>
