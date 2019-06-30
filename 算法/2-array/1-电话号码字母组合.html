@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
+
 <body>
-  
+
 </body>
 <script>
-  let arr = ["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"];
-  function letterCombinations(str){
-    let num = str.split("");
-    let code = [];
-    num.forEach(item => {
-        code.push(arr[item]);
+  let arr = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+
+  function letterCombinations(str) {
+    let num = str.split(""); //把字符串分割为字符串数组
+    let code = []; //空数组
+    num.forEach(item => { //循环
+      code.push(arr[item]); //向数组的末尾添加一个或更多元素
     });
     return fn(code);
   }
-  function fn(arr){
-    let res = [];
-    for(let i=0;i<arr[0].length;i++){
-        for(let j=0;j<arr[1].length;j++){
-            res.push(arr[0][i]+arr[1][j]);
-        }
+
+  function fn(arr) { 
+    let res = []; //最终结果
+    for (let i = 0; i < arr[0].length; i++) {
+      for (let j = 0; j < arr[1].length; j++) {
+        res.push(arr[0][i] + arr[1][j]); //向数组的末尾添加一个或更多元素
+      }
     }
-    arr.splice(0,2,res);
-    if(arr.length >1){
-        fn(arr);
+    arr.splice(0, 2, res); //删除元素，并向数组添加新元素
+    if (arr.length > 1) {
+      fn(arr);
     }
     return arr[0];
   }
   console.log(letterCombinations('23'));
-  
 </script>
+
 </html>
