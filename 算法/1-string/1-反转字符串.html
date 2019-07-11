@@ -9,31 +9,30 @@
 </head>
 
 <body>
-
+    <script>
+        var str = "Let's take LeetCode contest";
+    
+        function reverseWords(s) {
+            let arr = s.split(" "); //把字符串分割为字符串数组空格分割 正则表达式
+            let res = arr.map((item) => { //循环
+                return item.split("").reverse().join(""); //把字符串分割为字符串数组 颠倒数组中元素的顺序 把数组的所有元素放入一个字符串
+            });
+            return res.join(" "); //把数组的所有元素放入一个字符串空格分割
+        }
+    
+        // function reverseWords(s) {
+        //     return s.split(' ').map(item => {
+        //         return item.split('').reverse().join('')
+        //     }).join(' ')
+        // };
+    
+        // function reverseWords(s) {
+        //     return s.match(/[\w']+/g).map((item) => { //检索与正则表达式相匹配的值 找到一个或多个正则表达式的匹配 字符 1个或多个 全局
+        //         return item.split("").reverse().join("");
+        //     }).join(" ");
+        // };
+        console.log(reverseWords(str));
+    </script>
 </body>
-<script>
-    var str = "Let's take LeetCode contest";
-
-    function reverseWords(s) {
-        let arr = s.split(" "); //把字符串分割为字符串数组空格分割 正则表达式
-        let res = arr.map((item) => { //循环
-            return item.split("").reverse().join(""); //把字符串分割为字符串数组 颠倒数组中元素的顺序 把数组的所有元素放入一个字符串
-        });
-        return res.join(" "); //把数组的所有元素放入一个字符串空格分割
-    }
-
-    // function reverseWords(s) {
-    //     return s.split(' ').map(item => {
-    //         return item.split('').reverse().join('')
-    //     }).join(' ')
-    // };
-
-    // function reverseWords(s) {
-    //     return s.match(/[\w']+/g).map((item) => { //找到一个或多个正则表达式的匹配 字符 1个或多个 全局
-    //         return item.split("").reverse().join("");
-    //     }).join(" ");
-    // };
-    console.log(reverseWords(str));
-</script>
 
 </html>

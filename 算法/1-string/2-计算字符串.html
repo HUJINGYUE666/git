@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,35 +8,34 @@
 </head>
 
 <body>
-
-</body>
-<script>
-    let str = "00110011";
-
-    function fn(str) { //找符合条件字符串
-        let arr = str.match(/^(0+|1+)/g); //找到一个或多个正则表达式的匹配 开头0或1 1个或多个 全局
-        let i = arr[0]; //数组第一个
-        let j = (i[0] ^ 1).toString().repeat(i.length); //异或 转换字符串 重复
-        let reg = new RegExp(`^(${i}${j})`); //开头 结尾 0011
-        if (reg.test(str)) {
-            console.log(RegExp.$1);
-            return RegExp.$1; //第一个结果
-        } else {
-            return "";
-        }
-    }
-
-    function countBinarySubstrings(s) {
-        let res = [];
-        for (let i = 0; i < s.length - 1; i++) {
-            let r = fn(s.slice(i)); //提取字符串的片断，并在新的字符串中返回被提取的部分
-            if (r) {
-                res.push(r); //向数组的末尾添加一个或更多元素
+    <script>
+        let str = "00110011";
+    
+        function fn(str) { //找符合条件字符串
+            let arr = str.match(/^(0+|1+)/g); //找到一个或多个正则表达式的匹配 开头0或1 1个或多个 全局
+            let i = arr[0]; //数组第一个
+            let j = (i[0] ^ 1).toString().repeat(i.length); //异或 转换字符串 重复
+            let reg = new RegExp(`^(${i}${j})`); //开头 结尾 0011
+            if (reg.test(str)) {
+                console.log(RegExp.$1);
+                return RegExp.$1; //第一个结果
+            } else {
+                return "";
             }
         }
-        return res.length;
-    }
-    console.log(countBinarySubstrings(str))
-</script>
+    
+        function countBinarySubstrings(s) {
+            let res = [];
+            for (let i = 0; i < s.length - 1; i++) {
+                let r = fn(s.slice(i)); //提取字符串的片断，并在新的字符串中返回被提取的部分
+                if (r) {
+                    res.push(r); //向数组的末尾添加一个或更多元素
+                }
+            }
+            return res.length;
+        }
+        console.log(countBinarySubstrings(str))
+    </script>
+</body>
 
 </html>
