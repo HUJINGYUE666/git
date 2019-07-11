@@ -96,17 +96,18 @@
 					<div class="MainForm">
 						<form class="AutoCommitJSONForm" action="/profile" method="POST">
 							<table>
+								<!-- <% information.forEach(function(information,index){ %> -->
 								<tbody>
 									<tr>
 										<th>登录帐号</th>
 										<td>
-											username@163.com
+											<%= sess.ACCOUNT%>
 										</td>
 									</tr>
 									<tr>
 										<th>姓名</th>
 										<td>
-											<input name="name" size="20" maxlength="20" class="TEXT" value="username" type="text">
+											<input name="name" size="20" maxlength="20" class="TEXT" value="<%= sess.NAME%>" type="text">
 											<span class="Info" id="name_msg">不能超过10个字</span>
 										</td>
 									</tr>
@@ -287,8 +288,8 @@
 										</td>
 									</tr>
 									<tr>
-										<th>个性签名<br>不超过100字</th>
-										<td><textarea name="signature" style="width: 300px; height: 100px;" class="TEXT"></textarea></td>
+										<th>个性签名<br>不超过100字</br></th>
+										<td><textarea name="signature" style="width: 300px; height: 100px;" class="TEXT"><%= sess.SIGNATURE%></textarea></td>
 									</tr>
 									<tr>
 										<th colspan="2"></th>
@@ -301,6 +302,7 @@
 										</td>
 									</tr>
 								</tbody>
+								<!-- <% }) %> -->
 							</table>
 						</form>
 						<script type="text/javascript">

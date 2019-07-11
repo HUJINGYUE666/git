@@ -25,8 +25,8 @@ router.get("/deleteBlog",Blog.deleteBlog); //删除博客
 router.get("/viewPost_logined",Blog.viewPost_logined); //阅读全文
 
 router.get('/inbox',Blog.inbox);  
-router.get('/profile',Blog.profile);  
-// router.post('/profile',Blog.do_profile);  
+router.get('/profile',Blog.profile); //编辑个人资料
+router.post("/profile",Blog.do_profile);   
 
 router.get('/chpwd',Blog.chpwd);  
 router.get('/userSettings',Blog.userSettings);  
