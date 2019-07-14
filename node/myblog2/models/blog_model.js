@@ -63,7 +63,13 @@ exports.get_down_by_one=function(bid,callback){
 }
 
 // 编辑个人资料
-exports.upd_updateUser_by_name=function(name,signature,callback){
+exports.upd_updateUser_by_name=function(name,signature,uid,callback){
 	var sql="update t_users set NAME=?,SIGNATURE=? where USER_ID=?";
-	db.query(sql,[name,signature],callback);
+	db.query(sql,[name,signature,uid],callback);
+}
+
+// 修改登录密码
+exports.sel_pwd_by_pwd=function(pwd,callback){
+	var sql="select * from t_users where PASSWORD=?";
+	db.query(sql,[pwd],callback);
 }

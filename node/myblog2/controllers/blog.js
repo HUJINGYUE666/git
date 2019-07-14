@@ -132,9 +132,12 @@ exports.profile=function(req,res,next){
 exports.do_profile=function(req,res,next){
 	var name=req.body.name;
 	var signature=req.body.signature;
-	Blog_model.upd_updateUser_by_name(name,signature,function(err,data){ 
-		console.log(data);
-		// res.redirect("/index_logined");
+	var uid=req.session.USER_ID;
+	Blog_model.upd_updateUser_by_name(name,signature,uid,function(err,data){ 
+		// console.log(data);
+		if(data.changedRows>0){
+			res.redirect("/index_logined"); 
+		}
 	})
 }
 
@@ -174,3 +177,16 @@ exports.blogComments=function(req,res,next){
 	res.render("blogComments.ejs");
 } 
 
+exports.do_chpwd=function(req,res,next){
+	var pwd=req.body.pwd;
+	// res.redirect("/index_logined");
+	User_model.sel_pwd_by_pwd(pwd,function(err,data){
+		if(data.length>0){
+			//设置cookie session
+			req.session=data[0];
+			res.redirect("/index_logined");
+		}else{
+			res.redirect("/chpwd");
+		}
+	})
+}

@@ -28,7 +28,9 @@ router.get('/inbox',Blog.inbox);
 router.get('/profile',Blog.profile); //编辑个人资料
 router.post("/profile",Blog.do_profile);   
 
-router.get('/chpwd',Blog.chpwd);  
+router.get('/chpwd',Blog.chpwd); //修改登录密码
+router.post('/chpwd',Blog.do_chpwd); 
+
 router.get('/userSettings',Blog.userSettings);  
 
 router.get('/blogCatalogs',Blog.blogCatalogs); //博客分类 
