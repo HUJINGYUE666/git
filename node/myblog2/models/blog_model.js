@@ -68,6 +68,12 @@ exports.upd_updateUser_by_name=function(name,signature,uid,callback){
 	db.query(sql,[name,signature,uid],callback);
 }
 
+// 网页个性设置
+exports.upd_updateUser_by_mood=function(mood,uid,callback){
+	var sql="update t_users set MOOD=? where USER_ID=?";
+	db.query(sql,[mood,uid],callback);
+}
+
 // 修改登录密码
 exports.sel_pwd_by_pwd=function(pwd,callback){
 	var sql="select * from t_users where PASSWORD=?";

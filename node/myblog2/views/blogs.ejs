@@ -14,13 +14,7 @@
   </style>
 </head>
 <body>
-<!--[if IE 8]>
-<style>ul.tabnav {padding: 3px 10px 3px 10px;}</style>
-<![endif]-->
-<!--[if IE 9]>
-<style>ul.tabnav {padding: 3px 10px 4px 10px;}</style>
-<![endif]-->
-<div id="OSC_Screen"><!-- #BeginLibraryItem "/Library/OSC_Banner.lbi" -->
+<div id="OSC_Screen">
 <div id="OSC_Banner">
     <div id="OSC_Slogon">Johnny's Blog</div>
     <div id="OSC_Channels">
@@ -101,73 +95,10 @@
 	  </ul>
     </div>
 <script type="text/javascript">
-// <!--
-function select_all(){
-	$("input[name='blog']").attr("checked", true);
-}
-function unselect_all(){
-	$("input[name='blog']").attr("checked", false); 
-}
-function select_other(){
-	jQuery.each($("input[name='blog']"), function(i, n){
-		n.checked = !n.checked;
-	}); 
-}
-function delete_sel(){
-	var blogids = "";
-	jQuery.each($("input[name='blog']"), function(i, n){
-		if(n.checked){
-			blogids += $(this).val()+",";
-		}
-	});
-	if(blogids.length > 0){
-		if(!confirm("确认要删除选中的文章吗？")) return ;
-		ajax_post("/action/blog/batch_delete","id="+blogids,function(html){
-			location.reload();
-		});
-	}
-	else
-		alert("请选择要删除的文章");
-}
-//-->
 </script></div>
 	<div class="clear"></div>
 </div>
 <script type="text/javascript">
-// <!--
-$(document).ready(function() {
-	$('#AdminTitle').text('博客文章管理');
-});
-$('.AutoCommitForm').ajaxForm({
-    success: function(html) {	
-		$('#error_msg').hide();
-		if(html.length>0)
-			$('#error_msg').html("<span class='error_msg'>"+html+"</span>");
-		else
-			$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>")
-		$('#error_msg').show("fast");
-    }
-});
-$('.AutoCommitJSONForm').ajaxForm({
-	dataType: 'json',
-    success: function(json) {	
-		$('#error_msg').hide();
-		if(json.error==0){
-			if(json.msg)
-				$('#error_msg').html("<span class='ok_msg'>"+json.msg+"</span>");
-			else
-				$('#error_msg').html("<span class='ok_msg'>操作已成功完成</span>");
-		}
-		else {
-			if(json.msg)
-				$('#error_msg').html("<span class='error_msg'>"+json.msg+"</span>");
-			else
-				$('#error_msg').html("<span class='error_msg'>操作已成功完成</span>");
-		}
-		$('#error_msg').show("fast");
-    }
-});
-//-->
 </script>
 </div>
 	<div class="clear"></div>
@@ -175,21 +106,6 @@ $('.AutoCommitJSONForm').ajaxForm({
 </div>
 <script type="text/javascript" src="js/space.htm" defer="defer"></script>
 <script type="text/javascript">
-// <!--
-$(document).ready(function() {
-	$('a.fancybox').fancybox({titleShow:false});
-});
-
-function pay_attention(pid,concern_it){
-	if(concern_it){
-		$("#p_attention_count").load("/action/favorite/add?mailnotify=true&type=3&id="+pid);
-		$('#attention_it').html('<a href="javascript:pay_attention('+pid+',false)" style="color:#A00;">取消关注</a>');	
-	}
-	else{
-		$("#p_attention_count").load("/action/favorite/cancel?type=3&id="+pid);
-		$('#attention_it').html('<a href="javascript:pay_attention('+pid+',true)" style="color:#3E62A6;">关注此文章</a>');
-	}
-}
-//-->
+ 
 </script>
 </body></html>

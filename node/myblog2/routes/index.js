@@ -31,7 +31,8 @@ router.post("/profile",Blog.do_profile);
 router.get('/chpwd',Blog.chpwd); //修改登录密码
 router.post('/chpwd',Blog.do_chpwd); 
 
-router.get('/userSettings',Blog.userSettings);  
+router.get('/userSettings',Blog.userSettings); //网页个性设置 
+router.post('/userSettings',Blog.do_userSettings);
 
 router.get('/blogCatalogs',Blog.blogCatalogs); //博客分类 
 router.post('/blogCatalogs',Blog.addBlogCatalog); //添加博客分类
