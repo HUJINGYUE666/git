@@ -144,9 +144,7 @@ exports.do_profile=function(req,res,next){
 exports.chpwd=function(req,res,next){
 	res.render("chpwd.ejs");
 }
-// exports.userSettings=function(req,res,next){
-// 	res.render("userSettings.ejs");
-// }
+
 exports.userSettings=function(req,res,next){
 	var uid=req.session.USER_ID;
 	Blog_model.sel_uid_by_data(uid,function(err,data){
@@ -157,7 +155,7 @@ exports.userSettings=function(req,res,next){
 		})
 	});
 }
-exports.do_serSettings=function(req,res,next){
+exports.do_userSettings=function(req,res,next){
 	var mood=req.body.mood;
 	var uid=req.session.USER_ID;
 	Blog_model.upd_updateUser_by_mood(mood,uid,function(err,data){ 
@@ -191,8 +189,16 @@ exports.addBlogCatalog=function(req,res,next){
 }
 
 exports.blogs=function(req,res,next){
-	res.render("blogs.ejs");
+	var uid=req.session.USER_ID;
+	Blog_model.sel_uid_by_data(uid,function(err,data){
+		// console.log(data);
+		res.render("blogs.ejs",{
+			'blogs':data,
+			'sess':req.session,
+		})
+	});
 }
+
 exports.blogComments=function(req,res,next){
 	res.render("blogComments.ejs");
 } 
